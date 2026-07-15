@@ -18,7 +18,7 @@
 <style>
 :root{
   --black:#1A1A1A;
-  --gray:#999999;
+  --gray:#757575;
   --light:#F7F7F7;
   --line:#E5E5E5;
   --white:#FFFFFF;
@@ -35,7 +35,7 @@ body{
 h1,h2,h3{font-family:'Montserrat',sans-serif;letter-spacing:0.06em;text-transform:uppercase;}
 a{color:inherit;text-decoration:none;}
 .label{
-  font-size:11px;font-weight:500;text-transform:uppercase;
+  font-size:13px;font-weight:500;text-transform:uppercase;
   letter-spacing:0.15em;color:var(--gray);
 }
 .container{max-width:1200px;margin:0 auto;padding:0 32px;}
@@ -87,7 +87,7 @@ nav.mobile a{
 .hero-text h1{font-size:clamp(34px,4.6vw,64px);font-weight:800;line-height:1.12;margin-bottom:48px;}
 .cta{
   display:inline-block;align-self:flex-start;
-  font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;
+  font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;
   border-bottom:1px solid var(--black);padding-bottom:8px;
 }
 .cta:hover{color:var(--gray);border-color:var(--gray);}
@@ -102,7 +102,7 @@ nav.mobile a{
 }
 .hero-panel .row:first-child{border-top:1px solid #333;}
 .hero-panel .k{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(26px,2.6vw,40px);letter-spacing:0.02em;}
-.hero-panel .v{font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#8a8a8a;text-align:right;max-width:55%;}
+.hero-panel .v{font-size:12.5px;text-transform:uppercase;letter-spacing:0.13em;color:#b0b0b0;text-align:right;max-width:55%;}
 
 /* ── ABOUT ── */
 .about{padding:120px 0;background:var(--light);}
@@ -115,8 +115,8 @@ nav.mobile a{
   display:flex;justify-content:space-between;align-items:baseline;gap:24px;
   padding:18px 0;border-bottom:1px solid var(--line);
 }
-.about .fact b{font-family:'Montserrat',sans-serif;font-size:14px;letter-spacing:0.04em;text-transform:uppercase;white-space:nowrap;}
-.about .fact span{font-size:13px;color:#5a5a5a;text-align:right;line-height:1.6;}
+.about .fact b{font-family:'Montserrat',sans-serif;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;white-space:nowrap;}
+.about .fact span{font-size:14px;color:#444;text-align:right;line-height:1.6;}
 
 /* ── PROJECTS ── */
 .projects{padding:120px 0;background:var(--white);}
@@ -127,23 +127,23 @@ nav.mobile a{
 }
 .project:first-of-type{border-top:1px solid var(--line);}
 .project .num{
-  font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;
+  font-family:'Montserrat',sans-serif;font-weight:800;font-size:16px;
   color:var(--gray);padding-top:5px;
 }
 .project .head{
   display:flex;justify-content:space-between;align-items:baseline;
   gap:24px;margin-bottom:14px;flex-wrap:wrap;
 }
-.project h3{font-size:19px;font-weight:700;}
-.project .tag{font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:var(--gray);white-space:nowrap;}
-.project p{font-size:15.5px;line-height:1.7;max-width:760px;color:#3a3a3a;}
-.project .stack{margin-top:14px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);}
+.project h3{font-size:21px;font-weight:700;}
+.project .tag{font-size:13px;text-transform:uppercase;letter-spacing:0.15em;color:var(--gray);white-space:nowrap;}
+.project p{font-size:16.5px;line-height:1.7;max-width:760px;color:#333;}
+.project .stack{margin-top:14px;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);}
 
 /* ── PROJECT DETAILS (expandable) ── */
 details.more{margin-top:22px;}
 details.more summary{
   list-style:none;cursor:pointer;display:inline-block;
-  font-size:11px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;
+  font-size:12.5px;font-weight:600;letter-spacing:0.15em;text-transform:uppercase;
   color:var(--black);border-bottom:1px solid var(--black);padding-bottom:5px;
 }
 details.more summary::-webkit-details-marker{display:none;}
@@ -151,12 +151,12 @@ details.more summary:hover{color:var(--gray);border-color:var(--gray);}
 details.more[open] summary{margin-bottom:8px;}
 .more-body ul{list-style:none;margin-top:12px;}
 .more-body li{
-  font-size:14.5px;line-height:1.7;color:#3a3a3a;
+  font-size:15.5px;line-height:1.7;color:#333;
   padding:12px 0;border-top:1px solid var(--line);max-width:760px;
 }
 .more-body li b{font-weight:600;color:var(--black);}
 .more-body .comp{
-  margin-top:18px;font-size:11px;font-weight:500;letter-spacing:0.12em;
+  margin-top:18px;font-size:12px;font-weight:500;letter-spacing:0.12em;
   text-transform:uppercase;color:var(--gray);max-width:760px;line-height:1.9;
 }
 
@@ -165,31 +165,31 @@ details.more[open] summary{margin-bottom:8px;}
 .skills > .container > .label{display:block;text-align:center;margin-bottom:72px;}
 .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;}
 .skills .col-h{
-  font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;
+  font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;
   letter-spacing:0.08em;text-transform:uppercase;
   padding-bottom:16px;border-bottom:2px solid var(--black);margin-bottom:4px;
 }
-.skills-note{font-size:14px;color:#5a5a5a;font-style:italic;line-height:1.7;padding:14px 0 6px;}
+.skills-note{font-size:15px;color:#4a4a4a;font-style:italic;line-height:1.7;padding:14px 0 6px;}
 .skill{padding:16px 0;border-bottom:1px solid var(--line);}
 .skill b{
-  display:block;font-family:'Montserrat',sans-serif;font-size:13.5px;
+  display:block;font-family:'Montserrat',sans-serif;font-size:15px;
   letter-spacing:0.05em;text-transform:uppercase;margin-bottom:4px;color:var(--black);
 }
-.skill span{font-size:14px;color:#3a3a3a;line-height:1.65;}
+.skill span{font-size:15px;color:#333;line-height:1.65;}
 .skill .ev{
-  display:block;margin-top:6px;font-size:11px;font-weight:500;
+  display:block;margin-top:6px;font-size:12px;font-weight:500;
   letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);
 }
 @media(max-width:860px){.skills-grid{grid-template-columns:1fr;gap:48px;}}
 
 /* ── APPROACH (black) ── */
 .approach{padding:120px 0;background:var(--black);color:var(--white);}
-.approach .label{display:block;text-align:center;margin-bottom:88px;color:#8a8a8a;}
+.approach .label{display:block;text-align:center;margin-bottom:88px;color:#b0b0b0;}
 .approach-item{max-width:800px;margin:0 auto 96px;text-align:center;}
 .approach-item:last-child{margin-bottom:0;}
 .approach-item .k{
-  font-size:11px;text-transform:uppercase;letter-spacing:0.15em;
-  color:#8a8a8a;display:block;margin-bottom:20px;
+  font-size:13px;text-transform:uppercase;letter-spacing:0.15em;
+  color:#b0b0b0;display:block;margin-bottom:20px;
 }
 .approach-item p{
   font-style:italic;font-size:clamp(19px,2.1vw,24px);line-height:1.6;opacity:0.92;
@@ -203,10 +203,10 @@ details.more[open] summary{margin-bottom:8px;}
 .contact-link{display:block;font-size:19px;margin-bottom:24px;}
 .contact-link:hover{color:var(--gray);}
 .contact-link small{
-  display:block;font-size:11px;text-transform:uppercase;
+  display:block;font-size:12px;text-transform:uppercase;
   letter-spacing:0.15em;color:var(--gray);margin-bottom:6px;
 }
-.contact-right p{font-size:16px;line-height:1.8;color:#3a3a3a;margin-bottom:20px;}
+.contact-right p{font-size:17px;line-height:1.8;color:#3a3a3a;margin-bottom:20px;}
 .contact-right .label{display:block;margin-bottom:24px;}
 
 /* ── FOOTER ── */
@@ -218,7 +218,7 @@ footer{
 footer .brand{font-size:14px;}
 footer .links{display:flex;gap:32px;}
 footer a,footer .copy{
-  font-size:11px;font-weight:500;text-transform:uppercase;
+  font-size:12px;font-weight:500;text-transform:uppercase;
   letter-spacing:0.15em;color:var(--gray);
 }
 footer a:hover{color:var(--black);}
