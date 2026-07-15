@@ -94,15 +94,25 @@ nav.mobile a{
 .hero-panel{
   width:50%;background:var(--black);color:var(--white);
   display:flex;flex-direction:column;justify-content:center;
-  padding:64px 5vw;gap:0;
+  padding:52px 5vw;gap:0;
 }
 .hero-panel .row{
   display:flex;justify-content:space-between;align-items:baseline;
-  padding:22px 0;border-bottom:1px solid #333;
+  padding:18px 0;border-bottom:1px solid #333;
 }
 .hero-panel .row:first-child{border-top:1px solid #333;}
 .hero-panel .k{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(26px,2.6vw,40px);letter-spacing:0.02em;}
 .hero-panel .v{font-size:12.5px;text-transform:uppercase;letter-spacing:0.13em;color:#b0b0b0;text-align:right;max-width:55%;}
+.hero-tags{padding-top:28px;}
+.hero-tags-label{
+  display:block;font-size:12px;font-weight:500;text-transform:uppercase;
+  letter-spacing:0.15em;color:#b0b0b0;margin-bottom:20px;
+}
+.hero-tags-list{display:flex;flex-wrap:wrap;gap:10px;}
+.hero-tags-list span{
+  font-size:11.5px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;
+  color:#f0f0f0;border:1px solid #3d3d3d;padding:8px 13px;white-space:nowrap;
+}
 
 /* ── ABOUT ── */
 .about{padding:120px 0;background:var(--light);}
@@ -282,6 +292,12 @@ footer a:hover{color:var(--black);}
     <div class="row"><span class="k" data-i18n="stat2_k">2 × MA</span><span class="v" data-i18n="stat2_v">developmental psychology · pedagogy (Adam Mickiewicz University)</span></div>
     <div class="row"><span class="k" data-i18n="stat3_k">7</span><span class="v" data-i18n="stat3_v">production AI systems of my own — design, code, deploy, maintain</span></div>
     <div class="row"><span class="k" data-i18n="stat4_k">200K+</span><span class="v" data-i18n="stat4_v">lines of enterprise TypeScript across the codebases I work in daily — plus ~35K lines of my own production Python</span></div>
+    <div class="hero-tags">
+      <span class="hero-tags-label" data-i18n="hero_tags_label">AI ENGINEERING · IN PRODUCTION</span>
+      <div class="hero-tags-list" data-i18n="hero_tags">
+        <span>Multi-agent</span><span>RAG</span><span>LLM evaluation</span><span>MCP</span><span>Realtime voice AI</span><span>Prompt engineering</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -543,6 +559,8 @@ const I18N = {
     stat2_k: "2 × MGR", stat2_v: "psychologia rozwojowa · pedagogika (UAM)",
     stat3_k: "7", stat3_v: "własnych produkcyjnych systemów AI — projekt, kod, deploy, utrzymanie",
     stat4_k: "200+ TYS.", stat4_v: "linii TypeScriptu łącznie w kodebazach enterprise, w których pracuję na co dzień — plus ~35 tys. linii własnego produkcyjnego Pythona",
+    hero_tags_label: "AI ENGINEERING · NA PRODUKCJI",
+    hero_tags: "<span>Multi-agent</span><span>RAG</span><span>Ewaluacja LLM</span><span>MCP</span><span>Realtime voice AI</span><span>Prompt engineering</span>",
     about_h2: "Model to tylko narzędzie. Przewaga to zrozumienie człowieka.",
     about_p1: "Jestem inżynierem aplikacji LLM: nie trenuję modeli od zera, tylko integruję je z prawdziwymi systemami — backendem, bazą danych, autoryzacją, deploymentem, kosztami i monitoringiem. Za mną czternaście lat komercyjnego programowania: od e-learningu i systemów dla sektora bankowego po enterprise front-end w projektach międzynarodowych dla lotnictwa, e-commerce i farmacji.",
     about_p2: "Drugą nogę mojego profilu stanowią dwa dyplomy magisterskie — z psychologii rozwojowej i pedagogiki — oraz pięć lat wykładów akademickich. Dlatego specjalizuję się w systemach <strong>human-in-the-loop</strong>: takich, w których AI wspiera człowieka w decyzji, zamiast podejmować ją za niego. Wiem, dlaczego ludzie nie ufają systemom, które mają im „pomagać” — i projektuję tak, żeby AI wspierało decyzję człowieka, zamiast ją po cichu przejmować.",
