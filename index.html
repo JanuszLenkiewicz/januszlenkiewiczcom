@@ -47,22 +47,22 @@ header{
   display:flex;align-items:center;justify-content:space-between;
   padding:0 32px;
 }
-.brand{font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;letter-spacing:-0.02em;}
-.nav-right{display:flex;align-items:center;gap:40px;}
-nav.desktop{display:flex;gap:40px;}
+.brand{font-family:'Montserrat',sans-serif;font-weight:800;font-size:21px;letter-spacing:-0.02em;}
+.nav-right{display:flex;align-items:center;gap:44px;}
+nav.desktop{display:flex;gap:44px;}
 nav.desktop a{
-  font-size:11px;text-transform:uppercase;letter-spacing:0.15em;
-  color:var(--gray);padding-bottom:4px;border-bottom:2px solid transparent;
+  font-size:13px;font-weight:500;text-transform:uppercase;letter-spacing:0.14em;
+  color:#555;padding-bottom:4px;border-bottom:2px solid transparent;
 }
 nav.desktop a:hover{color:var(--black);}
 nav.desktop a.active{color:var(--black);font-weight:600;border-bottom-color:var(--black);}
 .lang{display:flex;align-items:center;gap:2px;}
 .lang button{
-  font-family:'Inter',sans-serif;font-size:11px;font-weight:500;
+  font-family:'Inter',sans-serif;font-size:13px;font-weight:500;
   letter-spacing:0.1em;background:none;border:none;cursor:pointer;
-  color:var(--gray);padding:4px 6px;text-transform:uppercase;
+  color:#555;padding:4px 6px;text-transform:uppercase;
 }
-.lang button.active{color:var(--black);font-weight:600;text-decoration:underline;text-underline-offset:3px;}
+.lang button.active{color:var(--black);font-weight:700;text-decoration:underline;text-underline-offset:3px;}
 .lang span{color:var(--line);font-size:11px;}
 .menu-btn{display:none;background:none;border:none;cursor:pointer;padding:8px;}
 .menu-btn span{display:block;width:22px;height:2px;background:var(--black);margin:5px 0;}
@@ -73,8 +73,8 @@ nav.mobile{
 }
 nav.mobile.open{display:flex;}
 nav.mobile a{
-  padding:20px 32px;font-size:11px;text-transform:uppercase;
-  letter-spacing:0.15em;border-top:1px solid var(--light);
+  padding:20px 32px;font-size:13px;font-weight:500;text-transform:uppercase;
+  letter-spacing:0.14em;color:#333;border-top:1px solid var(--light);
 }
 
 /* ── HERO ── */
@@ -83,7 +83,7 @@ nav.mobile a{
   width:50%;display:flex;flex-direction:column;justify-content:center;
   padding:64px 6vw;background:var(--white);
 }
-.hero-text .label{margin-bottom:24px;}
+.hero-text .label{font-size:13px;color:#555;letter-spacing:0.16em;margin-bottom:24px;}
 .hero-text h1{font-size:clamp(34px,4.6vw,64px);font-weight:800;line-height:1.12;margin-bottom:48px;}
 .cta{
   display:inline-block;align-self:flex-start;
