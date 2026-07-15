@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>JANUSZ LENKIEWICZ | AI ENGINEER</title>
-<meta name="description" content="Inżynier aplikacji LLM z 14-letnim doświadczeniem programistycznym i dwoma magisteriami — z psychologii i pedagogiki. Buduję produkcyjne systemy AI, w których człowiek ma ostatnie słowo.">
+<meta name="description" content="LLM application engineer with 14 years of software engineering and two master's degrees — in psychology and pedagogy. I build production AI systems where the human has the final say.">
 <meta property="og:title" content="Janusz Lenkiewicz — AI Engineer">
-<meta property="og:description" content="AI Engineering × psychologia. Produkcyjne systemy LLM projektowane wokół człowieka: multi-agent, RAG, realtime voice AI, ewaluacja jakości modeli.">
+<meta property="og:description" content="AI Engineering × psychology. Production LLM systems designed around people: multi-agent, RAG, realtime voice AI, model quality evaluation.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://januszlenkiewicz.com/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231A1A1A'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='14' font-weight='bold' fill='%23FFFFFF' text-anchor='middle'%3EJL%3C/text%3E%3C/svg%3E">
@@ -46,13 +46,22 @@ header{
   padding:0 32px;
 }
 .brand{font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;letter-spacing:-0.02em;}
-nav.desktop{display:flex;gap:48px;}
+.nav-right{display:flex;align-items:center;gap:40px;}
+nav.desktop{display:flex;gap:40px;}
 nav.desktop a{
   font-size:11px;text-transform:uppercase;letter-spacing:0.15em;
   color:var(--gray);padding-bottom:4px;border-bottom:2px solid transparent;
 }
 nav.desktop a:hover{color:var(--black);}
 nav.desktop a.active{color:var(--black);font-weight:600;border-bottom-color:var(--black);}
+.lang{display:flex;align-items:center;gap:2px;}
+.lang button{
+  font-family:'Inter',sans-serif;font-size:11px;font-weight:500;
+  letter-spacing:0.1em;background:none;border:none;cursor:pointer;
+  color:var(--gray);padding:4px 6px;text-transform:uppercase;
+}
+.lang button.active{color:var(--black);font-weight:600;text-decoration:underline;text-underline-offset:3px;}
+.lang span{color:var(--line);font-size:11px;}
 .menu-btn{display:none;background:none;border:none;cursor:pointer;padding:8px;}
 .menu-btn span{display:block;width:22px;height:2px;background:var(--black);margin:5px 0;}
 nav.mobile{
@@ -172,6 +181,7 @@ footer a:hover{color:var(--black);}
 @media(max-width:860px){
   nav.desktop{display:none;}
   .menu-btn{display:block;}
+  .nav-right{gap:16px;}
   .hero{flex-direction:column;min-height:auto;}
   .hero-text,.hero-panel{width:100%;padding:80px 32px;}
   .about-grid{grid-template-columns:1fr;gap:48px;}
@@ -186,21 +196,28 @@ footer a:hover{color:var(--black);}
 
 <header>
   <div class="brand">JANUSZ LENKIEWICZ</div>
-  <nav class="desktop">
-    <a href="#projekty" class="active">PROJEKTY</a>
-    <a href="#o-mnie">O MNIE</a>
-    <a href="#podejscie">PODEJŚCIE</a>
-    <a href="#kontakt">KONTAKT</a>
-  </nav>
-  <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('open')">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-right">
+    <nav class="desktop">
+      <a href="#projects" class="active" data-i18n="nav_projects">PROJECTS</a>
+      <a href="#about" data-i18n="nav_about">ABOUT</a>
+      <a href="#approach" data-i18n="nav_approach">APPROACH</a>
+      <a href="#contact" data-i18n="nav_contact">CONTACT</a>
+    </nav>
+    <div class="lang">
+      <button data-lang="en" class="active">EN</button>
+      <span>·</span>
+      <button data-lang="pl">PL</button>
+    </div>
+    <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </header>
 <nav class="mobile" id="mnav">
-  <a href="#projekty" onclick="this.parentElement.classList.remove('open')">PROJEKTY</a>
-  <a href="#o-mnie" onclick="this.parentElement.classList.remove('open')">O MNIE</a>
-  <a href="#podejscie" onclick="this.parentElement.classList.remove('open')">PODEJŚCIE</a>
-  <a href="#kontakt" onclick="this.parentElement.classList.remove('open')">KONTAKT</a>
+  <a href="#projects" data-i18n="nav_projects" onclick="this.parentElement.classList.remove('open')">PROJECTS</a>
+  <a href="#about" data-i18n="nav_about" onclick="this.parentElement.classList.remove('open')">ABOUT</a>
+  <a href="#approach" data-i18n="nav_approach" onclick="this.parentElement.classList.remove('open')">APPROACH</a>
+  <a href="#contact" data-i18n="nav_contact" onclick="this.parentElement.classList.remove('open')">CONTACT</a>
 </nav>
 
 <main>
@@ -208,47 +225,47 @@ footer a:hover{color:var(--black);}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <span class="label">AI ENGINEER · PSYCHOLOG · 100% ZDALNIE</span>
-    <h1>Buduję systemy AI, w&nbsp;których człowiek ma ostatnie słowo</h1>
-    <a class="cta" href="#projekty">ZOBACZ PROJEKTY →</a>
+    <span class="label" data-i18n="hero_label">AI ENGINEER · PSYCHOLOGIST · 100% REMOTE</span>
+    <h1 data-i18n="hero_title">I build AI systems where the human has the final say</h1>
+    <a class="cta" href="#projects" data-i18n="hero_cta">SEE PROJECTS →</a>
   </div>
   <div class="hero-panel">
-    <div class="row"><span class="k">14 LAT</span><span class="v">komercyjnej inżynierii oprogramowania</span></div>
-    <div class="row"><span class="k">2 × MGR</span><span class="v">psychologia rozwojowa · pedagogika (UAM)</span></div>
-    <div class="row"><span class="k">7</span><span class="v">produkcyjnych systemów AI — projekt, kod, deploy, utrzymanie</span></div>
-    <div class="row"><span class="k">~35 TYS.</span><span class="v">linii produkcyjnego Pythona na ścieżce realnych pieniędzy</span></div>
+    <div class="row"><span class="k" data-i18n="stat1_k">14 YEARS</span><span class="v" data-i18n="stat1_v">of commercial software engineering</span></div>
+    <div class="row"><span class="k" data-i18n="stat2_k">2 × MA</span><span class="v" data-i18n="stat2_v">developmental psychology · pedagogy (Adam Mickiewicz University)</span></div>
+    <div class="row"><span class="k" data-i18n="stat3_k">7</span><span class="v" data-i18n="stat3_v">production AI systems — design, code, deploy, maintain</span></div>
+    <div class="row"><span class="k" data-i18n="stat4_k">~35K</span><span class="v" data-i18n="stat4_v">lines of production Python on a real-money path</span></div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="about" id="o-mnie">
+<section class="about" id="about">
   <div class="container about-grid">
     <div>
-      <h2>Model to tylko narzędzie. Przewaga to zrozumienie człowieka.</h2>
-      <p>Jestem inżynierem aplikacji LLM: nie trenuję modeli od zera, tylko integruję je z prawdziwymi systemami — backendem, bazą danych, autoryzacją, deploymentem, kosztami i monitoringiem. Za mną czternaście lat komercyjnego programowania: od e-learningu i systemów dla sektora bankowego po enterprise front-end w projektach międzynarodowych.</p>
-      <p>Drugą nogę mojego profilu stanowią dwa dyplomy magisterskie — z psychologii rozwojowej i pedagogiki — oraz pięć lat wykładów akademickich na SGGW. Dlatego specjalizuję się w systemach <strong>human-in-the-loop</strong>: takich, w których AI wspiera człowieka w decyzji, zamiast podejmować ją za niego.</p>
-      <p>Wszystkie opisane niżej systemy zbudowałem samodzielnie i używam ich codziennie. To świadomy dogfooding — błędy projektowe ponoszę na własnej skórze, zanim poniesie je ktokolwiek inny.</p>
+      <h2 data-i18n="about_h2">The model is just a tool. The edge is understanding people.</h2>
+      <p data-i18n="about_p1">I'm an LLM application engineer: I don't train models from scratch — I integrate them with real systems: backend, database, authorization, deployment, cost and monitoring. Behind me are fourteen years of commercial software engineering, from e-learning and banking-sector systems to enterprise front-end in international projects.</p>
+      <p data-i18n="about_p2">The second pillar of my profile is unusual: two master's degrees — in developmental psychology and pedagogy — and five years of university lecturing. That's why I specialize in <strong>human-in-the-loop</strong> systems: ones where AI supports a person's decision instead of making it for them.</p>
+      <p data-i18n="about_p3">I built every system below myself and use them daily. This is deliberate dogfooding — I carry the cost of design mistakes on my own skin, before anyone else does.</p>
     </div>
     <div class="facts">
-      <div class="fact"><b>Od 2011</b><span>inżynieria oprogramowania — full stack, potem enterprise front-end (Sii Poland)</span></div>
-      <div class="fact"><b>2016–2021</b><span>wykładowca SGGW — autorski kurs podyplomowy, od sylabusa po wykłady</span></div>
-      <div class="fact"><b>Od 2025</b><span>produkcyjne aplikacje LLM — multi-agent, RAG, realtime voice, ewaluacja</span></div>
-      <div class="fact"><b>Stack AI</b><span>Claude API + Agent SDK · Gemini (w tym Live) · MCP · structured outputs · evals</span></div>
-      <div class="fact"><b>Inżynieria</b><span>Python (FastAPI) · TypeScript/Node · React · Swift · Postgres · GCP Cloud Run</span></div>
+      <div class="fact"><b data-i18n="fact1_k">Since 2011</b><span data-i18n="fact1_v">software engineering — full stack, then enterprise front-end (Sii Poland)</span></div>
+      <div class="fact"><b data-i18n="fact2_k">2016–2021</b><span data-i18n="fact2_v">university lecturer (SGGW) — original postgraduate course, from syllabus to lectures</span></div>
+      <div class="fact"><b data-i18n="fact3_k">Since 2025</b><span data-i18n="fact3_v">production LLM applications — multi-agent, RAG, realtime voice, evaluation</span></div>
+      <div class="fact"><b data-i18n="fact4_k">AI stack</b><span data-i18n="fact4_v">Claude API + Agent SDK · Gemini (incl. Live) · MCP · structured outputs · evals</span></div>
+      <div class="fact"><b data-i18n="fact5_k">Engineering</b><span data-i18n="fact5_v">Python (FastAPI) · TypeScript/Node · React · Swift · Postgres · GCP Cloud Run</span></div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section class="projects" id="projekty">
+<section class="projects" id="projects">
   <div class="container">
-    <span class="label">PROJEKTY — ZBUDOWANE, WDROŻONE, UTRZYMYWANE</span>
+    <span class="label" data-i18n="projects_label">PROJECTS — BUILT, DEPLOYED, MAINTAINED</span>
 
     <div class="project">
       <div class="num">01</div>
       <div>
-        <div class="head"><h3>Kierunki</h3><span class="tag">Platforma mentoringowa · multi-agent</span></div>
-        <p>Produkcyjna platforma, w której mentor AI prowadzi użytkownika według jego własnej, spisanej metodyki — zamiast generycznych porad. Wielu współpracujących agentów na Claude Agent SDK, prompty składane dynamicznie z metodyki i historii użytkownika, integracja z rachunkiem brokerskim (auto-journaling, strażnik reguł ryzyka na żywo). System pracuje na prawdziwych pieniądzach — błędy AI mają tu realny koszt.</p>
+        <div class="head"><h3>Kierunki</h3><span class="tag" data-i18n="p1_tag">Mentoring platform · multi-agent</span></div>
+        <p data-i18n="p1_desc">A production platform where an AI mentor guides the user according to their own written methodology — instead of generic advice. Multiple cooperating agents on the Claude Agent SDK, prompts assembled dynamically from the methodology and user history, integration with a brokerage account (auto-journaling, a live risk-rule guardian). The system runs on real money — AI mistakes carry a real cost here.</p>
         <div class="stack">Claude Agent SDK · Node/Express · React + TS · Postgres · Firebase · Cloud Run</div>
       </div>
     </div>
@@ -256,17 +273,17 @@ footer a:hover{color:var(--black);}
     <div class="project">
       <div class="num">02</div>
       <div>
-        <div class="head"><h3>Deep Mentor</h3><span class="tag">Spersonalizowany retrieval (RAG)</span></div>
-        <p>Warstwa pamięci długoterminowej mentora: model czyta osobistą bazę wiedzy użytkownika — notatki, lekcje, hipotezy — i cytuje ją w analizach, zamiast odpowiadać z ogólnej wiedzy. Seeding bazy, digest w promptach, twarda kontrola kosztów wnioskowania.</p>
-        <div class="stack">Retrieval po własnej bazie wiedzy · kondensacja kontekstu · cost engineering</div>
+        <div class="head"><h3>Deep Mentor</h3><span class="tag" data-i18n="p2_tag">Personalized retrieval (RAG)</span></div>
+        <p data-i18n="p2_desc">The mentor's long-term memory layer: the model reads the user's personal knowledge base — notes, lessons, hypotheses — and cites it in its analyses, instead of answering from general knowledge. Base seeding, digest in prompts, hard control over inference cost.</p>
+        <div class="stack" data-i18n="p2_stack">Retrieval over a personal knowledge base · context condensation · cost engineering</div>
       </div>
     </div>
 
     <div class="project">
       <div class="num">03</div>
       <div>
-        <div class="head"><h3>audit-mentor</h3><span class="tag">Ewaluacja jakości LLM</span></div>
-        <p>Harness do cyklicznego audytu odpowiedzi mentora AI: taksonomia błędów w czterech klasach, deduplikacja znalezisk po przyczynie źródłowej, backlog naprawczy z lokalizacjami w kodzie. Zasada organizacyjna: metryki liczy deterministyczny kod, model tylko interpretuje — LLM nie ocenia sam siebie na danych, które może przeinaczyć.</p>
+        <div class="head"><h3>audit-mentor</h3><span class="tag" data-i18n="p3_tag">LLM quality evaluation</span></div>
+        <p data-i18n="p3_desc">A harness for the cyclical audit of the AI mentor's answers: an error taxonomy in four classes, deduplication of findings by root cause, a remediation backlog with locations in the code. Organizing principle: deterministic code computes the metrics, the model only interprets — an LLM doesn't grade itself on data it could distort.</p>
         <div class="stack">Error taxonomy · human review loop · evaluation harness</div>
       </div>
     </div>
@@ -274,36 +291,36 @@ footer a:hover{color:var(--black);}
     <div class="project">
       <div class="num">04</div>
       <div>
-        <div class="head"><h3>Sufler &amp; Szept</h3><span class="tag">Realtime voice AI · macOS</span></div>
-        <p>Natywne aplikacje do rozmów na żywo: strumieniowa transkrypcja obu stron rozmowy, tłumaczenie symultaniczne i podpowiedzi kontekstowe z osobistej bazy wiedzy. Główne wyzwanie inżynierskie: budżet opóźnień w potoku audio → tekst → LLM → odpowiedź, przy dwóch równoległych sesjach modelu.</p>
-        <div class="stack">Swift · Apple SpeechAnalyzer · Gemini Live · inżynieria niskich opóźnień</div>
+        <div class="head"><h3>Sufler &amp; Szept</h3><span class="tag" data-i18n="p4_tag">Realtime voice AI · macOS</span></div>
+        <p data-i18n="p4_desc">Native apps for live conversations: streaming transcription of both sides of the conversation, simultaneous translation, and contextual prompts from a personal knowledge base. The main engineering challenge: the latency budget of the audio → text → LLM → response pipeline, across two parallel model sessions.</p>
+        <div class="stack" data-i18n="p4_stack">Swift · Apple SpeechAnalyzer · Gemini Live · low-latency engineering</div>
       </div>
     </div>
 
     <div class="project">
       <div class="num">05</div>
       <div>
-        <div class="head"><h3>Zwiadowca</h3><span class="tag">Agent researchu · MCP</span></div>
-        <p>Agent analizy rynku z twardą granicą autonomii: analizuje, podpowiada i alarmuje, ale decyzja zawsze zostaje przy człowieku — zero auto-tradingu, bez wyjątków. Deterministyczne metryki plus warstwa narracyjna z web researchu, laboratorium backtestów walk-forward, integracje narzędzi przez Model Context Protocol, m.in. most do TradingView Desktop.</p>
-        <div class="stack">MCP · walk-forward backtesting · REST API giełd · Python</div>
+        <div class="head"><h3>Zwiadowca</h3><span class="tag" data-i18n="p5_tag">Research agent · MCP</span></div>
+        <p data-i18n="p5_desc">A market-analysis agent with a hard autonomy boundary: it analyzes, suggests and alerts, but the decision always stays with the human — zero auto-trading, no exceptions. Deterministic metrics plus a narrative layer from web research, a walk-forward backtesting lab, tool integrations over the Model Context Protocol, including a bridge to TradingView Desktop.</p>
+        <div class="stack" data-i18n="p5_stack">MCP · walk-forward backtesting · exchange REST APIs · Python</div>
       </div>
     </div>
 
     <div class="project">
       <div class="num">06</div>
       <div>
-        <div class="head"><h3>System tradingowy w Pythonie</h3><span class="tag">~35 tys. linii · case study</span></div>
-        <p>Asynchroniczny serwis produkcyjny: architektura warstwowa z serwisem egzekucji jako jedynym właścicielem zleceń, scentralizowana konfiguracja ryzyka, testy jednostkowe na ścieżce pieniędzy, tryb demo jako bezpieczny domyślny. Obok — silnik sygnałowy z scoringiem sygnałów przez LLM w pętli live. Kod prywatny, omawiany na rozmowie jako case study.</p>
-        <div class="stack">FastAPI · Pydantic · asyncpg · websockety · SQLAlchemy · Postgres</div>
+        <div class="head"><h3 data-i18n="p6_title">Python trading system</h3><span class="tag" data-i18n="p6_tag">~35K lines · case study</span></div>
+        <p data-i18n="p6_desc">A production asynchronous service: a layered architecture with the execution service as the sole owner of orders, centralized risk configuration, unit tests on the money path, demo mode as the safe default. Alongside it — a signal engine with LLM-based signal scoring in a live loop. Private code, discussed as a case study in interviews.</p>
+        <div class="stack">FastAPI · Pydantic · asyncpg · websockets · SQLAlchemy · Postgres</div>
       </div>
     </div>
 
     <div class="project">
       <div class="num">07</div>
       <div>
-        <div class="head"><h3>Atelier</h3><span class="tag">AI w rozwoju zawodowym · EdTech</span></div>
-        <p>Roczny program rozwoju zawodowego dla osoby wchodzącej w zawód stylistki — prowadzony przez agenta AI pod moim nadzorem merytorycznym. Codzienny biuletyn generowany z web researchu i osobistego profilu uczestniczki, serie lekcji audio dawkowane po jednej dziennie, dashboard z zadaniem dnia i pętla feedbacku: wpisy uczestniczki wracają do generatora kolejnych wydań. Psychologia uczenia się dorosłych przełożona wprost na architekturę systemu.</p>
-        <div class="stack">Agent headless (cron) · pętla feedbacku · TTS · program nauczania</div>
+        <div class="head"><h3>Atelier</h3><span class="tag" data-i18n="p7_tag">AI in professional development · EdTech</span></div>
+        <p data-i18n="p7_desc">A year-long professional-development program for someone entering the styling profession — led by an AI agent under my subject-matter supervision. A daily newsletter generated from web research and the participant's personal profile, audio lesson series released one per day, a dashboard with the day's task, and a feedback loop: the participant's entries feed back into the generator of the next issues. The psychology of adult learning translated directly into system architecture.</p>
+        <div class="stack" data-i18n="p7_stack">Headless agent (cron) · feedback loop · TTS · curriculum</div>
       </div>
     </div>
 
@@ -311,39 +328,39 @@ footer a:hover{color:var(--black);}
 </section>
 
 <!-- APPROACH -->
-<section class="approach" id="podejscie">
+<section class="approach" id="approach">
   <div class="container">
-    <span class="label">GDZIE PSYCHOLOGIA SPOTYKA INŻYNIERIĘ</span>
+    <span class="label" data-i18n="approach_label">WHERE PSYCHOLOGY MEETS ENGINEERING</span>
 
     <div class="approach-item">
       <span class="k">SYCOPHANCY</span>
-      <p>Wykryłem u własnego mentora AI przymilność: kotwiczył się na emocjonalnej samoocenie użytkownika i ją potwierdzał, zamiast konfrontować z danymi. Jako psycholog wiem, czym różni się wspieranie od przytakiwania — dlatego mentor, który nie przytakuje, wymaga zaprojektowania.</p>
+      <p data-i18n="appr1">I detected sycophancy in my own AI mentor: it anchored on the user's emotional self-assessment and confirmed it, instead of confronting it with data. As a psychologist I know the difference between supporting and agreeing — which is why a mentor that doesn't just agree has to be designed.</p>
     </div>
 
     <div class="approach-item">
-      <span class="k">GRANICE AUTONOMII</span>
-      <p>Najważniejsze decyzje architektoniczne dotyczą tego, czego system nie może zrobić. Zero auto-tradingu w agencie rynkowym. Jedyna mutacja po stronie brokera to ochronna blokada dzienna. Projektowanie takich granic wymaga rozumienia człowieka pod presją — jego zmęczenia i impulsów.</p>
+      <span class="k" data-i18n="appr2_k">AUTONOMY BOUNDARIES</span>
+      <p data-i18n="appr2">The most important architectural decisions are about what the system must not do. Zero auto-trading in the market agent. The only mutation on the broker's side is a protective daily lockout. Designing such boundaries requires understanding a person under pressure — their fatigue and their impulses.</p>
     </div>
 
     <div class="approach-item">
-      <span class="k">PODZIAŁ PRACY CZŁOWIEK–MODEL</span>
-      <p>Metryki liczy deterministyczny kod, model interpretuje, człowiek rewiduje po fakcie. Świadoma architektura pętli human review — zamiast wiary, że model oceni sam siebie.</p>
+      <span class="k" data-i18n="appr3_k">HUMAN–MODEL DIVISION OF LABOR</span>
+      <p data-i18n="appr3">Deterministic code computes the metrics, the model interprets, the human reviews after the fact. A deliberate human-review-loop architecture — instead of trusting the model to grade itself.</p>
     </div>
 
   </div>
 </section>
 
 <!-- CONTACT -->
-<section class="contact" id="kontakt">
+<section class="contact" id="contact">
   <div class="contact-left">
-    <h2>Napisz do mnie</h2>
-    <a class="contact-link" href="mailto:j.lenkiewicz@me.com"><small>E-mail</small>j.lenkiewicz@me.com</a>
+    <h2 data-i18n="contact_h2">Get in touch</h2>
+    <a class="contact-link" href="mailto:j.lenkiewicz@me.com"><small data-i18n="contact_email_l">Email</small>j.lenkiewicz@me.com</a>
     <a class="contact-link" href="https://www.linkedin.com/in/janusz-lenkiewicz-a683283b8" target="_blank" rel="noopener"><small>LinkedIn</small>linkedin.com/in/janusz-lenkiewicz</a>
   </div>
   <div class="contact-right">
-    <span class="label">WSPÓŁPRACA</span>
-    <p>Szukam projektów na styku inżynierii AI i człowieka: produkty mentoringowe i edukacyjne, systemy human-in-the-loop, aplikacje LLM od architektury po produkcję.</p>
-    <p>Kontrakt B2B, praca w pełni zdalna. Odpowiadam na każdą konkretną wiadomość.</p>
+    <span class="label" data-i18n="collab_label">COLLABORATION</span>
+    <p data-i18n="collab_p1">I'm looking for projects at the intersection of AI engineering and people: mentoring and educational products, human-in-the-loop systems, LLM applications from architecture to production.</p>
+    <p data-i18n="collab_p2">B2B contract, fully remote. I reply to every concrete message.</p>
   </div>
 </section>
 
@@ -357,6 +374,104 @@ footer a:hover{color:var(--black);}
   </div>
   <div class="copy">© 2026 JANUSZ LENKIEWICZ</div>
 </footer>
+
+<script>
+const I18N = {
+  pl: {
+    _htmlLang: "pl",
+    _title: "JANUSZ LENKIEWICZ | AI ENGINEER",
+    _desc: "Inżynier aplikacji LLM z 14-letnim doświadczeniem programistycznym i dwoma magisteriami — z psychologii i pedagogiki. Buduję produkcyjne systemy AI, w których człowiek ma ostatnie słowo.",
+    nav_projects: "PROJEKTY", nav_about: "O MNIE", nav_approach: "PODEJŚCIE", nav_contact: "KONTAKT",
+    hero_label: "AI ENGINEER · PSYCHOLOG · 100% ZDALNIE",
+    hero_title: "Buduję systemy AI, w&nbsp;których człowiek ma ostatnie słowo",
+    hero_cta: "ZOBACZ PROJEKTY →",
+    stat1_k: "14 LAT", stat1_v: "komercyjnej inżynierii oprogramowania",
+    stat2_k: "2 × MGR", stat2_v: "psychologia rozwojowa · pedagogika (UAM)",
+    stat3_k: "7", stat3_v: "produkcyjnych systemów AI — projekt, kod, deploy, utrzymanie",
+    stat4_k: "~35 TYS.", stat4_v: "linii produkcyjnego Pythona na ścieżce realnych pieniędzy",
+    about_h2: "Model to tylko narzędzie. Przewaga to zrozumienie człowieka.",
+    about_p1: "Jestem inżynierem aplikacji LLM: nie trenuję modeli od zera, tylko integruję je z prawdziwymi systemami — backendem, bazą danych, autoryzacją, deploymentem, kosztami i monitoringiem. Za mną czternaście lat komercyjnego programowania: od e-learningu i systemów dla sektora bankowego po enterprise front-end w projektach międzynarodowych.",
+    about_p2: "Drugą nogę mojego profilu stanowią dwa dyplomy magisterskie — z psychologii rozwojowej i pedagogiki — oraz pięć lat wykładów akademickich na SGGW. Dlatego specjalizuję się w systemach <strong>human-in-the-loop</strong>: takich, w których AI wspiera człowieka w decyzji, zamiast podejmować ją za niego.",
+    about_p3: "Wszystkie opisane niżej systemy zbudowałem samodzielnie i używam ich codziennie. To świadomy dogfooding — błędy projektowe ponoszę na własnej skórze, zanim poniesie je ktokolwiek inny.",
+    fact1_k: "Od 2011", fact1_v: "inżynieria oprogramowania — full stack, potem enterprise front-end (Sii Poland)",
+    fact2_k: "2016–2021", fact2_v: "wykładowca SGGW — autorski kurs podyplomowy, od sylabusa po wykłady",
+    fact3_k: "Od 2025", fact3_v: "produkcyjne aplikacje LLM — multi-agent, RAG, realtime voice, ewaluacja",
+    fact4_k: "Stack AI", fact4_v: "Claude API + Agent SDK · Gemini (w tym Live) · MCP · structured outputs · evals",
+    fact5_k: "Inżynieria", fact5_v: "Python (FastAPI) · TypeScript/Node · React · Swift · Postgres · GCP Cloud Run",
+    projects_label: "PROJEKTY — ZBUDOWANE, WDROŻONE, UTRZYMYWANE",
+    p1_tag: "Platforma mentoringowa · multi-agent",
+    p1_desc: "Produkcyjna platforma, w której mentor AI prowadzi użytkownika według jego własnej, spisanej metodyki — zamiast generycznych porad. Wielu współpracujących agentów na Claude Agent SDK, prompty składane dynamicznie z metodyki i historii użytkownika, integracja z rachunkiem brokerskim (auto-journaling, strażnik reguł ryzyka na żywo). System pracuje na prawdziwych pieniądzach — błędy AI mają tu realny koszt.",
+    p2_tag: "Spersonalizowany retrieval (RAG)",
+    p2_desc: "Warstwa pamięci długoterminowej mentora: model czyta osobistą bazę wiedzy użytkownika — notatki, lekcje, hipotezy — i cytuje ją w analizach, zamiast odpowiadać z ogólnej wiedzy. Seeding bazy, digest w promptach, twarda kontrola kosztów wnioskowania.",
+    p2_stack: "Retrieval po własnej bazie wiedzy · kondensacja kontekstu · cost engineering",
+    p3_tag: "Ewaluacja jakości LLM",
+    p3_desc: "Harness do cyklicznego audytu odpowiedzi mentora AI: taksonomia błędów w czterech klasach, deduplikacja znalezisk po przyczynie źródłowej, backlog naprawczy z lokalizacjami w kodzie. Zasada organizacyjna: metryki liczy deterministyczny kod, model tylko interpretuje — LLM nie ocenia sam siebie na danych, które może przeinaczyć.",
+    p4_tag: "Realtime voice AI · macOS",
+    p4_desc: "Natywne aplikacje do rozmów na żywo: strumieniowa transkrypcja obu stron rozmowy, tłumaczenie symultaniczne i podpowiedzi kontekstowe z osobistej bazy wiedzy. Główne wyzwanie inżynierskie: budżet opóźnień w potoku audio → tekst → LLM → odpowiedź, przy dwóch równoległych sesjach modelu.",
+    p4_stack: "Swift · Apple SpeechAnalyzer · Gemini Live · inżynieria niskich opóźnień",
+    p5_tag: "Agent researchu · MCP",
+    p5_desc: "Agent analizy rynku z twardą granicą autonomii: analizuje, podpowiada i alarmuje, ale decyzja zawsze zostaje przy człowieku — zero auto-tradingu, bez wyjątków. Deterministyczne metryki plus warstwa narracyjna z web researchu, laboratorium backtestów walk-forward, integracje narzędzi przez Model Context Protocol, m.in. most do TradingView Desktop.",
+    p5_stack: "MCP · walk-forward backtesting · REST API giełd · Python",
+    p6_title: "System tradingowy w Pythonie",
+    p6_tag: "~35 tys. linii · case study",
+    p6_desc: "Asynchroniczny serwis produkcyjny: architektura warstwowa z serwisem egzekucji jako jedynym właścicielem zleceń, scentralizowana konfiguracja ryzyka, testy jednostkowe na ścieżce pieniędzy, tryb demo jako bezpieczny domyślny. Obok — silnik sygnałowy z scoringiem sygnałów przez LLM w pętli live. Kod prywatny, omawiany na rozmowie jako case study.",
+    p7_tag: "AI w rozwoju zawodowym · EdTech",
+    p7_desc: "Roczny program rozwoju zawodowego dla osoby wchodzącej w zawód stylistki — prowadzony przez agenta AI pod moim nadzorem merytorycznym. Codzienny biuletyn generowany z web researchu i osobistego profilu uczestniczki, serie lekcji audio dawkowane po jednej dziennie, dashboard z zadaniem dnia i pętla feedbacku: wpisy uczestniczki wracają do generatora kolejnych wydań. Psychologia uczenia się dorosłych przełożona wprost na architekturę systemu.",
+    p7_stack: "Agent headless (cron) · pętla feedbacku · TTS · program nauczania",
+    approach_label: "GDZIE PSYCHOLOGIA SPOTYKA INŻYNIERIĘ",
+    appr1: "Wykryłem u własnego mentora AI przymilność: kotwiczył się na emocjonalnej samoocenie użytkownika i ją potwierdzał, zamiast konfrontować z danymi. Jako psycholog wiem, czym różni się wspieranie od przytakiwania — dlatego mentor, który nie przytakuje, wymaga zaprojektowania.",
+    appr2_k: "GRANICE AUTONOMII",
+    appr2: "Najważniejsze decyzje architektoniczne dotyczą tego, czego system nie może zrobić. Zero auto-tradingu w agencie rynkowym. Jedyna mutacja po stronie brokera to ochronna blokada dzienna. Projektowanie takich granic wymaga rozumienia człowieka pod presją — jego zmęczenia i impulsów.",
+    appr3_k: "PODZIAŁ PRACY CZŁOWIEK–MODEL",
+    appr3: "Metryki liczy deterministyczny kod, model interpretuje, człowiek rewiduje po fakcie. Świadoma architektura pętli human review — zamiast wiary, że model oceni sam siebie.",
+    contact_h2: "Napisz do mnie",
+    contact_email_l: "E-mail",
+    collab_label: "WSPÓŁPRACA",
+    collab_p1: "Szukam projektów na styku inżynierii AI i człowieka: produkty mentoringowe i edukacyjne, systemy human-in-the-loop, aplikacje LLM od architektury po produkcję.",
+    collab_p2: "Kontrakt B2B, praca w pełni zdalna. Odpowiadam na każdą konkretną wiadomość."
+  }
+};
+
+function applyLang(lang){
+  const dict = I18N[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if(dict && dict[key] !== undefined){
+      el.innerHTML = dict[key];
+    } else {
+      // english is the source in the markup — restore from cache
+      if(el._en === undefined) el._en = el.innerHTML;
+      el.innerHTML = el._en;
+    }
+  });
+  // meta + <html lang>
+  if(lang === 'pl' && dict){
+    document.documentElement.lang = 'pl';
+    document.title = dict._title;
+  } else {
+    document.documentElement.lang = 'en';
+    document.title = "JANUSZ LENKIEWICZ | AI ENGINEER";
+  }
+  document.querySelectorAll('.lang button').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang));
+  try { localStorage.setItem('jl_lang', lang); } catch(e){}
+}
+
+// cache english source before any switch
+document.querySelectorAll('[data-i18n]').forEach(el => { el._en = el.innerHTML; });
+
+document.querySelectorAll('.lang button').forEach(btn => {
+  btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+});
+
+// initial language: english by default; polish only if the visitor chose it before
+let initial = 'en';
+try {
+  const saved = localStorage.getItem('jl_lang');
+  if(saved === 'pl') initial = 'pl';
+} catch(e){}
+applyLang(initial);
+</script>
 
 </body>
 </html>
