@@ -1,1075 +1,362 @@
 <!DOCTYPE html>
-<html lang="pl" id="html-root">
+<html lang="pl">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Janusz Lenkiewicz — Psycholog · Developer · Twórca</title>
-<meta name="description" content="Psycholog, pedagog i software engineer. Twórca CalmParent+, kanałów Rozkładnia i Reparse. Buduję narzędzia AI, które pomagają ludziom — rodzicom, pracownikom, uczącym się.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700;800&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<title>JANUSZ LENKIEWICZ | AI ENGINEER</title>
+<meta name="description" content="Inżynier aplikacji LLM z 14-letnim doświadczeniem programistycznym i dwoma magisteriami — z psychologii i pedagogiki. Buduję produkcyjne systemy AI, w których człowiek ma ostatnie słowo.">
+<meta property="og:title" content="Janusz Lenkiewicz — AI Engineer">
+<meta property="og:description" content="AI Engineering × psychologia. Produkcyjne systemy LLM projektowane wokół człowieka: multi-agent, RAG, realtime voice AI, ewaluacja jakości modeli.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://januszlenkiewicz.com/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%231A1A1A'/%3E%3Ctext x='16' y='22' font-family='Arial,sans-serif' font-size='14' font-weight='bold' fill='%23FFFFFF' text-anchor='middle'%3EJL%3C/text%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
 <style>
-:root {
-  --bg: #F8F8F6;
-  --dark: #111111;
-  --orange: #FF8C00;
-  --orange-light: #FFB347;
-  --grey-100: #F0F0EE;
-  --grey-200: #E0E0DC;
-  --grey-400: #AAAAAA;
-  --grey-600: #666666;
-  --grey-800: #333333;
-  --font-display: 'Inter', sans-serif;
-  --font-mono: 'DM Mono', monospace;
-  --font-logo: 'Syne', sans-serif;
+:root{
+  --black:#1A1A1A;
+  --gray:#999999;
+  --light:#F7F7F7;
+  --line:#E5E5E5;
+  --white:#FFFFFF;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Inter',sans-serif;
+  background:var(--white);
+  color:var(--black);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.6;
+}
+h1,h2,h3{font-family:'Montserrat',sans-serif;letter-spacing:0.06em;text-transform:uppercase;}
+a{color:inherit;text-decoration:none;}
+.label{
+  font-size:11px;font-weight:500;text-transform:uppercase;
+  letter-spacing:0.15em;color:var(--gray);
+}
+.container{max-width:1200px;margin:0 auto;padding:0 32px;}
+
+/* ── NAV ── */
+header{
+  position:fixed;top:0;left:0;right:0;height:64px;z-index:50;
+  background:var(--white);border-bottom:1px solid var(--light);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 32px;
+}
+.brand{font-family:'Montserrat',sans-serif;font-weight:800;font-size:17px;letter-spacing:-0.02em;}
+nav.desktop{display:flex;gap:48px;}
+nav.desktop a{
+  font-size:11px;text-transform:uppercase;letter-spacing:0.15em;
+  color:var(--gray);padding-bottom:4px;border-bottom:2px solid transparent;
+}
+nav.desktop a:hover{color:var(--black);}
+nav.desktop a.active{color:var(--black);font-weight:600;border-bottom-color:var(--black);}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;padding:8px;}
+.menu-btn span{display:block;width:22px;height:2px;background:var(--black);margin:5px 0;}
+nav.mobile{
+  display:none;position:fixed;top:64px;left:0;right:0;z-index:49;
+  background:var(--white);border-bottom:1px solid var(--line);
+  flex-direction:column;
+}
+nav.mobile.open{display:flex;}
+nav.mobile a{
+  padding:20px 32px;font-size:11px;text-transform:uppercase;
+  letter-spacing:0.15em;border-top:1px solid var(--light);
 }
 
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body {
-  background: var(--bg);
-  color: var(--dark);
-  font-family: var(--font-display);
-  overflow-x: hidden;
-  cursor: default;
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;padding-top:64px;}
+.hero-text{
+  width:50%;display:flex;flex-direction:column;justify-content:center;
+  padding:64px 6vw;background:var(--white);
+}
+.hero-text .label{margin-bottom:24px;}
+.hero-text h1{font-size:clamp(34px,4.6vw,64px);font-weight:800;line-height:1.12;margin-bottom:48px;}
+.cta{
+  display:inline-block;align-self:flex-start;
+  font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;
+  border-bottom:1px solid var(--black);padding-bottom:8px;
+}
+.cta:hover{color:var(--gray);border-color:var(--gray);}
+.hero-panel{
+  width:50%;background:var(--black);color:var(--white);
+  display:flex;flex-direction:column;justify-content:center;
+  padding:64px 5vw;gap:0;
+}
+.hero-panel .row{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:22px 0;border-bottom:1px solid #333;
+}
+.hero-panel .row:first-child{border-top:1px solid #333;}
+.hero-panel .k{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(26px,2.6vw,40px);letter-spacing:0.02em;}
+.hero-panel .v{font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:#8a8a8a;text-align:right;max-width:55%;}
+
+/* ── ABOUT ── */
+.about{padding:120px 0;background:var(--light);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;}
+.about h2{font-size:clamp(22px,2.4vw,28px);font-weight:700;line-height:1.3;margin-bottom:32px;}
+.about p{font-size:17px;line-height:1.7;margin-bottom:20px;}
+.about .facts{border-top:1px solid var(--line);}
+.about .fact{
+  display:flex;justify-content:space-between;align-items:baseline;gap:24px;
+  padding:20px 0;border-bottom:1px solid var(--line);
+}
+.about .fact b{font-family:'Montserrat',sans-serif;font-size:15px;letter-spacing:0.04em;text-transform:uppercase;white-space:nowrap;}
+.about .fact span{font-size:13px;color:var(--gray);text-align:right;}
+
+/* ── PROJECTS ── */
+.projects{padding:120px 0;background:var(--white);}
+.projects .label{display:block;text-align:center;margin-bottom:72px;}
+.project{
+  display:grid;grid-template-columns:64px 1fr;gap:24px;
+  padding:48px 0;border-bottom:1px solid var(--line);
+}
+.project:first-of-type{border-top:1px solid var(--line);}
+.project .num{
+  font-family:'Montserrat',sans-serif;font-weight:800;font-size:15px;
+  color:var(--gray);padding-top:5px;
+}
+.project .head{
+  display:flex;justify-content:space-between;align-items:baseline;
+  gap:24px;margin-bottom:14px;flex-wrap:wrap;
+}
+.project h3{font-size:19px;font-weight:700;}
+.project .tag{font-size:11px;text-transform:uppercase;letter-spacing:0.15em;color:var(--gray);white-space:nowrap;}
+.project p{font-size:15.5px;line-height:1.7;max-width:760px;color:#3a3a3a;}
+.project .stack{margin-top:14px;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--gray);}
+
+/* ── APPROACH (black) ── */
+.approach{padding:120px 0;background:var(--black);color:var(--white);}
+.approach .label{display:block;text-align:center;margin-bottom:88px;color:#8a8a8a;}
+.approach-item{max-width:800px;margin:0 auto 96px;text-align:center;}
+.approach-item:last-child{margin-bottom:0;}
+.approach-item .k{
+  font-size:11px;text-transform:uppercase;letter-spacing:0.15em;
+  color:#8a8a8a;display:block;margin-bottom:20px;
+}
+.approach-item p{
+  font-style:italic;font-size:clamp(19px,2.1vw,24px);line-height:1.6;opacity:0.92;
 }
 
-/* ─── CURSOR ─── */
-.cursor {
-  width: 8px; height: 8px;
-  background: var(--orange);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  transition: transform 0.15s ease;
-  transform: translate(-50%, -50%);
+/* ── CONTACT ── */
+.contact{display:flex;}
+.contact-left,.contact-right{width:50%;padding:120px 6vw;background:var(--white);}
+.contact-left{border-right:1px solid var(--light);}
+.contact h2{font-size:24px;font-weight:700;margin-bottom:48px;}
+.contact-link{display:block;font-size:19px;margin-bottom:24px;}
+.contact-link:hover{color:var(--gray);}
+.contact-link small{
+  display:block;font-size:11px;text-transform:uppercase;
+  letter-spacing:0.15em;color:var(--gray);margin-bottom:6px;
 }
-.cursor-ring {
-  width: 32px; height: 32px;
-  border: 1px solid rgba(255,140,0,0.4);
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  transition: transform 0.35s ease;
-  transform: translate(-50%, -50%);
-}
+.contact-right p{font-size:16px;line-height:1.8;color:#3a3a3a;margin-bottom:20px;}
+.contact-right .label{display:block;margin-bottom:24px;}
 
-/* ─── LANG SWITCH ─── */
-.lang-switch {
-  display: flex;
-  gap: 4px;
-  align-items: center;
+/* ── FOOTER ── */
+footer{
+  background:var(--white);border-top:1px solid var(--light);
+  display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;
+  gap:24px;padding:80px 48px;
 }
-.lang-btn {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  background: none;
-  border: 1px solid var(--grey-200);
-  color: var(--grey-600);
-  padding: 6px 10px;
-  cursor: pointer;
-  transition: all 0.2s;
+footer .brand{font-size:14px;}
+footer .links{display:flex;gap:32px;}
+footer a,footer .copy{
+  font-size:11px;font-weight:500;text-transform:uppercase;
+  letter-spacing:0.15em;color:var(--gray);
 }
-.lang-btn.active, .lang-btn:hover {
-  background: var(--dark);
-  color: var(--bg);
-  border-color: var(--dark);
-}
+footer a:hover{color:var(--black);}
 
-/* ─── NAV ─── */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 100;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 24px 60px;
-  background: rgba(248,248,246,0.92);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--grey-200);
-  transition: padding 0.3s;
+/* ── RESPONSIVE ── */
+@media(max-width:860px){
+  nav.desktop{display:none;}
+  .menu-btn{display:block;}
+  .hero{flex-direction:column;min-height:auto;}
+  .hero-text,.hero-panel{width:100%;padding:80px 32px;}
+  .about-grid{grid-template-columns:1fr;gap:48px;}
+  .contact{flex-direction:column;}
+  .contact-left,.contact-right{width:100%;padding:80px 32px;}
+  .contact-left{border-right:none;border-bottom:1px solid var(--light);}
+  .project{grid-template-columns:1fr;gap:8px;}
 }
-.logo {
-  font-family: var(--font-logo);
-  font-size: 18px;
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  color: var(--dark);
-  text-decoration: none;
-}
-.logo span { color: var(--orange); }
-.nav-links {
-  display: flex;
-  gap: 40px;
-  list-style: none;
-}
-.nav-links a {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--grey-600);
-  text-decoration: none;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--orange); }
-.nav-right {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-}
-.nav-cta {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--dark);
-  text-decoration: none;
-  border: 1px solid var(--dark);
-  padding: 10px 20px;
-  transition: background 0.2s, color 0.2s;
-}
-.nav-cta:hover { background: var(--dark); color: var(--bg); }
-
-/* ─── HERO ─── */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 160px 60px 80px;
-  position: relative;
-  overflow: hidden;
-}
-.hero-bg-text {
-  position: absolute;
-  top: 50%;
-  right: -40px;
-  transform: translateY(-50%);
-  font-family: var(--font-display);
-  font-size: clamp(140px, 20vw, 280px);
-  font-weight: 800;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(0,0,0,0.04);
-  letter-spacing: -0.05em;
-  pointer-events: none;
-  white-space: nowrap;
-  user-select: none;
-}
-.hero-eyebrow {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 28px;
-  opacity: 0;
-  animation: fadeUp 0.8s ease forwards 0.2s;
-}
-.hero-headline {
-  font-family: var(--font-display);
-  font-size: clamp(56px, 8vw, 110px);
-  font-weight: 400;
-  line-height: 0.95;
-  letter-spacing: -0.04em;
-  color: var(--dark);
-  max-width: 900px;
-  opacity: 0;
-  animation: fadeUp 0.9s ease forwards 0.35s;
-}
-.hero-headline strong { font-weight: 800; }
-.hero-headline em {
-  color: var(--orange);
-  font-style: normal;
-  font-weight: 400;
-}
-.hero-sub {
-  margin-top: 40px;
-  display: flex;
-  align-items: flex-start;
-  gap: 60px;
-  opacity: 0;
-  animation: fadeUp 0.9s ease forwards 0.5s;
-}
-.hero-tagline {
-  font-size: 20px;
-  color: var(--grey-600);
-  max-width: 460px;
-  line-height: 1.6;
-  font-weight: 400;
-}
-.hero-stats {
-  display: flex;
-  gap: 40px;
-  padding-left: 40px;
-  border-left: 1px solid var(--grey-200);
-  flex-shrink: 0;
-}
-.stat-num {
-  font-family: var(--font-display);
-  font-size: 36px;
-  font-weight: 800;
-  line-height: 1;
-  color: var(--dark);
-}
-.stat-label {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--grey-400);
-  margin-top: 4px;
-}
-.hero-cta-row {
-  margin-top: 56px;
-  display: flex;
-  align-items: center;
-  gap: 32px;
-  opacity: 0;
-  animation: fadeUp 0.9s ease forwards 0.65s;
-}
-.btn-primary {
-  background: var(--dark);
-  color: var(--bg);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  padding: 18px 36px;
-  text-decoration: none;
-  transition: background 0.25s, transform 0.2s;
-  display: inline-block;
-}
-.btn-primary:hover { background: var(--orange); transform: translateY(-2px); }
-.btn-ghost {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--grey-600);
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  transition: color 0.2s;
-}
-.btn-ghost::after { content: '→'; transition: transform 0.2s; }
-.btn-ghost:hover { color: var(--dark); }
-.btn-ghost:hover::after { transform: translateX(4px); }
-
-/* ─── MARQUEE ─── */
-.marquee-section {
-  background: var(--dark);
-  padding: 24px 0;
-  overflow: hidden;
-}
-.marquee-track {
-  display: flex;
-  gap: 60px;
-  animation: marquee 25s linear infinite;
-  white-space: nowrap;
-}
-.marquee-item {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #888;
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.marquee-dot {
-  width: 5px; height: 5px;
-  border-radius: 50%;
-  background: var(--orange);
-  flex-shrink: 0;
-}
-@keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* ─── SECTIONS ─── */
-section { padding: 120px 60px; }
-.section-label {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--orange);
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-.section-label::before {
-  content: '';
-  width: 24px; height: 1px;
-  background: var(--orange);
-  display: block;
-}
-.section-title {
-  font-family: var(--font-display);
-  font-size: clamp(36px, 5vw, 64px);
-  font-weight: 400;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  color: var(--dark);
-  max-width: 700px;
-}
-.section-title strong { font-weight: 800; }
-.section-title em { color: var(--orange); font-style: normal; }
-
-/* ─── ABOUT ─── */
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: start;
-  margin-top: 60px;
-}
-.about-body {
-  font-size: 19px;
-  font-weight: 400;
-  line-height: 1.7;
-  color: var(--grey-800);
-  margin-bottom: 24px;
-}
-.about-body strong { font-weight: 600; color: var(--dark); }
-.about-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 28px;
-}
-.tag {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  border: 1px solid var(--grey-200);
-  padding: 8px 14px;
-  color: var(--grey-600);
-  transition: border-color 0.2s, color 0.2s;
-}
-.tag:hover { border-color: var(--orange); color: var(--orange); }
-.credentials { display: flex; flex-direction: column; }
-.credential {
-  padding: 24px 0;
-  border-bottom: 1px solid var(--grey-200);
-  display: grid;
-  grid-template-columns: 32px 1fr;
-  gap: 20px;
-  align-items: start;
-}
-.cred-num { font-family: var(--font-mono); font-size: 10px; color: var(--orange); padding-top: 2px; }
-.cred-title { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
-.cred-desc { font-size: 12px; color: var(--grey-600); line-height: 1.6; }
-
-/* ─── PROJECTS ─── */
-.projects-section { background: var(--grey-100); }
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2px;
-  margin-top: 60px;
-}
-.project-card {
-  background: var(--bg);
-  padding: 44px 36px;
-  position: relative;
-  overflow: hidden;
-  transition: background 0.3s;
-}
-.project-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 2px;
-  background: var(--orange);
-  transform: scaleX(0);
-  transition: transform 0.3s ease;
-  transform-origin: left;
-}
-.project-card:hover { background: var(--dark); }
-.project-card:hover .project-num,
-.project-card:hover .project-tag { color: var(--orange); }
-.project-card:hover .project-name { color: var(--bg); }
-.project-card:hover .project-desc { color: #555; }
-.project-card:hover .project-badge { border-color: #333; color: #555; }
-.project-card:hover::after { transform: scaleX(1); }
-.project-emoji { font-size: 36px; margin-bottom: 24px; opacity: 0.8; line-height: 1; }
-.project-num { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; color: var(--grey-400); margin-bottom: 12px; transition: color 0.3s; }
-.project-name { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.02em; color: var(--dark); margin-bottom: 12px; line-height: 1.2; transition: color 0.3s; }
-.project-desc { font-size: 13px; line-height: 1.7; color: var(--grey-600); margin-bottom: 20px; transition: color 0.3s; }
-.project-badges { display: flex; flex-wrap: wrap; gap: 6px; }
-.project-badge {
-  font-family: var(--font-mono);
-  font-size: 8px;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  border: 1px solid var(--grey-200);
-  padding: 5px 10px;
-  color: var(--grey-400);
-  transition: all 0.3s;
-}
-.project-link {
-  display: inline-block;
-  margin-top: 20px;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--orange);
-  text-decoration: none;
-  transition: opacity 0.2s;
-}
-.project-link:hover { opacity: 0.7; }
-
-/* ─── YOUTUBE ─── */
-.youtube-section { background: var(--dark); }
-.youtube-section .section-label { color: var(--orange); }
-.youtube-section .section-title { color: var(--bg); }
-.youtube-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2px;
-  margin-top: 60px;
-}
-.yt-card {
-  padding: 56px 48px;
-  position: relative;
-  overflow: hidden;
-}
-.yt-card-pl { background: #0a0a0a; }
-.yt-card-en { background: var(--orange); }
-.yt-card-bg {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-.yt-handle {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-}
-.yt-card-pl .yt-handle { color: var(--orange); }
-.yt-card-en .yt-handle { color: rgba(0,0,0,0.5); }
-.yt-name {
-  font-family: var(--font-logo);
-  font-size: 48px;
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  margin-bottom: 20px;
-}
-.yt-card-pl .yt-name { color: #fff; }
-.yt-card-en .yt-name { color: rgba(0,0,0,0.9); }
-.yt-desc {
-  font-size: 16px;
-  line-height: 1.6;
-  max-width: 380px;
-  margin-bottom: 28px;
-}
-.yt-card-pl .yt-desc { color: #555; }
-.yt-card-en .yt-desc { color: rgba(0,0,0,0.65); }
-.yt-topics { display: flex; flex-direction: column; gap: 8px; }
-.yt-topic {
-  font-size: 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-.yt-card-pl .yt-topic { color: #555; }
-.yt-card-en .yt-topic { color: rgba(0,0,0,0.6); }
-.yt-topic::before { content: '→'; font-size: 11px; flex-shrink: 0; }
-.yt-card-pl .yt-topic::before { color: var(--orange); }
-.yt-card-en .yt-topic::before { color: rgba(0,0,0,0.4); }
-.yt-url {
-  margin-top: 28px;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.1em;
-  text-decoration: none;
-}
-.yt-card-pl .yt-url { color: #333; }
-.yt-card-en .yt-url { color: rgba(0,0,0,0.4); }
-.yt-url:hover { color: var(--orange); }
-
-/* ─── METHODOLOGY ─── */
-.method-section { background: var(--bg); }
-.method-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  margin-top: 60px;
-}
-.method-list { display: flex; flex-direction: column; }
-.method-item {
-  padding: 28px 0;
-  border-bottom: 1px solid var(--grey-200);
-  display: grid;
-  grid-template-columns: 48px 1fr;
-  gap: 20px;
-  align-items: start;
-}
-.method-icon {
-  width: 36px; height: 36px;
-  border: 1px solid var(--grey-200);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-mono);
-  font-size: 10px;
-  color: var(--orange);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-.method-name { font-size: 15px; font-weight: 700; color: var(--dark); margin-bottom: 6px; }
-.method-desc { font-size: 12px; color: var(--grey-600); line-height: 1.7; }
-.method-quote {
-  font-size: clamp(20px, 2.5vw, 32px);
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--grey-600);
-  border-left: 2px solid var(--orange);
-  padding-left: 28px;
-  margin-bottom: 40px;
-}
-.method-quote strong { color: var(--dark); font-weight: 400; }
-.stack-row { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
-.stack-label {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--grey-400);
-  width: 80px;
-  flex-shrink: 0;
-}
-.stack-bar { flex: 1; height: 2px; background: var(--grey-200); position: relative; overflow: hidden; }
-.stack-fill {
-  position: absolute;
-  top: 0; left: 0; bottom: 0;
-  background: var(--orange);
-  transition: width 1.5s ease;
-}
-
-/* ─── CONTACT ─── */
-.contact-section { background: var(--dark); text-align: center; }
-.contact-section .section-title { color: var(--bg); max-width: 600px; margin: 20px auto 0; text-align: center; }
-.contact-sub {
-  font-size: 20px;
-  color: #555;
-  margin: 20px auto 48px;
-  max-width: 500px;
-  font-weight: 400;
-  line-height: 1.6;
-}
-.contact-links {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 40px;
-}
-.contact-link {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--bg);
-  text-decoration: none;
-  border: 1px solid #333;
-  padding: 14px 24px;
-  transition: background 0.2s, border-color 0.2s;
-}
-.contact-link:hover { background: var(--orange); border-color: var(--orange); color: var(--dark); }
-
-/* ─── FOOTER ─── */
-footer {
-  background: var(--dark);
-  border-top: 1px solid #111;
-  padding: 60px;
-  display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 60px;
-}
-.footer-desc { font-size: 12px; color: #444; line-height: 1.7; max-width: 280px; margin-top: 16px; }
-.footer-col-title {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: #333;
-  margin-bottom: 20px;
-}
-.footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.footer-links a { font-size: 12px; color: #444; text-decoration: none; transition: color 0.2s; }
-.footer-links a:hover { color: var(--orange); }
-.footer-bottom {
-  background: var(--dark);
-  border-top: 1px solid #111;
-  padding: 20px 60px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.footer-copy { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em; color: #333; text-transform: uppercase; }
-
-/* ─── ANIMATIONS ─── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-/* ─── RESPONSIVE ─── */
-@media (max-width: 1024px) {
-  nav { padding: 20px 30px; }
-  .nav-links { display: none; }
-  section { padding: 80px 30px; }
-  .hero { padding: 120px 30px 60px; }
-  .about-grid, .method-grid, .youtube-grid { grid-template-columns: 1fr; gap: 40px; }
-  .projects-grid { grid-template-columns: 1fr 1fr; }
-  footer { grid-template-columns: 1fr 1fr; }
-  .hero-sub { flex-direction: column; gap: 32px; }
-  .hero-stats { border-left: none; padding-left: 0; border-top: 1px solid var(--grey-200); padding-top: 24px; }
-}
-@media (max-width: 640px) {
-  .projects-grid { grid-template-columns: 1fr; }
-  .hero-headline { font-size: 48px; }
-  footer { grid-template-columns: 1fr; padding: 40px 24px; }
-  .footer-bottom { padding: 20px 24px; flex-direction: column; gap: 12px; }
-}
-
-/* ─── LANG CONTENT ─── */
-[data-pl], [data-en] { }
 </style>
 </head>
 <body>
 
-<div class="cursor" id="cursor"></div>
-<div class="cursor-ring" id="cursorRing"></div>
-
-<!-- NAV -->
-<nav>
-  <a href="#" class="logo">Janusz<span>.</span>Lenkiewicz</a>
-  <ul class="nav-links">
-    <li><a href="#about" data-pl="O mnie" data-en="About">O mnie</a></li>
-    <li><a href="#projects" data-pl="Projekty" data-en="Projects">Projekty</a></li>
-    <li><a href="#youtube" data-pl="YouTube" data-en="YouTube">YouTube</a></li>
-    <li><a href="#methodology" data-pl="Metodologia" data-en="Methodology">Metodologia</a></li>
-    <li><a href="#contact" data-pl="Kontakt" data-en="Contact">Kontakt</a></li>
-  </ul>
-  <div class="nav-right">
-    <div class="lang-switch">
-      <button class="lang-btn active" onclick="setLang('pl')">PL</button>
-      <button class="lang-btn" onclick="setLang('en')">EN</button>
-    </div>
-    <a href="#contact" class="nav-cta" data-pl="Napisz do mnie" data-en="Get in touch">Napisz do mnie</a>
-  </div>
+<header>
+  <div class="brand">JANUSZ LENKIEWICZ</div>
+  <nav class="desktop">
+    <a href="#projekty" class="active">PROJEKTY</a>
+    <a href="#o-mnie">O MNIE</a>
+    <a href="#podejscie">PODEJŚCIE</a>
+    <a href="#kontakt">KONTAKT</a>
+  </nav>
+  <button class="menu-btn" aria-label="Menu" onclick="document.getElementById('mnav').classList.toggle('open')">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+<nav class="mobile" id="mnav">
+  <a href="#projekty" onclick="this.parentElement.classList.remove('open')">PROJEKTY</a>
+  <a href="#o-mnie" onclick="this.parentElement.classList.remove('open')">O MNIE</a>
+  <a href="#podejscie" onclick="this.parentElement.classList.remove('open')">PODEJŚCIE</a>
+  <a href="#kontakt" onclick="this.parentElement.classList.remove('open')">KONTAKT</a>
 </nav>
 
+<main>
+
 <!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-bg-text">JL</div>
-  <div class="hero-eyebrow" data-pl="Psycholog · Developer · Twórca" data-en="Psychologist · Developer · Creator">Psycholog · Developer · Twórca</div>
-  <h1 class="hero-headline">
-    <span data-pl="Buduję<br><em>narzędzia</em><br><strong>dla ludzi.</strong>" data-en="Building<br><em>tools</em><br><strong>for people.</strong>">Buduję<br><em>narzędzia</em><br><strong>dla ludzi.</strong></span>
-  </h1>
-  <div class="hero-sub">
-    <p class="hero-tagline" data-pl="Psycholog, pedagog i software engineer. Tworzę aplikacje mobilne, kanały edukacyjne i systemy AI, które pomagają rodzicom, uczącym się i pracownikom." data-en="Psychologist, educator and software engineer. I build mobile apps, educational channels and AI tools that help parents, learners, and knowledge workers.">Psycholog, pedagog i software engineer. Tworzę aplikacje mobilne, kanały edukacyjne i systemy AI, które pomagają rodzicom, uczącym się i pracownikom.</p>
-    <div class="hero-stats">
-      <div class="stat">
-        <div class="stat-num">9+</div>
-        <div class="stat-label" data-pl="Lat w dev" data-en="Years dev">Lat w dev</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">2</div>
-        <div class="stat-label" data-pl="Kanały YT" data-en="YT Channels">Kanały YT</div>
-      </div>
-      <div class="stat">
-        <div class="stat-num">∞</div>
-        <div class="stat-label" data-pl="Ciekawość" data-en="Curiosity">Ciekawość</div>
-      </div>
-    </div>
+<section class="hero">
+  <div class="hero-text">
+    <span class="label">AI ENGINEER · PSYCHOLOG · 100% ZDALNIE</span>
+    <h1>Buduję systemy AI, w&nbsp;których człowiek ma ostatnie słowo</h1>
+    <a class="cta" href="#projekty">ZOBACZ PROJEKTY →</a>
   </div>
-  <div class="hero-cta-row">
-    <a href="#projects" class="btn-primary" data-pl="Zobacz projekty" data-en="See projects">Zobacz projekty</a>
-    <a href="#about" class="btn-ghost" data-pl="Kim jestem" data-en="Who I am">Kim jestem</a>
+  <div class="hero-panel">
+    <div class="row"><span class="k">14 LAT</span><span class="v">komercyjnej inżynierii oprogramowania</span></div>
+    <div class="row"><span class="k">2 × MGR</span><span class="v">psychologia rozwojowa · pedagogika (UAM)</span></div>
+    <div class="row"><span class="k">7</span><span class="v">produkcyjnych systemów AI — projekt, kod, deploy, utrzymanie</span></div>
+    <div class="row"><span class="k">~35 TYS.</span><span class="v">linii produkcyjnego Pythona na ścieżce realnych pieniędzy</span></div>
   </div>
 </section>
 
-<!-- MARQUEE -->
-<div class="marquee-section">
-  <div class="marquee-track">
-    <div class="marquee-item"><span class="marquee-dot"></span><span data-pl="Psychologia" data-en="Psychology">Psychologia</span></div>
-    <div class="marquee-item"><span class="marquee-dot"></span><span data-pl="Pedagogika" data-en="Pedagogy">Pedagogika</span></div>
-    <div class="marquee-item"><span class="marquee-dot"></span><span data-pl="Software Engineering" data-en="Software Engineering">Software Engineering</span></div>
-    <div class="marquee-item"><span class="marquee-dot"></span><span data-pl="AI · LLM" data-en="AI · LLM">AI · LLM</span></div>
-    <div class="marquee-item"><span class="marquee-dot"></span><span data-pl="React Native · Expo" data-en="React Native · Expo">React Native · Expo</span></div>
-    <div class="marquee-item"><span class="marquee-dot"></span><span data-pl="ADHD · Rodzicielstwo" data-en="ADHD · Parenting">ADHD · Rodzicielstwo</span></div>
-    <div class="marquee-item"><span class="marquee-dot"></span><span data-pl="E-learning" data-en="E-learning">E-learning</span></div>
-    <div class="marquee-item"><span class="marquee-dot"></span><span data-pl="Psychologia Tradingu" data-en="Trading Psychology">Psychologia Tradingu</span></div>
-    <div class="marquee-item"><span class="marquee-dot"></span><span data-pl="Psychologia" data-en="Psychology">Psychologia</span></div>
-    <div class="marquee-item"><span class="marquee-dot"></span><span data-pl="Pedagogika" data-en="Pedagogy">Pedagogika</span></div>
-    <div class="marquee-item"><span class="marquee-dot"></span><span data-pl="Software Engineering" data-en="Software Engineering">Software Engineering</span></div>
-    <div class="marquee-item"><span class="marquee-dot"></span><span data-pl="AI · LLM" data-en="AI · LLM">AI · LLM</span></div>
-    <div class="marquee-item"><span class="marquee-dot"></span><span data-pl="React Native · Expo" data-en="React Native · Expo">React Native · Expo</span></div>
-    <div class="marquee-item"><span class="marquee-dot"></span><span data-pl="ADHD · Rodzicielstwo" data-en="ADHD · Parenting">ADHD · Rodzicielstwo</span></div>
-    <div class="marquee-item"><span class="marquee-dot"></span><span data-pl="E-learning" data-en="E-learning">E-learning</span></div>
-    <div class="marquee-item"><span class="marquee-dot"></span><span data-pl="Trading · VSA · ICT" data-en="Trading · VSA · ICT">Trading · VSA · ICT</span></div>
-  </div>
-</div>
-
 <!-- ABOUT -->
-<section id="about">
-  <div class="section-label" data-pl="O mnie" data-en="About me">O mnie</div>
-  <h2 class="section-title reveal" data-pl="Gdzie <em>nauka</em><br>spotyka <strong>kod.</strong>" data-en="Where <em>science</em><br>meets <strong>code.</strong>">Gdzie <em>nauka</em><br>spotyka <strong>kod.</strong></h2>
-  <div class="about-grid">
-    <div class="reveal">
-      <p class="about-body" data-pl="Jestem <strong>psychologiem</strong>, <strong>pedagogiem</strong> i <strong>senior software engineerem</strong> z ponad 9-letnim doświadczeniem. Buduję aplikacje mobilne i systemy AI, które pomagają ludziom — szczególnie rodzicom dzieci z ADHD, uczącym się i osobom szukającym wsparcia psychologicznego." data-en="I'm a <strong>psychologist</strong>, <strong>educator</strong> and <strong>senior software engineer</strong> with over 9 years of experience. I build mobile apps and AI systems that help people — especially parents of children with ADHD, learners, and those seeking psychological support.">Jestem <strong>psychologiem</strong>, <strong>pedagogiem</strong> i <strong>senior software engineerem</strong> z ponad 9-letnim doświadczeniem. Buduję aplikacje mobilne i systemy AI, które pomagają ludziom — szczególnie rodzicom dzieci z ADHD, uczącym się i osobom szukającym wsparcia psychologicznego.</p>
-      <p class="about-body" data-pl="Pracuję w Reakcie, Node.js i Pythonie. Pasjonuję się e-learningiem, psychologią zachowań i tworzeniem narzędzi AI. Mam unikalne połączenie: rozumiem zarówno ludzką psychikę, jak i architekturę systemów." data-en="I work in React, Node.js and Python. I'm passionate about e-learning, behavioral psychology and building AI tools. I have a unique combination: I understand both human psychology and systems architecture.">Pracuję w Reakcie, Node.js i Pythonie. Pasjonuję się e-learningiem, psychologią zachowań i tworzeniem narzędzi AI. Mam unikalne połączenie: rozumiem zarówno ludzką psychikę, jak i architekturę systemów.</p>
-      <div class="about-tags">
-        <span class="tag">Psychologia</span>
-        <span class="tag">Pedagogika</span>
-        <span class="tag">React Native</span>
-        <span class="tag">Node.js · Python</span>
-        <span class="tag">AI / LLM</span>
-        <span class="tag">E-learning</span>
-        <span class="tag">ADHD</span>
-
-      </div>
+<section class="about" id="o-mnie">
+  <div class="container about-grid">
+    <div>
+      <h2>Model to tylko narzędzie. Przewaga to zrozumienie człowieka.</h2>
+      <p>Jestem inżynierem aplikacji LLM: nie trenuję modeli od zera, tylko integruję je z prawdziwymi systemami — backendem, bazą danych, autoryzacją, deploymentem, kosztami i monitoringiem. Za mną czternaście lat komercyjnego programowania: od e-learningu i systemów dla sektora bankowego po enterprise front-end w projektach międzynarodowych.</p>
+      <p>Drugą nogę mojego profilu stanowią dwa dyplomy magisterskie — z psychologii rozwojowej i pedagogiki — oraz pięć lat wykładów akademickich na SGGW. Dlatego specjalizuję się w systemach <strong>human-in-the-loop</strong>: takich, w których AI wspiera człowieka w decyzji, zamiast podejmować ją za niego.</p>
+      <p>Wszystkie opisane niżej systemy zbudowałem samodzielnie i używam ich codziennie. To świadomy dogfooding — błędy projektowe ponoszę na własnej skórze, zanim poniesie je ktokolwiek inny.</p>
     </div>
-    <div class="credentials reveal">
-      <div class="credential">
-        <div class="cred-num">01</div>
-        <div>
-          <div class="cred-title" data-pl="Psycholog & Pedagog" data-en="Psychologist & Educator">Psycholog & Pedagog</div>
-          <div class="cred-desc" data-pl="Wykształcenie w psychologii i pedagogice. Specjalizacja w procesach uczenia się, psychologii zachowań i wsparciu dzieci z ADHD." data-en="Trained in psychology and education. Specialization in learning processes, behavioral psychology and support for children with ADHD.">Wykształcenie w psychologii i pedagogice. Specjalizacja w procesach uczenia się, psychologii zachowań i wsparciu dzieci z ADHD.</div>
-        </div>
-      </div>
-      <div class="credential">
-        <div class="cred-num">02</div>
-        <div>
-          <div class="cred-title" data-pl="Senior Software Engineer" data-en="Senior Software Engineer">Senior Software Engineer</div>
-          <div class="cred-desc" data-pl="9+ lat w fullstack development. React, TypeScript, Node.js, PostgreSQL, React Native, Expo, Supabase. Duże aplikacje korporacyjne i startupy." data-en="9+ years in fullstack development. React, TypeScript, Node.js, PostgreSQL, React Native, Expo, Supabase. Enterprise apps and startups.">9+ lat w fullstack development. React, TypeScript, Node.js, PostgreSQL, React Native, Expo, Supabase. Duże aplikacje korporacyjne i startupy.</div>
-        </div>
-      </div>
-      <div class="credential">
-        <div class="cred-num">03</div>
-        <div>
-          <div class="cred-title" data-pl="E-learning Specialist" data-en="E-learning Specialist">E-learning Specialist</div>
-          <div class="cred-desc" data-pl="Metodyka e-learningu, Articulate Storyline, Moodle. Doświadczenie w tworzeniu kursów online — teraz reimaginowane przez AI." data-en="E-learning methodology, Articulate Storyline, Moodle. Experience in creating online courses — now reimagined through AI.">Metodyka e-learningu, Articulate Storyline, Moodle. Doświadczenie w tworzeniu kursów online — teraz reimaginowane przez AI.</div>
-        </div>
-      </div>
-      <div class="credential">
-        <div class="cred-num">04</div>
-        <div>
-          <div class="cred-title" data-pl="Content Creator" data-en="Content Creator">Content Creator</div>
-          <div class="cred-desc" data-pl="Kanał @Rozkładnia (PL) i @Reparse (EN) — psychologia, ADHD, rodzicielstwo, wypalenie. Tworzę treści edukacyjne które naprawdę pomagają." data-en="Channel @Rozkładnia (PL) and @Reparse (EN) — psychology, ADHD, parenting, burnout. Creating educational content that actually helps.">Kanał @Rozkładnia (PL) i @Reparse (EN) — psychologia, ADHD, rodzicielstwo, wypalenie. Tworzę treści edukacyjne które naprawdę pomagają.</div>
-        </div>
-      </div>
-      <div class="credential">
-        <div class="cred-num">05</div>
-        <div>
-          <div class="cred-title" data-pl="Wsparcie Psychologiczne Traderów" data-en="Trader Psychology Support">Wsparcie Psychologiczne Traderów</div>
-          <div class="cred-desc" data-pl="Psychologiczne aspekty tradingu — dyscyplina, zarządzanie emocjami i mindset. Pomagam traderom lepiej rozumieć własne decyzje i budować odporność psychiczną w obliczu ryzyka." data-en="Psychological aspects of trading — discipline, emotional management and mindset. I help traders better understand their own decisions and build psychological resilience in the face of risk.">Psychologiczne aspekty tradingu — dyscyplina, zarządzanie emocjami i mindset. Pomagam traderom lepiej rozumieć własne decyzje i budować odporność psychiczną w obliczu ryzyka.</div>
-        </div>
-      </div>
-
+    <div class="facts">
+      <div class="fact"><b>Od 2011</b><span>inżynieria oprogramowania — full stack, potem enterprise front-end (Sii Poland)</span></div>
+      <div class="fact"><b>2016–2021</b><span>wykładowca SGGW — autorski kurs podyplomowy, od sylabusa po wykłady</span></div>
+      <div class="fact"><b>Od 2025</b><span>produkcyjne aplikacje LLM — multi-agent, RAG, realtime voice, ewaluacja</span></div>
+      <div class="fact"><b>Stack AI</b><span>Claude API + Agent SDK · Gemini (w tym Live) · MCP · structured outputs · evals</span></div>
+      <div class="fact"><b>Inżynieria</b><span>Python (FastAPI) · TypeScript/Node · React · Swift · Postgres · GCP Cloud Run</span></div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
-<section id="projects" class="projects-section">
-  <div class="section-label" data-pl="Projekty" data-en="Projects">Projekty</div>
-  <h2 class="section-title reveal" data-pl="To co <em>buduję</em><br><strong>teraz.</strong>" data-en="What I'm<br><em>building</em> <strong>now.</strong>">To co <em>buduję</em><br><strong>teraz.</strong></h2>
-  <div class="projects-grid">
+<section class="projects" id="projekty">
+  <div class="container">
+    <span class="label">PROJEKTY — ZBUDOWANE, WDROŻONE, UTRZYMYWANE</span>
 
-    <div class="project-card reveal">
-      <div class="project-emoji">📱</div>
-      <div class="project-num">01 — Mobile App</div>
-      <div class="project-name">CalmParent+</div>
-      <div class="project-desc" data-pl="Aplikacja mobilna dla rodziców dzieci z ADHD. Rutyny, wsparcie SOS, śledzenie nastrojów, mikrolearning o ADHD. Zbudowana z React Native + Expo + Supabase." data-en="Mobile app for parents of children with ADHD. Routines, SOS support, mood tracking, ADHD microlearning. Built with React Native + Expo + Supabase.">Aplikacja mobilna dla rodziców dzieci z ADHD. Rutyny, wsparcie SOS, śledzenie nastrojów, mikrolearning o ADHD. Zbudowana z React Native + Expo + Supabase.</div>
-      <div class="project-badges">
-        <span class="project-badge">React Native</span>
-        <span class="project-badge">Expo</span>
-        <span class="project-badge">Supabase</span>
-        <span class="project-badge">AI</span>
-        <span class="project-badge">iOS</span>
-      </div>
-      <a href="https://apps.apple.com" class="project-link" target="_blank" data-pl="App Store →" data-en="App Store →">App Store →</a>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-emoji">🎬</div>
-      <div class="project-num">02 — YouTube</div>
-      <div class="project-name">Rozkładnia</div>
-      <div class="project-desc" data-pl="Kanał YouTube po polsku o psychologii, ADHD, rodzicielstwie i wypaleniu. Ciemne slajdy, badania naukowe, praktyczne wskazówki dla rodziców." data-en="Polish YouTube channel about psychology, ADHD, parenting and burnout. Dark slides, scientific research, practical tips for parents.">Kanał YouTube po polsku o psychologii, ADHD, rodzicielstwie i wypaleniu. Ciemne slajdy, badania naukowe, praktyczne wskazówki dla rodziców.</div>
-      <div class="project-badges">
-        <span class="project-badge">YouTube PL</span>
-        <span class="project-badge">ADHD</span>
-        <span class="project-badge">Psychologia</span>
-      </div>
-      <a href="https://youtube.com/@Rozkladnia" class="project-link" target="_blank">@Rozkładnia →</a>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-emoji">🌍</div>
-      <div class="project-num">03 — YouTube</div>
-      <div class="project-name">Reparse</div>
-      <div class="project-desc" data-pl="Anglojęzyczny kanał YouTube o psychologii ADHD. Ten sam format co Rozkładnia — dla globalnej widowni. Głos AI ElevenLabs Will." data-en="English-language YouTube channel about ADHD psychology. Same format as Rozkładnia — for a global audience. AI voice ElevenLabs Will.">Anglojęzyczny kanał YouTube o psychologii ADHD. Ten sam format co Rozkładnia — dla globalnej widowni. Głos AI ElevenLabs Will.</div>
-      <div class="project-badges">
-        <span class="project-badge">YouTube EN</span>
-        <span class="project-badge">ADHD</span>
-        <span class="project-badge">Psychology</span>
-        <span class="project-badge">AI Voice</span>
-      </div>
-      <a href="https://youtube.com/@Reparse" class="project-link" target="_blank">@Reparse →</a>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-emoji">📊</div>
-      <div class="project-num">04 — Trading App</div>
-      <div class="project-name" data-pl="Trading Mentor AI" data-en="Trading Mentor AI">Trading Mentor AI</div>
-      <div class="project-desc" data-pl="Sokratyczny asystent AI do nauki tradingu metodologiami VSA i ICT/SMC. Platforma e-learningowa dla traderów z AI mentoringiem." data-en="Socratic AI assistant for learning trading using VSA and ICT/SMC methodologies. E-learning platform for traders with AI mentoring.">Sokratyczny asystent AI do nauki tradingu metodologiami VSA i ICT/SMC. Platforma e-learningowa dla traderów z AI mentoringiem.</div>
-      <div class="project-badges">
-        <span class="project-badge">AI</span>
-        <span class="project-badge">Trading</span>
-        <span class="project-badge">VSA</span>
-        <span class="project-badge">ICT/SMC</span>
-        <span class="project-badge">E-learning</span>
+    <div class="project">
+      <div class="num">01</div>
+      <div>
+        <div class="head"><h3>Kierunki</h3><span class="tag">Platforma mentoringowa · multi-agent</span></div>
+        <p>Produkcyjna platforma, w której mentor AI prowadzi użytkownika według jego własnej, spisanej metodyki — zamiast generycznych porad. Wielu współpracujących agentów na Claude Agent SDK, prompty składane dynamicznie z metodyki i historii użytkownika, integracja z rachunkiem brokerskim (auto-journaling, strażnik reguł ryzyka na żywo). System pracuje na prawdziwych pieniądzach — błędy AI mają tu realny koszt.</p>
+        <div class="stack">Claude Agent SDK · Node/Express · React + TS · Postgres · Firebase · Cloud Run</div>
       </div>
     </div>
 
-    <div class="project-card reveal">
-      <div class="project-emoji">🎓</div>
-      <div class="project-num">05 — E-learning</div>
-      <div class="project-name" data-pl="Kursy AI" data-en="AI Courses">Kursy AI</div>
-      <div class="project-desc" data-pl="Tworzenie kursów e-learningowych z AI na wszystkich etapach produkcji. Połączenie metodyki e-learningu z nowoczesnymi LLM." data-en="Creating e-learning courses with AI at every stage of production. Combining e-learning methodology with modern LLMs.">Tworzenie kursów e-learningowych z AI na wszystkich etapach produkcji. Połączenie metodyki e-learningu z nowoczesnymi LLM.</div>
-      <div class="project-badges">
-        <span class="project-badge">E-learning</span>
-        <span class="project-badge">AI</span>
-        <span class="project-badge">LLM</span>
-        <span class="project-badge">Pedagogika</span>
+    <div class="project">
+      <div class="num">02</div>
+      <div>
+        <div class="head"><h3>Deep Mentor</h3><span class="tag">Spersonalizowany retrieval (RAG)</span></div>
+        <p>Warstwa pamięci długoterminowej mentora: model czyta osobistą bazę wiedzy użytkownika — notatki, lekcje, hipotezy — i cytuje ją w analizach, zamiast odpowiadać z ogólnej wiedzy. Seeding bazy, digest w promptach, twarda kontrola kosztów wnioskowania.</p>
+        <div class="stack">Retrieval po własnej bazie wiedzy · kondensacja kontekstu · cost engineering</div>
       </div>
     </div>
 
-    <div class="project-card reveal">
-      <div class="project-emoji">👗</div>
-      <div class="project-num">06 — App</div>
-      <div class="project-name" data-pl="Stylistka AI" data-en="Stylist AI">Stylistka AI</div>
-      <div class="project-desc" data-pl="System dla stylistki personalnej — zarządzanie klientami, portfolio, social media. Budowany we współpracy z Agą Lenkiewicz." data-en="System for a personal stylist — client management, portfolio, social media. Built in collaboration with Aga Lenkiewicz.">System dla stylistki personalnej — zarządzanie klientami, portfolio, social media. Budowany we współpracy z Agą Lenkiewicz.</div>
-      <div class="project-badges">
-        <span class="project-badge">React Native</span>
-        <span class="project-badge">AI</span>
-        <span class="project-badge">Stylizacja</span>
+    <div class="project">
+      <div class="num">03</div>
+      <div>
+        <div class="head"><h3>audit-mentor</h3><span class="tag">Ewaluacja jakości LLM</span></div>
+        <p>Harness do cyklicznego audytu odpowiedzi mentora AI: taksonomia błędów w czterech klasach, deduplikacja znalezisk po przyczynie źródłowej, backlog naprawczy z lokalizacjami w kodzie. Zasada organizacyjna: metryki liczy deterministyczny kod, model tylko interpretuje — LLM nie ocenia sam siebie na danych, które może przeinaczyć.</p>
+        <div class="stack">Error taxonomy · human review loop · evaluation harness</div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="num">04</div>
+      <div>
+        <div class="head"><h3>Sufler &amp; Szept</h3><span class="tag">Realtime voice AI · macOS</span></div>
+        <p>Natywne aplikacje do rozmów na żywo: strumieniowa transkrypcja obu stron rozmowy, tłumaczenie symultaniczne i podpowiedzi kontekstowe z osobistej bazy wiedzy. Główne wyzwanie inżynierskie: budżet opóźnień w potoku audio → tekst → LLM → odpowiedź, przy dwóch równoległych sesjach modelu.</p>
+        <div class="stack">Swift · Apple SpeechAnalyzer · Gemini Live · inżynieria niskich opóźnień</div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="num">05</div>
+      <div>
+        <div class="head"><h3>Zwiadowca</h3><span class="tag">Agent researchu · MCP</span></div>
+        <p>Agent analizy rynku z twardą granicą autonomii: analizuje, podpowiada i alarmuje, ale decyzja zawsze zostaje przy człowieku — zero auto-tradingu, bez wyjątków. Deterministyczne metryki plus warstwa narracyjna z web researchu, laboratorium backtestów walk-forward, integracje narzędzi przez Model Context Protocol, m.in. most do TradingView Desktop.</p>
+        <div class="stack">MCP · walk-forward backtesting · REST API giełd · Python</div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="num">06</div>
+      <div>
+        <div class="head"><h3>System tradingowy w Pythonie</h3><span class="tag">~35 tys. linii · case study</span></div>
+        <p>Asynchroniczny serwis produkcyjny: architektura warstwowa z serwisem egzekucji jako jedynym właścicielem zleceń, scentralizowana konfiguracja ryzyka, testy jednostkowe na ścieżce pieniędzy, tryb demo jako bezpieczny domyślny. Obok — silnik sygnałowy z scoringiem sygnałów przez LLM w pętli live. Kod prywatny, omawiany na rozmowie jako case study.</p>
+        <div class="stack">FastAPI · Pydantic · asyncpg · websockety · SQLAlchemy · Postgres</div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="num">07</div>
+      <div>
+        <div class="head"><h3>Atelier</h3><span class="tag">AI w rozwoju zawodowym · EdTech</span></div>
+        <p>Roczny program rozwoju zawodowego dla osoby wchodzącej w zawód stylistki — prowadzony przez agenta AI pod moim nadzorem merytorycznym. Codzienny biuletyn generowany z web researchu i osobistego profilu uczestniczki, serie lekcji audio dawkowane po jednej dziennie, dashboard z zadaniem dnia i pętla feedbacku: wpisy uczestniczki wracają do generatora kolejnych wydań. Psychologia uczenia się dorosłych przełożona wprost na architekturę systemu.</p>
+        <div class="stack">Agent headless (cron) · pętla feedbacku · TTS · program nauczania</div>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- YOUTUBE -->
-<section id="youtube" class="youtube-section">
-  <div class="section-label" data-pl="Kanały YouTube" data-en="YouTube Channels">Kanały YouTube</div>
-  <h2 class="section-title reveal" data-pl="Dwa kanały.<br><strong>Jeden głos.</strong>" data-en="Two channels.<br><strong>One voice.</strong>">Dwa kanały.<br><strong>Jeden głos.</strong></h2>
-  <div class="youtube-grid">
-    <div class="yt-card yt-card-pl reveal">
-      <div class="yt-card-bg"></div>
-      <div class="yt-handle">@Rozkładnia · Polski</div>
-      <div class="yt-name">Rozkładnia</div>
-      <p class="yt-desc" data-pl="Psychologia, ADHD i rodzicielstwo po polsku. Dark slides, badania naukowe, bez lania wody." data-en="Psychology, ADHD and parenting in Polish. Dark slides, scientific research, no fluff.">Psychologia, ADHD i rodzicielstwo po polsku. Dark slides, badania naukowe, bez lania wody.</p>
-      <div class="yt-topics">
-        <div class="yt-topic" data-pl="Psychologia ADHD" data-en="ADHD Psychology">Psychologia ADHD</div>
-        <div class="yt-topic" data-pl="Rodzicielstwo i wychowanie" data-en="Parenting">Rodzicielstwo i wychowanie</div>
-        <div class="yt-topic" data-pl="Wypalenie rodzicielskie" data-en="Parental burnout">Wypalenie rodzicielskie</div>
-        <div class="yt-topic" data-pl="Neuropsychologia" data-en="Neuropsychology">Neuropsychologia</div>
-      </div>
-      <a href="https://youtube.com/@Rozkladnia" class="yt-url" target="_blank">youtube.com/@Rozkładnia</a>
-    </div>
-    <div class="yt-card yt-card-en reveal">
-      <div class="yt-card-bg"></div>
-      <div class="yt-handle">@Reparse · English</div>
-      <div class="yt-name">Reparse</div>
-      <p class="yt-desc" data-pl="Ten sam content — globalny rynek. ADHD psychology in English, for parents worldwide." data-en="Same content — global audience. ADHD psychology in English, for parents worldwide.">Ten sam content — globalny rynek. ADHD psychology in English, for parents worldwide.</p>
-      <div class="yt-topics">
-        <div class="yt-topic">ADHD Psychology</div>
-        <div class="yt-topic">Parenting Science</div>
-        <div class="yt-topic">Burnout & Mental Health</div>
-        <div class="yt-topic">Neuropsychology</div>
-      </div>
-      <a href="https://youtube.com/@Reparse" class="yt-url" target="_blank">youtube.com/@Reparse</a>
-    </div>
-  </div>
-</section>
+<!-- APPROACH -->
+<section class="approach" id="podejscie">
+  <div class="container">
+    <span class="label">GDZIE PSYCHOLOGIA SPOTYKA INŻYNIERIĘ</span>
 
-<!-- METHODOLOGY -->
-<section id="methodology" class="method-section">
-  <div class="section-label" data-pl="Jak pracuję" data-en="How I work">Jak pracuję</div>
-  <h2 class="section-title reveal" data-pl="Nauka to<br><strong>moja przewaga.</strong>" data-en="Science is<br><strong>my edge.</strong>">Nauka to<br><strong>moja przewaga.</strong></h2>
-  <div class="method-grid">
-    <div class="method-list">
-      <div class="method-item reveal">
-        <div class="method-icon">B</div>
-        <div>
-          <div class="method-name">Taksonomia Blooma</div>
-          <div class="method-desc" data-pl="Każdy cel uczenia się mapuję przez 6 poziomów poznawczych — od zapamiętywania do tworzenia. Content który tylko informuje, ponosi porażkę." data-en="Every learning objective is mapped across 6 cognitive levels — from recall to creation. Content that only informs fails.">Każdy cel uczenia się mapuję przez 6 poziomów poznawczych — od zapamiętywania do tworzenia. Content który tylko informuje, ponosi porażkę.</div>
-        </div>
-      </div>
-      <div class="method-item reveal">
-        <div class="method-icon">A</div>
-        <div>
-          <div class="method-name">ADDIE Framework</div>
-          <div class="method-desc" data-pl="Analyze → Design → Develop → Implement → Evaluate. Rygor instruktażowy stosowany w każdym kursie, warsztacie i systemie contentowym." data-en="Analyze → Design → Develop → Implement → Evaluate. Instructional rigor applied to every course, workshop and content system.">Analyze → Design → Develop → Implement → Evaluate. Rygor instruktażowy stosowany w każdym kursie, warsztacie i systemie contentowym.</div>
-        </div>
-      </div>
-      <div class="method-item reveal">
-        <div class="method-icon">μ</div>
-        <div>
-          <div class="method-name" data-pl="Mikrolearning" data-en="Microlearning">Mikrolearning</div>
-          <div class="method-desc" data-pl="Celowe, krótkie moduły zaprojektowane wokół uwagi i retencji. Model sprintowy dla nowoczesnych pracowników wiedzy." data-en="Targeted, bite-sized units designed around attention and retention. The sprint model for modern knowledge workers.">Celowe, krótkie moduły zaprojektowane wokół uwagi i retencji. Model sprintowy dla nowoczesnych pracowników wiedzy.</div>
-        </div>
-      </div>
-      <div class="method-item reveal">
-        <div class="method-icon">AI</div>
-        <div>
-          <div class="method-name" data-pl="AI jako narzędzie" data-en="AI as a Tool">AI jako narzędzie</div>
-          <div class="method-desc" data-pl="Nie buzzword. Praktyczna implementacja Claude API, RAG, fine-tuningu i automatyzacji — wszędzie tam gdzie AI realnie pomaga." data-en="Not a buzzword. Practical implementation of Claude API, RAG, fine-tuning and automation — wherever AI genuinely helps.">Nie buzzword. Praktyczna implementacja Claude API, RAG, fine-tuningu i automatyzacji — wszędzie tam gdzie AI realnie pomaga.</div>
-        </div>
-      </div>
+    <div class="approach-item">
+      <span class="k">SYCOPHANCY</span>
+      <p>Wykryłem u własnego mentora AI przymilność: kotwiczył się na emocjonalnej samoocenie użytkownika i ją potwierdzał, zamiast konfrontować z danymi. Jako psycholog wiem, czym różni się wspieranie od przytakiwania — dlatego mentor, który nie przytakuje, wymaga zaprojektowania.</p>
     </div>
-    <div class="reveal">
-      <blockquote class="method-quote" data-pl='"W e-learningu generowanym przez AI, <strong>metodyka dydaktyczna jest dosłownie równa prompt engineeringowi.</strong>"' data-en='"In AI-generated e-learning, <strong>didactic methodology is literally equal to prompt engineering.</strong>"'>"W e-learningu generowanym przez AI, <strong>metodyka dydaktyczna jest dosłownie równa prompt engineeringowi.</strong>"</blockquote>
-      <div class="stack-row">
-        <span class="stack-label">Psychologia</span>
-        <div class="stack-bar"><div class="stack-fill" style="width:96%"></div></div>
-      </div>
-      <div class="stack-row">
-        <span class="stack-label">Pedagogika</span>
-        <div class="stack-bar"><div class="stack-fill" style="width:93%"></div></div>
-      </div>
-      <div class="stack-row">
-        <span class="stack-label">Engineering</span>
-        <div class="stack-bar"><div class="stack-fill" style="width:88%"></div></div>
-      </div>
-      <div class="stack-row">
-        <span class="stack-label">AI / LLM</span>
-        <div class="stack-bar"><div class="stack-fill" style="width:85%"></div></div>
-      </div>
 
+    <div class="approach-item">
+      <span class="k">GRANICE AUTONOMII</span>
+      <p>Najważniejsze decyzje architektoniczne dotyczą tego, czego system nie może zrobić. Zero auto-tradingu w agencie rynkowym. Jedyna mutacja po stronie brokera to ochronna blokada dzienna. Projektowanie takich granic wymaga rozumienia człowieka pod presją — jego zmęczenia i impulsów.</p>
     </div>
+
+    <div class="approach-item">
+      <span class="k">PODZIAŁ PRACY CZŁOWIEK–MODEL</span>
+      <p>Metryki liczy deterministyczny kod, model interpretuje, człowiek rewiduje po fakcie. Świadoma architektura pętli human review — zamiast wiary, że model oceni sam siebie.</p>
+    </div>
+
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="section-label" style="justify-content:center;" data-pl="Kontakt" data-en="Contact">Kontakt</div>
-  <h2 class="section-title" data-pl="Budujmy<br><strong>razem.</strong>" data-en="Let's build<br><strong>together.</strong>">Budujmy<br><strong>razem.</strong></h2>
-  <p class="contact-sub" data-pl="Jestem otwarty na projekty z obszaru psychologii, AI, e-learningu i aplikacji mobilnych. Napisz." data-en="Open to projects in psychology, AI, e-learning and mobile apps. Reach out.">Jestem otwarty na projekty z obszaru psychologii, AI, e-learningu i aplikacji mobilnych. Napisz.</p>
-  <a href="mailto:j.lenkiewicz@gmail.com" class="btn-primary" style="display:inline-block;" data-pl="Napisz email →" data-en="Send email →">Napisz email →</a>
-  <div class="contact-links">
-    <a href="https://www.linkedin.com/in/janusz-lenkiewicz-a683283b8/" class="contact-link" target="_blank">LinkedIn</a>
-    <a href="https://youtube.com/@Rozkladnia" class="contact-link" target="_blank">@Rozkładnia</a>
-    <a href="https://youtube.com/@Reparse" class="contact-link" target="_blank">@Reparse</a>
-    <a href="https://github.com/JanuszLenkiewicz" class="contact-link" target="_blank">GitHub</a>
+<section class="contact" id="kontakt">
+  <div class="contact-left">
+    <h2>Napisz do mnie</h2>
+    <a class="contact-link" href="mailto:j.lenkiewicz@me.com"><small>E-mail</small>j.lenkiewicz@me.com</a>
+    <a class="contact-link" href="https://www.linkedin.com/in/janusz-lenkiewicz-a683283b8" target="_blank" rel="noopener"><small>LinkedIn</small>linkedin.com/in/janusz-lenkiewicz</a>
+  </div>
+  <div class="contact-right">
+    <span class="label">WSPÓŁPRACA</span>
+    <p>Szukam projektów na styku inżynierii AI i człowieka: produkty mentoringowe i edukacyjne, systemy human-in-the-loop, aplikacje LLM od architektury po produkcję.</p>
+    <p>Kontrakt B2B, praca w pełni zdalna. Odpowiadam na każdą konkretną wiadomość.</p>
   </div>
 </section>
 
-<!-- FOOTER -->
+</main>
+
 <footer>
-  <div>
-    <a href="#" class="logo" style="color:#888;text-decoration:none;">Janusz<span style="color:var(--orange);">.</span><span style="font-family:var(--font-logo);color:#555;">Lenkiewicz</span></a>
-    <p class="footer-desc" data-pl="Psycholog · Pedagog · Software Engineer · Twórca treści. Buduję narzędzia AI, które naprawdę pomagają ludziom." data-en="Psychologist · Educator · Software Engineer · Content Creator. Building AI tools that genuinely help people.">Psycholog · Pedagog · Software Engineer · Twórca treści. Buduję narzędzia AI, które naprawdę pomagają ludziom.</p>
+  <div class="brand">JANUSZ LENKIEWICZ</div>
+  <div class="links">
+    <a href="https://www.linkedin.com/in/janusz-lenkiewicz-a683283b8" target="_blank" rel="noopener">LINKEDIN</a>
+    <a href="mailto:j.lenkiewicz@me.com">E-MAIL</a>
   </div>
-  <div>
-    <div class="footer-col-title" data-pl="Projekty" data-en="Projects">Projekty</div>
-    <ul class="footer-links">
-      <li><a href="https://apps.apple.com" target="_blank">CalmParent+</a></li>
-      <li><a href="https://youtube.com/@Rozkladnia" target="_blank">@Rozkładnia</a></li>
-      <li><a href="https://youtube.com/@Reparse" target="_blank">@Reparse</a></li>
-    </ul>
-  </div>
-  <div>
-    <div class="footer-col-title" data-pl="Połącz się" data-en="Connect">Połącz się</div>
-    <ul class="footer-links">
-      <li><a href="https://www.linkedin.com/in/janusz-lenkiewicz-a683283b8/" target="_blank">LinkedIn</a></li>
-      <li><a href="https://youtube.com/@Reparse" target="_blank">YouTube EN</a></li>
-      <li><a href="https://youtube.com/@Rozkladnia" target="_blank">YouTube PL</a></li>
-      <li><a href="mailto:j.lenkiewicz@gmail.com">Email</a></li>
-    </ul>
-  </div>
+  <div class="copy">© 2026 JANUSZ LENKIEWICZ</div>
 </footer>
-<div class="footer-bottom">
-  <span class="footer-copy">© 2026 Janusz Lenkiewicz</span>
-  <span class="footer-copy" style="color:#222;" data-pl="januszlenkiewicz.com" data-en="januszlenkiewicz.com">januszlenkiewicz.com</span>
-</div>
 
-<script>
-// ─── CURSOR
-const cursor = document.getElementById('cursor');
-const ring = document.getElementById('cursorRing');
-let mx = 0, my = 0, rx = 0, ry = 0;
-document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-function animateCursor() {
-  cursor.style.left = mx + 'px'; cursor.style.top = my + 'px';
-  rx += (mx - rx) * 0.15; ry += (my - ry) * 0.15;
-  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
-  requestAnimationFrame(animateCursor);
-}
-animateCursor();
-
-// ─── REVEAL
-const reveals = document.querySelectorAll('.reveal');
-const observer = new IntersectionObserver(entries => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) setTimeout(() => entry.target.classList.add('visible'), i * 60);
-  });
-}, { threshold: 0.1 });
-reveals.forEach(el => observer.observe(el));
-
-// ─── NAV scroll
-window.addEventListener('scroll', () => {
-  const nav = document.querySelector('nav');
-  nav.style.padding = window.scrollY > 40 ? '16px 60px' : '24px 60px';
-});
-
-// ─── LANG SWITCH
-let currentLang = 'pl';
-
-function setLang(lang) {
-  currentLang = lang;
-  document.getElementById('html-root').setAttribute('lang', lang);
-
-  // Update lang buttons
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.textContent === lang.toUpperCase());
-  });
-
-  // Update all elements with data-pl / data-en
-  document.querySelectorAll('[data-pl][data-en]').forEach(el => {
-    const text = lang === 'pl' ? el.getAttribute('data-pl') : el.getAttribute('data-en');
-    if (text) el.innerHTML = text;
-  });
-}
-
-// Init with EN
-setLang('en');
-</script>
 </body>
 </html>
