@@ -649,6 +649,34 @@ function applyLang(lang){
   });
 })();
 
+// nawigacja po sekcjach bez '#' w pasku adresu:
+// klik przewija sam, zamiast oddawać sterowanie kotwicy przeglądarki
+(function(){
+  const goTo = (el, behavior) => el.scrollIntoView({behavior: behavior, block: 'start'});
+
+  document.querySelectorAll('a[href^="#"]:not([data-mail])').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.getElementById(a.getAttribute('href').slice(1));
+      if(!target) return;
+      e.preventDefault();
+      goTo(target, 'smooth');
+    });
+  });
+
+  // wejście ze starego linku z kotwicą (#approach) nadal ma działać, więc przewijamy sami:
+  // natywny skok kotwicy i tak gubi się przy scroll-behavior:smooth i dogrywanych obrazach.
+  // Robimy to po 'load' (layout już się nie przesuwa) i zdejmujemy hash z adresu
+  if(location.hash){
+    const target = document.getElementById(location.hash.slice(1));
+    const jump = () => {
+      if(target) goTo(target, 'instant');
+      history.replaceState(null, '', location.pathname + location.search);
+    };
+    if(document.readyState === 'complete') jump();
+    else window.addEventListener('load', jump, {once:true});
+  }
+})();
+
 // cache english source before any switch
 document.querySelectorAll('[data-i18n]').forEach(el => { el._en = el.innerHTML; });
 
