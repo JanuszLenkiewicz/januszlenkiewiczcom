@@ -1,0 +1,3 @@
+export const LINKEDIN = 'https://www.linkedin.com/in/janusz-lenkiewicz-a683283b8';
+export const LINKEDIN_ETYKIETA = 'linkedin.com/in/janusz-lenkiewicz';
+export const DOMENA = 'https://januszlenkiewicz.com';

@@ -1,2 +1,14 @@
 .DS_Store
 .claude/settings.local.json
+
+# Next.js / Node
+node_modules
+.next
+next-env.d.ts
+*.tsbuildinfo
+
+# Vercel
+.vercel
+
+# lokalne zmienne środowiskowe
+.env*.local
