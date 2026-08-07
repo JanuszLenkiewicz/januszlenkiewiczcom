@@ -283,7 +283,7 @@ footer a:hover{color:var(--black);}
 <!-- HERO -->
 <section class="hero">
   <div class="hero-text">
-    <span class="label" data-i18n="hero_label">AI ENGINEER · PSYCHOLOGIST · 100% REMOTE</span>
+    <span class="label" data-i18n="hero_label">AI ENGINEER · PSYCHOLOGIST</span>
     <h1 data-i18n="hero_title">I build AI systems where the human has the final say</h1>
     <a class="cta" href="#projects" data-i18n="hero_cta">SEE PROJECTS →</a>
   </div>
@@ -526,7 +526,7 @@ footer a:hover{color:var(--black);}
 <section class="contact" id="contact">
   <div class="contact-left">
     <h2 data-i18n="contact_h2">Get in touch</h2>
-    <a class="contact-link" href="mailto:j.lenkiewicz@me.com"><small data-i18n="contact_email_l">Email</small>j.lenkiewicz@me.com</a>
+    <a class="contact-link" href="#contact" data-mail="full"><small data-i18n="contact_email_l">Email</small><span class="mail-slot">·····</span></a>
     <a class="contact-link" href="https://www.linkedin.com/in/janusz-lenkiewicz-a683283b8" target="_blank" rel="noopener"><small>LinkedIn</small>linkedin.com/in/janusz-lenkiewicz</a>
   </div>
   <div class="contact-right">
@@ -542,7 +542,7 @@ footer a:hover{color:var(--black);}
   <div class="brand">JANUSZ LENKIEWICZ</div>
   <div class="links">
     <a href="https://www.linkedin.com/in/janusz-lenkiewicz-a683283b8" target="_blank" rel="noopener">LINKEDIN</a>
-    <a href="mailto:j.lenkiewicz@me.com">E-MAIL</a>
+    <a href="#contact" data-mail="link">E-MAIL</a>
   </div>
   <div class="copy">© 2026 JANUSZ LENKIEWICZ</div>
 </footer>
@@ -552,7 +552,7 @@ const I18N = {
   pl: {
     _title: "JANUSZ LENKIEWICZ | AI ENGINEER",
     nav_projects: "PROJEKTY", nav_skills: "KOMPETENCJE", nav_about: "O MNIE", nav_approach: "PODEJŚCIE", nav_contact: "KONTAKT",
-    hero_label: "AI ENGINEER · PSYCHOLOG · 100% ZDALNIE",
+    hero_label: "AI ENGINEER · PSYCHOLOG",
     hero_title: "Buduję systemy AI, w&nbsp;których człowiek ma ostatnie słowo",
     hero_cta: "ZOBACZ PROJEKTY →",
     stat1_k: "14 LAT", stat1_v: "komercyjnej inżynierii oprogramowania",
@@ -637,6 +637,17 @@ function applyLang(lang){
     b.classList.toggle('active', b.dataset.lang === lang));
   try { localStorage.setItem('jl_lang', lang); } catch(e){}
 }
+
+// e-mail montowany dopiero w przeglądarce — w źródle HTML nie ma adresu w postaci tekstowej,
+// więc automaty zbierające adresy regexem (bez wykonywania JS) nic tu nie znajdą
+(function(){
+  const addr = atob('ai5sZW5raWV3aWN6') + String.fromCharCode(64) + atob('bWUuY29t');
+  document.querySelectorAll('[data-mail]').forEach(el => {
+    el.setAttribute('href', 'mailto:' + addr);
+    const slot = el.querySelector('.mail-slot');
+    if(slot) slot.textContent = addr;
+  });
+})();
 
 // cache english source before any switch
 document.querySelectorAll('[data-i18n]').forEach(el => { el._en = el.innerHTML; });
