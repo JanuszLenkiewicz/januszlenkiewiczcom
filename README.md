@@ -12,7 +12,7 @@ Czysty statyczny HTML + CSS w jednym pliku `index.html` (bez frameworków, bez b
 
 ## Treść — źródła prawdy
 
-Fakty biograficzne i opisy projektów pochodzą z pakietu kampanii `~/localhost/ai-engineer` (CV `cv/cv-pl.md`, lekcje 01 i 21). Zasada twardej uczciwości: zero zawyżania, projekty opisane tak, jak działają. Projekt „Atelier" opisywany bez danych osobowych uczestniczki.
+Fakty biograficzne i opisy projektów pochodzą z prywatnego pakietu kampanii utrzymywanego poza tym repozytorium (CV oraz lekcje 01 i 21). Zasada twardej uczciwości: zero zawyżania, projekty opisane tak, jak działają. Projekt „Atelier" opisywany bez danych osobowych uczestniczki.
 
 ## Podgląd lokalny
 
