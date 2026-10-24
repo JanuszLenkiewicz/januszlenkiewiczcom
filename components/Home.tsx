@@ -3,20 +3,23 @@
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import type { SekcjaSlug } from '@/content/sections';
-import { LINKEDIN, LINKEDIN_ETYKIETA } from '@/content/kontakt';
+import { LINKEDIN, LINKEDIN_ETYKIETA, PRODUKT, PRODUKT_ETYKIETA } from '@/content/kontakt';
 import { Adres, MailLink } from './Mail';
 import { T } from './lang';
 
-/** Numery projektów mają swoje teksty w słowniku pod kluczami p1_… p7_ */
+/** Projekt n ma swoje teksty w słowniku pod kluczami p{n}_… (tytuł z klucza albo stały) */
 const PROJEKTY = [
-  { num: '01', tytul: 'Trader AI Assistant', stack: 'Claude Agent SDK · Node/Express · React + TS · Postgres · Firebase · Cloud Run' },
-  { num: '02', tytul: 'Deep Mentor', stackKlucz: 'p2_stack' },
-  { num: '03', tytul: 'audit-mentor', stack: 'Error taxonomy · human review loop · evaluation harness' },
-  { num: '04', tytul: 'Prompter & Murmur', stackKlucz: 'p4_stack' },
-  { num: '05', tytul: 'Scout', stackKlucz: 'p5_stack' },
-  { num: '06', tytulKlucz: 'p6_title', stack: 'FastAPI · Pydantic · asyncpg · websockets · SQLAlchemy · Postgres' },
-  { num: '07', tytul: 'Atelier', stackKlucz: 'p7_stack' },
+  { num: '01', tytul: 'Trader AI Assistant', stack: 'LangGraph · Gemini · Express/TypeScript · PostgreSQL · React · Swift' },
+  { num: '02', tytulKlucz: 'p2_title', stackKlucz: 'p2_stack' },
+  { num: '03', tytul: 'Deep Mentor', stackKlucz: 'p3_stack' },
+  { num: '04', tytulKlucz: 'p4_title', stackKlucz: 'p4_stack' },
+  { num: '05', tytulKlucz: 'p5_title', stackKlucz: 'p5_stack' },
+  { num: '06', tytul: 'Scout', stackKlucz: 'p6_stack' },
+  { num: '07', tytulKlucz: 'p7_title', stack: 'FastAPI · Pydantic · asyncpg · websockets · SQLAlchemy · Postgres' },
+  { num: '08', tytul: 'Atelier', stackKlucz: 'p8_stack' },
 ] as const;
+
+const PODEJSCIE = [1, 2, 3, 4] as const;
 
 const FAKTY = [1, 2, 3, 4, 5, 6, 7, 8] as const;
 
@@ -116,7 +119,7 @@ export function Home({ section }: { section?: SekcjaSlug }) {
                 <div className="num">{p.num}</div>
                 <div>
                   <div className="head">
-                    {'tytulKlucz' in p ? <T k={p.tytulKlucz as 'p6_title'} as="h3" /> : <h3>{p.tytul}</h3>}
+                    {'tytulKlucz' in p ? <T k={p.tytulKlucz as 'p2_title'} as="h3" /> : <h3>{p.tytul}</h3>}
                     <T k={`p${n}_tag` as 'p1_tag'} className="tag" />
                   </div>
                   <T k={`p${n}_desc` as 'p1_desc'} as="p" />
@@ -160,18 +163,12 @@ export function Home({ section }: { section?: SekcjaSlug }) {
         <div className="container">
           <T k="approach_label" className="label" />
 
-          <div className="approach-item">
-            <span className="k">SYCOPHANCY</span>
-            <T k="appr1" as="p" />
-          </div>
-          <div className="approach-item">
-            <T k="appr2_k" className="k" />
-            <T k="appr2" as="p" />
-          </div>
-          <div className="approach-item">
-            <T k="appr3_k" className="k" />
-            <T k="appr3" as="p" />
-          </div>
+          {PODEJSCIE.map((n) => (
+            <div className="approach-item" key={n}>
+              <T k={`appr${n}_k` as 'appr1_k'} className="k" />
+              <T k={`appr${n}` as 'appr1'} as="p" />
+            </div>
+          ))}
         </div>
       </section>
 
@@ -186,6 +183,10 @@ export function Home({ section }: { section?: SekcjaSlug }) {
           <a className="contact-link" href={LINKEDIN} target="_blank" rel="noopener">
             <small>LinkedIn</small>
             {LINKEDIN_ETYKIETA}
+          </a>
+          <a className="contact-link" href={PRODUKT} target="_blank" rel="noopener">
+            <T k="contact_product_l" as="small" />
+            {PRODUKT_ETYKIETA}
           </a>
         </div>
         <div className="contact-right">
