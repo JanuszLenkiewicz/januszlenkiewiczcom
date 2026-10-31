@@ -37,14 +37,14 @@ const TRESC: Record<Lang, Record<string, Blok>> = {
     s1h: 'Kto myśli pierwszy',
     s1artykul: 'Kulisy artykułu „Najpierw sam, potem AI”',
     s1wstep:
-      'Badania pokazują, że wynik osiągnięty z AI nie mówi, czego człowiek się nauczył. Z tego wyciągnąłem zasadę projektową: tam, gdzie umiejętność ma przetrwać dzień bez AI, najpierw własna próba człowieka, potem pomoc. A ponieważ zasada oparta na dobrej woli przegrywa z pośpiechem, staram się, żeby pilnował jej kod. Oto, jak to wygląda na platformie dziś.',
+      'Badania pokazują, że wynik osiągnięty z AI nie mówi, czego człowiek się nauczył. Z tego wyciągnąłem zasadę projektową: tam, gdzie umiejętność ma przetrwać dzień bez AI, najpierw własna próba człowieka, potem pomoc. A ponieważ zasada oparta na dobrej woli przegrywa z pośpiechem, staram się, żeby pilnował jej kod. W projektowaniu agentów ten kod ma nazwę: harness, czyli wszystko wokół modelu: narzędzia, bramki, kolejność kroków, to, co model widzi i kiedy. Harness to proces zapisany w kodzie, więc projektując harness, projektuję proces. Oto, jak to wygląda na platformie dziś.',
 
     m1h: 'Dwa mentory, które nie widzą swoich ocen',
-    m1: 'Głęboki mentor analizuje wieczorem dzień tradera i może sięgnąć po ocenę szybszego mentora, ale dopiero wtedy, gdy napisze własną główną analizę. Bramka siedzi w kodzie narzędzia, a nie w instrukcji dla modelu. W biegach, które oceny szybszego mentora nie dotyczą, tego narzędzia w ogóle nie ma na liście. Na produkcji sprawdziłem to po kolejności wywołań, nie tylko testem. Bez tej bramki zamiast drugiej opinii dostawałbym streszczenie pierwszej.',
+    m1: 'Głęboki mentor analizuje wieczorem dzień tradera i może sięgnąć po ocenę szybszego mentora, ale dopiero wtedy, gdy napisze własną główną analizę. Bramka siedzi w harnessie, w kodzie narzędzia, a nie w instrukcji dla modelu. W biegach, które oceny szybszego mentora nie dotyczą, tego narzędzia w ogóle nie ma na liście. Na produkcji sprawdziłem to po kolejności wywołań, nie tylko testem. Bez tej bramki zamiast drugiej opinii dostawałbym streszczenie pierwszej.',
     m1stan: 'Działa.',
 
     m2h: 'Ocena AI nie wraca do kontekstu',
-    m2: 'Niezależna ocena transakcji, którą pisze osobny model, nigdy nie trafia do instrukcji szybszego mentora ani do danych dnia, które czyta głęboki mentor. Dzięki temu modele nie powtarzają po sobie cudzego werdyktu jak faktu o traderze.',
+    m2: 'Niezależna ocena transakcji, którą pisze osobny model, nigdy nie trafia do instrukcji szybszego mentora ani do danych dnia, które czyta głęboki mentor. To decyzja harnessu: o tym, co model zobaczy, rozstrzyga kod, który składa jego kontekst. Dzięki temu modele nie powtarzają po sobie cudzego werdyktu jak faktu o traderze.',
     m2stan: 'Działa.',
 
     m3h: 'Ocena planu czeka na rynek',
@@ -56,13 +56,13 @@ const TRESC: Record<Lang, Record<string, Blok>> = {
     m4stan: 'Działa od 23 września 2026.',
 
     m5h: 'Ocena transakcji: zaprojektowana, ale wyłączona',
-    m5: 'Każda transakcja dostaje ocenę AI, a ja zaprojektowałem ją z dwoma ustawieniami. Domyślne, wybrane na czas testów, pokazuje ocenę od razu po zapisaniu wyniku, więc trader czyta ją, zanim sam przeanalizuje swoją decyzję. Docelowe każe ocenie czekać, aż trader zapisze własną analizę w sesji z mentorem. To drugie istnieje w kodzie i można je włączyć osobno dla każdego konta. Nie jest włączone.',
+    m5: 'Każda transakcja dostaje ocenę AI, a ja zaprojektowałem ją z dwoma ustawieniami. Domyślne, wybrane na czas testów, pokazuje ocenę od razu po zapisaniu wyniku, więc trader czyta ją, zanim sam przeanalizuje swoją decyzję. Docelowe każe ocenie czekać, aż trader zapisze własną analizę w sesji z mentorem. To drugie istnieje w harnessie i można je włączyć osobno dla każdego konta. Nie jest włączone: harness jest gotowy, brakuje decyzji procesowej, a tę mogę podjąć tylko ja.',
     m5stan: 'Gotowe w kodzie, wyłączone.',
 
     stanLabel: 'Stan',
 
     lekcjaH: 'Lekcja',
-    lekcja: 'Instrukcja dla modelu jest prośbą. Kod jest warunkiem. Tam, gdzie kolejność ma znaczenie, pilnuje jej kod, a nie dobra wola modelu ani człowieka.',
+    lekcja: 'Instrukcja dla modelu jest prośbą. Harness jest warunkiem. Tam, gdzie kolejność ma znaczenie, pilnuje jej harness, a nie dobra wola modelu ani człowieka. Projektując harness, projektujesz proces.',
 
     dalejH: 'Co dalej',
     dalej:
@@ -82,14 +82,14 @@ const TRESC: Record<Lang, Record<string, Blok>> = {
     s1h: 'Who thinks first',
     s1artykul: 'Behind the article “Yourself first, then AI”',
     s1wstep:
-      'Research shows that a result achieved with AI does not tell you what a person has learned. From that I took a design rule: where a skill has to survive a day without AI, the person’s own attempt comes first and help comes second. And since a rule that relies on goodwill loses to haste, I try to make code enforce it. Here is how that looks on the platform today.',
+      'Research shows that a result achieved with AI does not tell you what a person has learned. From that I took a design rule: where a skill has to survive a day without AI, the person’s own attempt comes first and help comes second. And since a rule that relies on goodwill loses to haste, I try to make code enforce it. In agent design that code has a name: the harness, everything around the model: tools, gates, the order of steps, what the model sees and when. The harness is the process written in code, so when I design the harness, I design the process. Here is how that looks on the platform today.',
 
     m1h: 'Two mentors that cannot see each other’s verdicts',
-    m1: 'In the evening the deep mentor analyses the trader’s day and may look at the faster mentor’s assessment, but only after it has written its own main analysis. The gate sits in the tool’s code, not in the model’s instructions. In runs that have nothing to do with the faster mentor’s assessment, the tool is not on the list at all. I confirmed this in production from the order of calls, not only with a test. Without that gate I would be getting a summary of the first opinion instead of a second one.',
+    m1: 'In the evening the deep mentor analyses the trader’s day and may look at the faster mentor’s assessment, but only after it has written its own main analysis. The gate sits in the harness, in the tool’s code, not in the model’s instructions. In runs that have nothing to do with the faster mentor’s assessment, the tool is not on the list at all. I confirmed this in production from the order of calls, not only with a test. Without that gate I would be getting a summary of the first opinion instead of a second one.',
     m1stan: 'Working.',
 
     m2h: 'AI verdicts do not flow back into context',
-    m2: 'The independent trade assessment, written by a separate model, never enters the faster mentor’s instructions or the day data the deep mentor reads. That keeps the models from repeating someone else’s verdict as if it were a fact about the trader.',
+    m2: 'The independent trade assessment, written by a separate model, never enters the faster mentor’s instructions or the day data the deep mentor reads. That is a harness decision: the code that assembles a model’s context decides what the model gets to see. That keeps the models from repeating someone else’s verdict as if it were a fact about the trader.',
     m2stan: 'Working.',
 
     m3h: 'The plan assessment waits for the market',
@@ -101,13 +101,13 @@ const TRESC: Record<Lang, Record<string, Blok>> = {
     m4stan: 'In place since 23 September 2026.',
 
     m5h: 'Trade assessment: designed, but switched off',
-    m5: 'Every trade gets an AI assessment, and I designed it with two settings. The default, chosen for the testing period, shows the assessment as soon as the result is saved, so the trader reads it before analysing their own decision. The target setting makes the assessment wait until the trader has saved their own analysis in the mentor session. It exists in the code and can be switched on per account. It is not switched on.',
+    m5: 'Every trade gets an AI assessment, and I designed it with two settings. The default, chosen for the testing period, shows the assessment as soon as the result is saved, so the trader reads it before analysing their own decision. The target setting makes the assessment wait until the trader has saved their own analysis in the mentor session. It exists in the harness and can be switched on per account. It is not switched on: the harness is ready, the process decision is missing, and only I can make it.',
     m5stan: 'Ready in code, switched off.',
 
     stanLabel: 'Status',
 
     lekcjaH: 'Lesson',
-    lekcja: 'An instruction to a model is a request. Code is a condition. Where order matters, code enforces it, not the goodwill of the model or of the person.',
+    lekcja: 'An instruction to a model is a request. The harness is a condition. Where order matters, the harness enforces it, not the goodwill of the model or of the person. When you design the harness, you design the process.',
 
     dalejH: 'What comes next',
     dalej:
