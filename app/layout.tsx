@@ -21,6 +21,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: `${DOMENA}/`,
   },
+  twitter: { card: 'summary', creator: '@lenkiewj' },
   icons: { icon: FAVICON },
 };
 

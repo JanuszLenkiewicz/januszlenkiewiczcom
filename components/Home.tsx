@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import type { SekcjaSlug } from '@/content/sections';
-import { LINKEDIN, LINKEDIN_ETYKIETA, PRODUKT, PRODUKT_ETYKIETA } from '@/content/kontakt';
+import { LINKEDIN, LINKEDIN_ETYKIETA, PRODUKT, PRODUKT_ETYKIETA, X_ETYKIETA, X_KONTO } from '@/content/kontakt';
 import { Adres, MailLink } from './Mail';
 import { T } from './lang';
 
@@ -183,6 +183,10 @@ export function Home({ section }: { section?: SekcjaSlug }) {
           <a className="contact-link" href={LINKEDIN} target="_blank" rel="noopener">
             <small>LinkedIn</small>
             {LINKEDIN_ETYKIETA}
+          </a>
+          <a className="contact-link" href={X_KONTO} target="_blank" rel="noopener">
+            <small>X</small>
+            {X_ETYKIETA}
           </a>
           <a className="contact-link" href={PRODUKT} target="_blank" rel="noopener">
             <T k="contact_product_l" as="small" />

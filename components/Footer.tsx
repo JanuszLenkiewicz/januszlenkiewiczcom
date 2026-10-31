@@ -1,5 +1,5 @@
 import { MailLink } from './Mail';
-import { LINKEDIN } from '@/content/kontakt';
+import { LINKEDIN, X_KONTO } from '@/content/kontakt';
 
 export function Footer() {
   return (
@@ -8,6 +8,9 @@ export function Footer() {
       <div className="links">
         <a href={LINKEDIN} target="_blank" rel="noopener">
           LINKEDIN
+        </a>
+        <a href={X_KONTO} target="_blank" rel="noopener">
+          X
         </a>
         <MailLink>E-MAIL</MailLink>
       </div>
