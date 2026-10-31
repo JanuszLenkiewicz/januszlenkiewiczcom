@@ -148,7 +148,7 @@ export function Tresc() {
           <p>{t.otwarcie}</p>
           <p>{t.rosnie}</p>
 
-          <h2 id="kto-mysli-pierwszy">{t.s1h}</h2>
+          <h2 id="who-thinks-first">{t.s1h}</h2>
           <p>
             <em>{LINKEDIN.najpierwSam ? <a href={LINKEDIN.najpierwSam}>{t.s1artykul}</a> : t.s1artykul}</em>
           </p>
