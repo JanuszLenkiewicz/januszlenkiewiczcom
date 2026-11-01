@@ -16,3 +16,22 @@ Teksty obu wersji językowych są w `content/site.ts` (od 24.10.2026 przepisane 
 npm ci && npm run build && npx next start -p 3010
 # → http://localhost:3010
 ```
+
+## Artykuły — jak artykuł z LinkedIna trafia na stronę
+
+Każdy artykuł ma na stronie wersję polską i angielską (przełącznik EN/PL w menu). Mechanika: `content/articles.ts` (rejestr, opis w nagłówku pliku) + katalog `app/articles/{slug}/` (`page.tsx` z metadanymi, `tresc.tsx` z tekstami obu wersji i układem). Slug jest angielski, bo strona domyślnie pokazuje wersję angielską.
+
+Skąd bierzemy tekst:
+
+1. **Wersja polska** to kopia robocza artykułu w vaulcie My (`my/03-linkedin/posty/w-produkcji/artykuly/A{n}-{slug}.md`) albo oryginał w repo `ai-engineer` (`www/linkedin/artykuly/{slug}.md`), jeśli już istnieje. Przenosimy go dosłownie, bez notatek `%% … %%`. Wersję, która trafiła na stronę (commit kopii), zapisujemy w komentarzu na górze `tresc.tsx`.
+2. **Wersja angielska** to przekład tego samego tekstu (pisze Opus). Gdy oryginał ma już angielską wersję do publikacji na LinkedInie, bierzemy ją.
+3. **Źródła** z sekcji „Komentarz ze źródłami” trafiają na stronę jako sekcja „Sources / Źródła” na końcu artykułu (DOI jako linki).
+4. Po wpisaniu: `npm run build`, podgląd na `localhost:3010` w obu językach i na wąskim ekranie, potem gałąź `feat/artykul-{slug}` i **scalenie do `main` dopiero po akceptacji Janusza** (scalenie publikuje stronę).
+5. W kopii roboczej w vaulcie My uzupełnij pole `strona:` adresem artykułu na januszlenkiewicz.com.
+
+Opublikowane artykuły:
+
+| Slug | Źródło tekstu | Data |
+|---|---|---|
+| `translator-heard-nothing` | `ai-engineer/kampania/linkedin-artykul-szept-slyszenie.md` | 2026-10-27 |
+| `hypothesis-instead-of-a-label` | A9 „Hipoteza zamiast etykiety”, pełna wersja z kopii roboczej (`my`, commit `6c1836c`), przed skróceniem na LinkedIn | 2026-11-01 |
