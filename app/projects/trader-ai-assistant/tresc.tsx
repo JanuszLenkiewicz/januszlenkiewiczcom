@@ -37,7 +37,7 @@ const TRESC: Record<Lang, Record<string, Blok>> = {
     s1h: 'Kto myśli pierwszy',
     s1artykul: 'Kulisy artykułu „Najpierw sam, potem AI”',
     s1wstep:
-      'Badania pokazują, że wynik osiągnięty z AI nie mówi, czego człowiek się nauczył. Z tego wyciągnąłem zasadę projektową: tam, gdzie umiejętność ma przetrwać dzień bez AI, najpierw własna próba człowieka, potem pomoc. A ponieważ zasada oparta na dobrej woli przegrywa z pośpiechem, staram się, żeby pilnował jej kod. W projektowaniu agentów ten kod ma nazwę: harness, czyli wszystko wokół modelu: narzędzia, bramki, kolejność kroków, to, co model widzi i kiedy. Harness to proces zapisany w kodzie, więc projektując harness, projektuję proces. Oto, jak to wygląda na platformie dziś.',
+      'Badania pokazują, że wynik osiągnięty z AI nie mówi, czego człowiek się nauczył, a liczy się jego aktywny udział. Michael Gerlich radzi w APA Monitor: najpierw przemyśl problem sam, a dopiero potem pokaż AI swoje rozwiązanie. Biorę tę radę jako zasadę projektową: tam, gdzie umiejętność ma przetrwać dzień bez AI, najpierw własna próba człowieka, potem pomoc. A ponieważ zasada oparta na dobrej woli przegrywa z pośpiechem, staram się, żeby pilnował jej kod. W projektowaniu agentów ten kod ma nazwę: harness, czyli wszystko wokół modelu: narzędzia, bramki, kolejność kroków, to, co model widzi i kiedy. Harness to proces zapisany w kodzie, więc projektując harness, projektuję proces. Oto, jak to wygląda na platformie dziś.',
 
     m1h: 'Dwa mentory, które nie widzą swoich ocen',
     m1: 'Głęboki mentor analizuje wieczorem dzień tradera i może sięgnąć po ocenę szybszego mentora, ale dopiero wtedy, gdy napisze własną główną analizę. Bramka siedzi w harnessie, w kodzie narzędzia, a nie w instrukcji dla modelu. W biegach, które oceny szybszego mentora nie dotyczą, tego narzędzia w ogóle nie ma na liście. Na produkcji sprawdziłem to po kolejności wywołań, nie tylko testem. Bez tej bramki zamiast drugiej opinii dostawałbym streszczenie pierwszej.',
@@ -56,7 +56,7 @@ const TRESC: Record<Lang, Record<string, Blok>> = {
     m4stan: 'Działa od 23 września 2026.',
 
     m5h: 'Ocena transakcji: zaprojektowana, ale wyłączona',
-    m5: 'Każda transakcja dostaje ocenę AI, a ja zaprojektowałem ją z dwoma ustawieniami. Domyślne, wybrane na czas testów, pokazuje ocenę od razu po zapisaniu wyniku, więc trader czyta ją, zanim sam przeanalizuje swoją decyzję. Docelowe każe ocenie czekać, aż trader zapisze własną analizę w sesji z mentorem. To drugie istnieje w harnessie i można je włączyć osobno dla każdego konta. Nie jest włączone: harness jest gotowy, brakuje decyzji procesowej, a tę mogę podjąć tylko ja.',
+    m5: 'Każda transakcja dostaje ocenę AI, a ja zaprojektowałem ją z dwoma ustawieniami. Domyślne, wybrane na czas testów, pokazuje ocenę od razu po zapisaniu wyniku, więc trader czyta ją, zanim sam przeanalizuje swoją decyzję. Wybrałem je, bo tak było szybciej i wygodniej, także dla mnie, bo sam handluję na tej platformie. Docelowe każe ocenie czekać, aż trader zapisze własną analizę w sesji z mentorem. To drugie istnieje w harnessie i można je włączyć osobno dla każdego konta. Nie jest włączone: harness jest gotowy, brakuje decyzji procesowej, a tę mogę podjąć tylko ja.',
     m5stan: 'Gotowe w kodzie, wyłączone.',
 
     stanLabel: 'Stan',
@@ -66,7 +66,7 @@ const TRESC: Record<Lang, Record<string, Blok>> = {
 
     dalejH: 'Co dalej',
     dalej:
-      'Nie wiem jeszcze, czy kolejność „najpierw człowiek” uczy traderów czegoś trwałego, czy tylko zabiera im czas. Przygotowuję protokół badania na sobie: fazy na zmianę z oceną od razu i z oceną po mojej analizie, miary procesu zamiast wyniku finansowego i plan zapisany przed startem. Wyniki opiszę tutaj.',
+      'Nie wiem jeszcze, co zmieni ocena transakcji, która czeka na opis tradera: czy poprawi jakość jego własnego myślenia, czy tylko doda mu pracy. Przygotowałem plan badania na sobie: fazy na zmianę z oceną od razu i z oceną po moim opisie, miary procesu zamiast wyniku finansowego, opisy oceniane na ślepo, bez wiedzy, z której fazy pochodzą, i plan zapisany przed startem. Brak różnicy też będzie wynikiem. Wyniki opiszę tutaj.',
   },
   en: {
     label: 'PROJECT · BEHIND THE SCENES',
@@ -80,9 +80,9 @@ const TRESC: Record<Lang, Record<string, Blok>> = {
       'This page grows together with my articles on LinkedIn. Each section is the backstage of one piece: mechanisms, dates and where things stand today, without squeezing it into a single sentence.',
 
     s1h: 'Who thinks first',
-    s1artykul: 'Behind the article “Yourself first, then AI”',
+    s1artykul: 'Behind the article “Who thinks first: you or the AI?”',
     s1wstep:
-      'Research shows that a result achieved with AI does not tell you what a person has learned. From that I took a design rule: where a skill has to survive a day without AI, the person’s own attempt comes first and help comes second. And since a rule that relies on goodwill loses to haste, I try to make code enforce it. In agent design that code has a name: the harness, everything around the model: tools, gates, the order of steps, what the model sees and when. The harness is the process written in code, so when I design the harness, I design the process. Here is how that looks on the platform today.',
+      'Research shows that a result achieved with AI does not tell you what a person has learned, and that what matters is the person’s active participation. Michael Gerlich’s advice in the APA Monitor is to think the problem through yourself first and only then show the AI your solution. I take that advice as a design rule: where a skill has to survive a day without AI, the person’s own attempt comes first and help comes second. And since a rule that relies on goodwill loses to haste, I try to make code enforce it. In agent design that code has a name: the harness, everything around the model: tools, gates, the order of steps, what the model sees and when. The harness is the process written in code, so when I design the harness, I design the process. Here is how that looks on the platform today.',
 
     m1h: 'Two mentors that cannot see each other’s verdicts',
     m1: 'In the evening the deep mentor analyses the trader’s day and may look at the faster mentor’s assessment, but only after it has written its own main analysis. The gate sits in the harness, in the tool’s code, not in the model’s instructions. In runs that have nothing to do with the faster mentor’s assessment, the tool is not on the list at all. I confirmed this in production from the order of calls, not only with a test. Without that gate I would be getting a summary of the first opinion instead of a second one.',
@@ -101,7 +101,7 @@ const TRESC: Record<Lang, Record<string, Blok>> = {
     m4stan: 'In place since 23 September 2026.',
 
     m5h: 'Trade assessment: designed, but switched off',
-    m5: 'Every trade gets an AI assessment, and I designed it with two settings. The default, chosen for the testing period, shows the assessment as soon as the result is saved, so the trader reads it before analysing their own decision. The target setting makes the assessment wait until the trader has saved their own analysis in the mentor session. It exists in the harness and can be switched on per account. It is not switched on: the harness is ready, the process decision is missing, and only I can make it.',
+    m5: 'Every trade gets an AI assessment, and I designed it with two settings. The default, chosen for the testing period, shows the assessment as soon as the result is saved, so the trader reads it before analysing their own decision. I chose it because it was faster and more convenient, for me too, since I trade on this platform myself. The target setting makes the assessment wait until the trader has saved their own analysis in the mentor session. It exists in the harness and can be switched on per account. It is not switched on: the harness is ready, the process decision is missing, and only I can make it.',
     m5stan: 'Ready in code, switched off.',
 
     stanLabel: 'Status',
@@ -111,7 +111,7 @@ const TRESC: Record<Lang, Record<string, Blok>> = {
 
     dalejH: 'What comes next',
     dalej:
-      'I do not know yet whether “human first” teaches traders anything lasting or only costs them time. I am preparing a protocol for a study on myself: alternating phases with the assessment shown at once and shown after my own analysis, process measures instead of financial results, and a plan registered before the start. I will report the results here.',
+      'I do not know yet what a trade assessment that waits for the trader’s description will change: whether it improves the quality of their own thinking or only adds work. I have prepared a plan for a study on myself: alternating phases with the assessment shown at once and shown after my own description, process measures instead of financial results, descriptions rated blind, without knowing which phase they come from, and a plan registered before the start. No difference will be a result too. I will report the results here.',
   },
 };
 
