@@ -17,7 +17,7 @@ import type { Lang } from '@/content/site';
  */
 
 const LINKEDIN = {
-  najpierwSam: '',
+  najpierwSam: 'https://www.linkedin.com/pulse/who-thinks-first-you-ai-janusz-lenkiewicz-u9yac/',
 };
 
 type Blok = ReactNode;
