@@ -34,4 +34,4 @@ Opublikowane artykuły:
 | Slug | Źródło tekstu | Data |
 |---|---|---|
 | `translator-heard-nothing` | `ai-engineer/kampania/linkedin-artykul-szept-slyszenie.md` | 2026-10-27 |
-| `hypothesis-instead-of-a-label` | A9 „Hipoteza zamiast etykiety”, pełna wersja z kopii roboczej (`my`, commit `6c1836c`), przed skróceniem na LinkedIn | 2026-11-01 |
+| `hypothesis-instead-of-a-label` | A9 „Hipoteza zamiast etykiety”. **Do podmiany przed publikacją (decyzja Janusza 6.11.2026):** na stronę idzie 1:1 kopia robocza po zakończeniu edycji (PL) + jej przekład EN. Na tej gałęzi leży jeszcze wersja z 31.10 (commit kopii `6c1836c`), nieopublikowana. Po stronie: osobne wpisy na Bluesky i X. | 2026-11-01 (szkic) |
