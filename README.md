@@ -35,4 +35,3 @@ Opublikowane artykuły:
 |---|---|---|
 | `translator-heard-nothing` | `ai-engineer/kampania/linkedin-artykul-szept-slyszenie.md` | 2026-10-27 |
 | `hypothesis-instead-of-a-label` | A9 „Hipoteza zamiast etykiety”. **Do podmiany przed publikacją (decyzja Janusza 6.11.2026):** na stronę idzie 1:1 kopia robocza po zakończeniu edycji (PL) + jej przekład EN. Na tej gałęzi leży jeszcze wersja z 31.10 (commit kopii `6c1836c`), nieopublikowana. Po stronie: osobne wpisy na Bluesky i X z linkiem do artykułu na stronie (decyzja Janusza 6.11). | 2026-11-01 (szkic) |
-| `hypothesis-instead-of-a-label-2026-10-31` | **Ukryta kopia archiwalna** wersji A9 z 31.10 (noindex, poza listą), zachowana na prośbę Janusza 6.11.2026 przy podmianie artykułu na wersję z kopii roboczej. Materiał pomocniczy do technicznego bliźniaka A9T. | — |
