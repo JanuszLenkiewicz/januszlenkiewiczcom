@@ -44,6 +44,20 @@ export const ARTYKULY: Artykul[] = [
     tag: { pl: 'AI na urządzeniu', en: 'On-device AI' },
     czas: 8,
   },
+  {
+    slug: 'who-thinks-first',
+    tytul: {
+      pl: 'Najpierw sam, potem AI',
+      en: 'Who thinks first: you or the AI?',
+    },
+    lead: {
+      pl: 'Po trzech miesiącach z podpowiedziami AI doświadczeni lekarze bez nich znajdowali mniej zmian przedrakowych. Dlaczego kolejność myślenia to decyzja projektowa i jak pilnuje jej kod wokół modelu.',
+      en: 'After three months of AI hints, experienced doctors found fewer precancerous growths without them. Why the order of thinking is a design decision, and how the code around the model enforces it.',
+    },
+    data: '2026-11-03',
+    tag: { pl: 'AI i psychologia', en: 'AI and psychology' },
+    czas: 11,
+  },
 ];
 
 export const artykulyOdNajnowszych = () => [...ARTYKULY].sort((a, b) => b.data.localeCompare(a.data));
