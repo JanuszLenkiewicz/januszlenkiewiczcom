@@ -8,7 +8,7 @@ import { Adres, MailLink } from './Mail';
 import { T } from './lang';
 
 /** Projekt n ma swoje teksty w słowniku pod kluczami p{n}_title, p{n}_tag, p{n}_desc, p{n}_stack, p{n}_details */
-const PROJEKTY = ['01', '02', '03', '04', '05', '06', '07', '08', '09'] as const;
+const PROJEKTY = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'] as const;
 
 const PODEJSCIE = [1, 2, 3, 4] as const;
 
