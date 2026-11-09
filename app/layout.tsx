@@ -13,11 +13,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(DOMENA),
   title: 'JANUSZ LENKIEWICZ | AI ENGINEER',
   description:
-    "Founder of Trader AI Assistant and AI engineer. Process analysis, AI deployment in companies, effective AI agents and agentic process redesign — plus on-device AI on Mac and iPhone.",
+    "AI engineer and founder of Trader AI Assistant. LLM agents in production, RAG, evaluation and a person in the loop, plus on-device AI on Mac and iPhone.",
   openGraph: {
-    title: 'Janusz Lenkiewicz — Founder, Trader AI Assistant · AI Engineer',
+    title: 'Janusz Lenkiewicz · AI Engineer · Founder, Trader AI Assistant',
     description:
-      'I help companies use AI where it actually improves the work: process analysis, AI agents built into existing tools, measurement before and after.',
+      'I build AI agents that work with people, and I measure whether they help: agents in production, RAG, evaluation and on-device AI.',
     type: 'website',
     url: `${DOMENA}/`,
   },

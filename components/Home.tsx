@@ -7,21 +7,12 @@ import { LINKEDIN, LINKEDIN_ETYKIETA, PRODUKT, PRODUKT_ETYKIETA, X_ETYKIETA, X_K
 import { Adres, MailLink } from './Mail';
 import { T } from './lang';
 
-/** Projekt n ma swoje teksty w słowniku pod kluczami p{n}_… (tytuł z klucza albo stały) */
-const PROJEKTY = [
-  { num: '01', tytul: 'Trader AI Assistant', stack: 'LangGraph · Gemini · Express/TypeScript · PostgreSQL · React · Swift' },
-  { num: '02', tytulKlucz: 'p2_title', stackKlucz: 'p2_stack' },
-  { num: '03', tytul: 'Deep Mentor', stackKlucz: 'p3_stack' },
-  { num: '04', tytulKlucz: 'p4_title', stackKlucz: 'p4_stack' },
-  { num: '05', tytulKlucz: 'p5_title', stackKlucz: 'p5_stack' },
-  { num: '06', tytul: 'Scout', stackKlucz: 'p6_stack' },
-  { num: '07', tytulKlucz: 'p7_title', stack: 'FastAPI · Pydantic · asyncpg · websockets · SQLAlchemy · Postgres' },
-  { num: '08', tytul: 'Atelier', stackKlucz: 'p8_stack' },
-] as const;
+/** Projekt n ma swoje teksty w słowniku pod kluczami p{n}_title, p{n}_tag, p{n}_desc, p{n}_stack, p{n}_details */
+const PROJEKTY = ['01', '02', '03', '04', '05', '06', '07', '08', '09'] as const;
 
 const PODEJSCIE = [1, 2, 3, 4] as const;
 
-const FAKTY = [1, 2, 3, 4, 5, 6, 7, 8] as const;
+const FAKTY = [1, 2, 3, 4, 5, 6, 7, 8, 9] as const;
 
 export function Home({ section }: { section?: SekcjaSlug }) {
   const pierwszy = useRef(true);
@@ -112,22 +103,18 @@ export function Home({ section }: { section?: SekcjaSlug }) {
         <div className="container">
           <T k="projects_label" className="label" />
 
-          {PROJEKTY.map((p, i) => {
+          {PROJEKTY.map((num, i) => {
             const n = i + 1;
             return (
-              <div className="project" key={p.num}>
-                <div className="num">{p.num}</div>
+              <div className="project" key={num}>
+                <div className="num">{num}</div>
                 <div>
                   <div className="head">
-                    {'tytulKlucz' in p ? <T k={p.tytulKlucz as 'p2_title'} as="h3" /> : <h3>{p.tytul}</h3>}
+                    <T k={`p${n}_title` as 'p1_title'} as="h3" />
                     <T k={`p${n}_tag` as 'p1_tag'} className="tag" />
                   </div>
                   <T k={`p${n}_desc` as 'p1_desc'} as="p" />
-                  {'stackKlucz' in p ? (
-                    <T k={p.stackKlucz as 'p2_stack'} as="div" className="stack" />
-                  ) : (
-                    <div className="stack">{p.stack}</div>
-                  )}
+                  <T k={`p${n}_stack` as 'p1_stack'} as="div" className="stack" />
                   <details className="more">
                     <summary>
                       <T k="more_label" />
