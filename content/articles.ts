@@ -30,19 +30,21 @@ export type Artykul = {
 
 export const ARTYKULY: Artykul[] = [
   // Szablon (app/articles/szablon) celowo nie jest zarejestrowany — nie chcemy go publikować na liście.
+  // 'translator-heard-nothing' ukryty 10.11.2026 (decyzja Janusza): wstawiony bez redakcji, żeby coś było na stronie.
+  // Strona zostaje pod starym adresem z noindex, ale nie ma jej na liście ani w linkach.
   {
-    slug: 'translator-heard-nothing',
+    slug: 'who-thinks-first',
     tytul: {
-      pl: 'W taksówce mój tłumacz nic nie usłyszał. Model nie był problemem.',
-      en: 'My translator heard nothing in the taxi. The model wasn’t the problem.',
+      pl: 'Najpierw sam, potem AI',
+      en: 'Who thinks first: you or the AI?',
     },
     lead: {
-      pl: 'Błąd słyszenia wygląda jak błąd myślenia. Notatki z budowy tłumacza na iPhone’a o tym, czego AI potrzebuje, zanim zacznie działać obok ludzi.',
-      en: 'A hearing error looks like a thinking error. Notes from building an iPhone translator on what AI needs before it can work next to people.',
+      pl: 'Po trzech miesiącach z podpowiedziami AI doświadczeni lekarze bez nich znajdowali mniej zmian przedrakowych. Dlaczego kolejność myślenia to decyzja projektowa i jak pilnuje jej kod wokół modelu.',
+      en: 'After three months of AI hints, experienced doctors found fewer precancerous growths without them. Why the order of thinking is a design decision, and how the code around the model enforces it.',
     },
-    data: '2026-10-27',
-    tag: { pl: 'AI na urządzeniu', en: 'On-device AI' },
-    czas: 8,
+    data: '2026-11-03',
+    tag: { pl: 'AI i psychologia', en: 'AI and psychology' },
+    czas: 11,
   },
   {
     slug: 'hypothesis-instead-of-a-label',
