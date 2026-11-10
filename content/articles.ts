@@ -46,6 +46,20 @@ export const ARTYKULY: Artykul[] = [
     tag: { pl: 'AI i psychologia', en: 'AI and psychology' },
     czas: 11,
   },
+  {
+    slug: 'hypothesis-instead-of-a-label',
+    tytul: {
+      pl: 'Hipoteza zamiast etykiety',
+      en: 'A hypothesis, not a label',
+    },
+    lead: {
+      pl: 'Mentor AI w mojej aplikacji zamienił zdanie napisane w złości w diagnozę. Skąd biorą się etykiety o ludziach, dlaczego system AI z pamięcią robi z nich akta i co zbudowałem zamiast diagnoz.',
+      en: 'The AI mentor in my app turned a sentence I wrote in anger into a diagnosis. Where labels about people come from, why an AI system with memory turns them into files, and what I built instead of diagnoses.',
+    },
+    data: '2026-11-11',
+    tag: { pl: 'AI i psychologia', en: 'AI and psychology' },
+    czas: 17,
+  },
 ];
 
 export const artykulyOdNajnowszych = () => [...ARTYKULY].sort((a, b) => b.data.localeCompare(a.data));
