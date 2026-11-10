@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       'I wrote “as if”, the AI mentor answered “it is”. Where labels about people come from, why an AI system with memory turns them into files, and what I built instead of diagnoses.',
     type: 'article',
     url: '/articles/hypothesis-instead-of-a-label',
-    publishedTime: '2026-11-11',
+    publishedTime: '2026-11-10',
     authors: ['Janusz Lenkiewicz'],
   },
   twitter: { card: 'summary_large_image', creator: '@lenkiewj' },
