@@ -46,6 +46,7 @@ import Link from 'next/link';
 import type {{ ReactNode }} from 'react';
 import {{ T, useLang }} from '@/components/lang';
 import type {{ Lang }} from '@/content/site';
+import okladka from './okladka.jpg';
 
 /**
  * Artykuł dwujęzyczny A9 „Hipoteza zamiast etykiety”, pełna wersja C zaakceptowana przez Janusza 9.11.2026.
@@ -53,6 +54,7 @@ import type {{ Lang }} from '@/content/site';
  * EN = przekład akapit w akapit: A9-hipoteza-zamiast-etykiety-en.md w tym samym folderze.
  * Źródła = sekcja „## Źródła” wersji C. Plik generowany skryptem scripts/a9_tresc_z_kopii.py z obu kopii; zmiany wprowadzaj w kopiach, nie tutaj.
  * Wersja skrócona na LinkedIn (D) to osobny plik i nie trafia na tę stronę.
+ * Okładka: rysunek tuszem i akwarelą (ai-engineer/www/linkedin/okladki/hipoteza-zamiast-etykiety-rysunek.jpg).
  */
 
 type Blok = ReactNode;
@@ -67,6 +69,7 @@ const TRESC: Record<Lang, Record<string, Blok>> = {{
     czas: "17 min czytania",
     cytat: "System AI z pamięcią to instytucja z aktami.",
     zrodlaNaglowek: "Źródła",
+    alt: "Rysunek tuszem i akwarelą: zmęczony mężczyzna przy laptopie z wykresem w dół wylewa frustrację, a malutki archiwariusz na biurku zapisuje to na fiszce i chowa do szafki katalogowej. Podpis: „I’ll make a note of that.”",
 {slownik(pl)}
   }},
   en: {{
@@ -78,6 +81,7 @@ const TRESC: Record<Lang, Record<string, Blok>> = {{
     czas: "17 min read",
     cytat: "An AI system with memory is an institution that keeps files.",
     zrodlaNaglowek: "Sources",
+    alt: "Ink and watercolour cartoon: a tired man at a laptop with a falling chart vents his frustration, while a tiny archivist on the desk writes it on an index card and files it in a card catalogue. Caption: “I’ll make a note of that.”",
 {slownik(en)}
   }},
 }};
@@ -101,6 +105,11 @@ export function Tresc() {{
         </header>
 
         <div className="article-body">
+          <figure>
+            {{/* eslint-disable-next-line @next/next/no-img-element */}}
+            <img src={{okladka.src}} width={{okladka.width}} height={{okladka.height}} alt={{String(t.alt)}} />
+          </figure>
+
 {chr(10).join(uklad)}
 
           <h2>{{t.zrodlaNaglowek}}</h2>

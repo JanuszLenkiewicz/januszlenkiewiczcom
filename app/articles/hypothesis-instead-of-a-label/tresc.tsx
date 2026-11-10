@@ -4,6 +4,7 @@ import Link from 'next/link';
 import type { ReactNode } from 'react';
 import { T, useLang } from '@/components/lang';
 import type { Lang } from '@/content/site';
+import okladka from './okladka.jpg';
 
 /**
  * Artykuł dwujęzyczny A9 „Hipoteza zamiast etykiety”, pełna wersja C zaakceptowana przez Janusza 9.11.2026.
@@ -11,6 +12,7 @@ import type { Lang } from '@/content/site';
  * EN = przekład akapit w akapit: A9-hipoteza-zamiast-etykiety-en.md w tym samym folderze.
  * Źródła = sekcja „## Źródła” wersji C. Plik generowany skryptem scripts/a9_tresc_z_kopii.py z obu kopii; zmiany wprowadzaj w kopiach, nie tutaj.
  * Wersja skrócona na LinkedIn (D) to osobny plik i nie trafia na tę stronę.
+ * Okładka: rysunek tuszem i akwarelą (ai-engineer/www/linkedin/okladki/hipoteza-zamiast-etykiety-rysunek.jpg).
  */
 
 type Blok = ReactNode;
@@ -25,6 +27,7 @@ const TRESC: Record<Lang, Record<string, Blok>> = {
     czas: "17 min czytania",
     cytat: "System AI z pamięcią to instytucja z aktami.",
     zrodlaNaglowek: "Źródła",
+    alt: "Rysunek tuszem i akwarelą: zmęczony mężczyzna przy laptopie z wykresem w dół wylewa frustrację, a malutki archiwariusz na biurku zapisuje to na fiszce i chowa do szafki katalogowej. Podpis: „I’ll make a note of that.”",
     b00: "24 czerwca, chwilę po wpół do dziesiątej rano, napisałem do mentora AI w swojej aplikacji Trader AI Assistant. Miałem za sobą dwie stratne transakcje, razem 135 dolarów, obie bez planu. Pisałem tak, jak się pisze po czymś takim: „Może to moje ADHD. Wygląda tak, jakbym chciał wyzerować swój kapitał”.",
     b01: "Odpowiedź przyszła o 9:32. Mentor napisał, że to „nie jest przypadek ani brak umiejętności, tylko podświadomy sabotaż wywołany lękiem przed sukcesem”, a mój umysł „nie potrafi jeszcze udźwignąć nowej tożsamości zwycięskiego tradera”. Rady praktyczne, które dał dalej, były rozsądne. Na końcu pocieszył mnie, że te dwa potknięcia „nie definiują mnie jako tradera”. Tyle że kilka zdań wcześniej właśnie mnie zdefiniował: nazwał mnie kimś, kto podświadomie sabotuje własny sukces.",
     b02: "Mentor nie zobaczył niczego, czego sam bym mu nie podsunął. Wziął metaforę, którą wrzuciłem i oddał mi ją jako diagnozę, z pewnością, która nie miała uzasadnienia. Gdybym ją przyjął, od tego dnia nosiłbym w sobie zdanie: sabotuję się, kiedy zaczyna iść dobrze. W takiej postaci nie wiadomo nawet, jak je sprawdzić, za to bardzo łatwo je potwierdzać, bo pasuje do niego każdy gorszy dzień.",
@@ -89,6 +92,7 @@ const TRESC: Record<Lang, Record<string, Blok>> = {
     czas: "17 min read",
     cytat: "An AI system with memory is an institution that keeps files.",
     zrodlaNaglowek: "Sources",
+    alt: "Ink and watercolour cartoon: a tired man at a laptop with a falling chart vents his frustration, while a tiny archivist on the desk writes it on an index card and files it in a card catalogue. Caption: “I’ll make a note of that.”",
     b00: "On 24 June, just after half past nine in the morning, I wrote to the AI mentor in my app, Trader AI Assistant. I had two losing trades behind me, 135 dollars in total, neither of them in my plan. I wrote the way you write after something like that: “Maybe it’s my ADHD. It looks as if I wanted to wipe out my account.”",
     b01: "The reply came at 9:32. The mentor wrote that this was “not chance or a lack of skill, but subconscious self-sabotage driven by fear of success”, and that my mind “can’t yet carry the new identity of a winning trader”. The practical advice that followed was sensible. At the end it reassured me that these two slips “don’t define me as a trader”. Except that a few sentences earlier it had done exactly that: it had described me as someone who subconsciously sabotages his own success.",
     b02: "The mentor saw nothing I hadn’t handed it myself. It took a metaphor I had thrown in and gave it back to me as a diagnosis, with a certainty that had no justification. Had I accepted it, from that day on I would have carried a sentence around inside me: I sabotage myself when things start going well. In that form, it isn’t even clear how you would test it, but it is very easy to confirm, because every bad day fits it.",
@@ -165,6 +169,11 @@ export function Tresc() {
         </header>
 
         <div className="article-body">
+          <figure>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={okladka.src} width={okladka.width} height={okladka.height} alt={String(t.alt)} />
+          </figure>
+
           <p>{t.b00}</p>
           <p>{t.b01}</p>
           <p>{t.b02}</p>
