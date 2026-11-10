@@ -30,20 +30,8 @@ export type Artykul = {
 
 export const ARTYKULY: Artykul[] = [
   // Szablon (app/articles/szablon) celowo nie jest zarejestrowany — nie chcemy go publikować na liście.
-  {
-    slug: 'translator-heard-nothing',
-    tytul: {
-      pl: 'W taksówce mój tłumacz nic nie usłyszał. Model nie był problemem.',
-      en: 'My translator heard nothing in the taxi. The model wasn’t the problem.',
-    },
-    lead: {
-      pl: 'Błąd słyszenia wygląda jak błąd myślenia. Notatki z budowy tłumacza na iPhone’a o tym, czego AI potrzebuje, zanim zacznie działać obok ludzi.',
-      en: 'A hearing error looks like a thinking error. Notes from building an iPhone translator on what AI needs before it can work next to people.',
-    },
-    data: '2026-10-27',
-    tag: { pl: 'AI na urządzeniu', en: 'On-device AI' },
-    czas: 8,
-  },
+  // 'translator-heard-nothing' ukryty 10.11.2026 (decyzja Janusza): wstawiony bez redakcji, żeby coś było na stronie.
+  // Strona zostaje pod starym adresem z noindex, ale nie ma jej na liście ani w linkach.
   {
     slug: 'who-thinks-first',
     tytul: {
