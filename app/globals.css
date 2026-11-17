@@ -173,6 +173,15 @@ details.more[open] summary{margin-bottom:8px;}
   letter-spacing:0.1em;text-transform:uppercase;color:var(--gray);
 }
 @media(max-width:860px){.skills-grid{grid-template-columns:1fr;gap:48px;}}
+.skill-groups{display:grid;grid-template-columns:1fr 1fr;gap:40px 64px;align-items:start;}
+.skill-group h4{
+  font-family:'Montserrat',sans-serif;font-size:15px;font-weight:700;
+  letter-spacing:0.08em;text-transform:uppercase;
+  padding-bottom:12px;border-bottom:2px solid var(--black);margin:0 0 14px;
+}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px;}
+.skill-tags span{font-size:14px;line-height:1.4;color:#333;background:var(--white);border:1px solid var(--line);padding:5px 11px;}
+@media(max-width:860px){.skill-groups{grid-template-columns:1fr;gap:36px;}}
 
 /* ── APPROACH (black) ── */
 .approach{padding:120px 0;background:var(--black);color:var(--white);}

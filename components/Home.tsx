@@ -7,12 +7,12 @@ import { LINKEDIN, LINKEDIN_ETYKIETA, PRODUKT, PRODUKT_ETYKIETA, X_ETYKIETA, X_K
 import { Adres, MailLink } from './Mail';
 import { T } from './lang';
 
-/** Projekt n ma swoje teksty w słowniku pod kluczami p{n}_title, p{n}_tag, p{n}_desc, p{n}_stack, p{n}_details */
+/** Projekt n ma swoje teksty w słowniku pod kluczami p{n}_title, p{n}_tag, p{n}_desc, p{n}_details */
 const PROJEKTY = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'] as const;
 
 const PODEJSCIE = [1, 2, 3, 4] as const;
 
-const FAKTY = [1, 2, 3, 4, 5, 6, 7, 8, 9] as const;
+const FAKTY = [1, 2, 3, 4, 5, 6, 7, 8] as const;
 
 export function Home({ section }: { section?: SekcjaSlug }) {
   const pierwszy = useRef(true);
@@ -114,7 +114,6 @@ export function Home({ section }: { section?: SekcjaSlug }) {
                     <T k={`p${n}_tag` as 'p1_tag'} className="tag" />
                   </div>
                   <T k={`p${n}_desc` as 'p1_desc'} as="p" />
-                  <T k={`p${n}_stack` as 'p1_stack'} as="div" className="stack" />
                   <details className="more">
                     <summary>
                       <T k="more_label" />
@@ -132,16 +131,7 @@ export function Home({ section }: { section?: SekcjaSlug }) {
       <section className="skills" id="skills">
         <div className="container">
           <T k="skills_label" className="label" />
-          <div className="skills-grid">
-            <div>
-              <T k="skills_h_have" as="div" className="col-h" />
-              <T k="skills_have" as="div" />
-            </div>
-            <div>
-              <T k="skills_h_learn" as="div" className="col-h" />
-              <T k="skills_learn" as="div" />
-            </div>
-          </div>
+          <T k="skills_groups" as="div" className="skill-groups" />
         </div>
       </section>
 
