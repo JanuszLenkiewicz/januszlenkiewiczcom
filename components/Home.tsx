@@ -6,6 +6,7 @@ import type { SekcjaSlug } from '@/content/sections';
 import { LINKEDIN, LINKEDIN_ETYKIETA, PRODUKT, PRODUKT_ETYKIETA, X_ETYKIETA, X_KONTO } from '@/content/kontakt';
 import { Adres, MailLink } from './Mail';
 import { T } from './lang';
+import type { Klucz } from '@/content/site';
 
 /** Projekt n ma swoje teksty w słowniku pod kluczami p{n}_title, p{n}_tag, p{n}_desc, p{n}_details */
 const PROJEKTY = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'] as const;
@@ -58,22 +59,13 @@ export function Home({ section }: { section?: SekcjaSlug }) {
             <T k="stat1_k" className="k" />
             <T k="stat1_v" className="v" />
           </div>
-          <div className="row">
-            <T k="stat2_k" className="k" />
-            <T k="stat2_v" className="v" />
-          </div>
-          <div className="row">
-            <T k="stat3_k" className="k" />
-            <T k="stat3_v" className="v" />
-          </div>
-          <div className="row">
-            <T k="stat4_k" className="k" />
-            <T k="stat4_v" className="v" />
-          </div>
-          <div className="hero-tags">
-            <T k="hero_tags_label" className="hero-tags-label" />
-            <T k="hero_tags" as="div" className="hero-tags-list" />
-          </div>
+          <T k="ai_label" className="hero-ai-label" />
+          {[1, 2, 3, 4, 5].map((n) => (
+            <div className="row ai" key={n}>
+              <T k={`ai${n}_k` as Klucz} className="ak" />
+              <T k={`ai${n}_v` as Klucz} className="av" />
+            </div>
+          ))}
         </div>
       </section>
 

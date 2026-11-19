@@ -76,7 +76,7 @@ nav.mobile a{
 .hero-panel{
   width:50%;background:var(--black);color:var(--white);
   display:flex;flex-direction:column;justify-content:center;
-  padding:52px 5vw;gap:0;
+  padding:36px 4vw;gap:0;
 }
 .hero-panel .row{
   display:flex;justify-content:space-between;align-items:baseline;
@@ -84,17 +84,18 @@ nav.mobile a{
 }
 .hero-panel .row:first-child{border-top:1px solid #333;}
 .hero-panel .k{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(26px,2.6vw,40px);letter-spacing:0.02em;}
-.hero-panel .v{font-size:12.5px;text-transform:uppercase;letter-spacing:0.13em;color:#b0b0b0;text-align:right;max-width:55%;}
-.hero-tags{padding-top:28px;}
-.hero-tags-label{
+.hero-panel .v{font-size:12.5px;text-transform:uppercase;letter-spacing:0.13em;color:#b0b0b0;text-align:right;max-width:62%;}
+.hero-ai-label{
   display:block;font-size:12px;font-weight:500;text-transform:uppercase;
-  letter-spacing:0.15em;color:#b0b0b0;margin-bottom:20px;
+  letter-spacing:0.15em;color:#b0b0b0;padding:26px 0 4px;
 }
-.hero-tags-list{display:flex;flex-wrap:wrap;gap:10px;}
-.hero-tags-list span{
-  font-size:11.5px;font-weight:500;text-transform:uppercase;letter-spacing:0.1em;
-  color:#f0f0f0;border:1px solid #3d3d3d;padding:8px 13px;white-space:nowrap;
+.hero-panel .row.ai{display:grid;grid-template-columns:minmax(140px,28%) 1fr;gap:24px;align-items:start;padding:12px 0;}
+.hero-panel .row.ai:nth-of-type(2){border-top:1px solid #333;}
+.hero-panel .ak{
+  font-family:'Montserrat',sans-serif;font-weight:700;font-size:12.5px;line-height:1.6;
+  text-transform:uppercase;letter-spacing:0.12em;color:#f5f5f5;
 }
+.hero-panel .av{font-size:14.5px;line-height:1.5;color:#c4c4c4;}
 
 /* ── ABOUT ── */
 .about{padding:120px 0;background:var(--light);}
@@ -231,6 +232,7 @@ details.more[open] summary{margin-bottom:8px;}
   .nav-right{gap:16px;}
   .hero{flex-direction:column;min-height:auto;}
   .hero-text,.hero-panel{width:100%;padding:80px 32px;}
+  .hero-panel .row.ai{grid-template-columns:1fr;gap:8px;}
   .about-grid{grid-template-columns:1fr;gap:48px;}
   .contact{flex-direction:column;}
   .contact-left,.contact-right{width:100%;padding:80px 32px;}
