@@ -84,7 +84,7 @@ nav.mobile a{
 }
 .hero-panel .row:first-child{border-top:1px solid #333;}
 .hero-panel .k{font-family:'Montserrat',sans-serif;font-weight:800;font-size:clamp(26px,2.6vw,40px);letter-spacing:0.02em;}
-.hero-panel .v{font-size:12.5px;text-transform:uppercase;letter-spacing:0.13em;color:#b0b0b0;text-align:right;max-width:62%;}
+.hero-panel .v{font-size:12.5px;text-transform:uppercase;letter-spacing:0.13em;color:#b0b0b0;text-align:right;max-width:70%;}
 .hero-ai-label{
   display:block;font-size:12px;font-weight:500;text-transform:uppercase;
   letter-spacing:0.15em;color:#b0b0b0;padding:26px 0 4px;

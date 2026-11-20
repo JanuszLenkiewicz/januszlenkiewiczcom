@@ -9,7 +9,8 @@ import { T } from './lang';
 import type { Klucz } from '@/content/site';
 
 /** Projekt n ma swoje teksty w słowniku pod kluczami p{n}_title, p{n}_tag, p{n}_desc, p{n}_details */
-const PROJEKTY = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10'] as const;
+/** Numer 01 ma karta „Projekty dla dużych firm” (klucze ent_*), więc projekty własne zaczynają się od 02 */
+const PROJEKTY = ['02', '03', '04', '05', '06', '07', '08', '09', '10', '11'] as const;
 
 const PODEJSCIE = [1, 2, 3, 4] as const;
 
@@ -94,6 +95,23 @@ export function Home({ section }: { section?: SekcjaSlug }) {
       <section className="projects" id="projects">
         <div className="container">
           <T k="projects_label" className="label" />
+
+          <div className="project">
+            <div className="num">01</div>
+            <div>
+              <div className="head">
+                <T k="ent_title" as="h3" />
+                <T k="ent_tag" className="tag" />
+              </div>
+              <T k="ent_desc" as="p" />
+              <details className="more">
+                <summary>
+                  <T k="ent_more" />
+                </summary>
+                <T k="ent_details" as="div" className="more-body" />
+              </details>
+            </div>
+          </div>
 
           {PROJEKTY.map((num, i) => {
             const n = i + 1;
