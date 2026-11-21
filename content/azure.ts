@@ -534,23 +534,23 @@ export const KARTY_AZURE: KartaAzure[] = [
     "wyroznienie": false,
     "pl": {
       "nazwa": "Ewaluacje agentów: LLM-as-a-judge",
-      "opis": "Jakość odpowiedzi agentów oceniana automatycznie przez model-sędziego w Microsoft Foundry.",
+      "opis": "Jakość odpowiedzi agentów oceniana automatycznie biblioteką Azure AI Evaluation, w której ocenę wystawia model-sędzia w Microsoft Foundry.",
       "punkty": [
+        "biblioteka Azure AI Evaluation (azure-ai-evaluation, Python)",
         "ewaluatory Foundry: zrozumienie intencji (IntentResolution) i trzymanie się zadania (TaskAdherence)",
-        "sędzia: model gpt-5-mini w Foundry",
-        "skrypt oceny uruchamiany na wybranych rozmowach",
-        "wyniki w skali ocen z uzasadnieniem"
+        "sędzia: model gpt-5-mini w Foundry, dostęp tokenem Entra ID, bez kluczy",
+        "ocena w skali 1–5 albo zaliczone / niezaliczone, zawsze z uzasadnieniem"
       ],
       "korzysc": "Jakość agenta mierzona liczbą, a nie wrażeniem; zmianę promptu albo modelu można porównać przed wdrożeniem."
     },
     "en": {
       "nazwa": "Agent evaluations: LLM-as-a-judge",
-      "opis": "The quality of agent answers is scored automatically by a judge model on Microsoft Foundry.",
+      "opis": "Agent answer quality is scored automatically with the Azure AI Evaluation library, where a judge model on Microsoft Foundry gives the score.",
       "punkty": [
+        "Azure AI Evaluation library (azure-ai-evaluation, Python)",
         "Foundry evaluators: intent resolution (IntentResolution) and task adherence (TaskAdherence)",
-        "judge: the gpt-5-mini model on Foundry",
-        "an evaluation script run on selected conversations",
-        "scores with a written rationale"
+        "judge: the gpt-5-mini model on Foundry, accessed with an Entra ID token, no keys",
+        "a 1–5 score or pass / fail, always with a written rationale"
       ],
       "korzysc": "Agent quality measured with numbers, not impressions; a prompt or model change can be compared before release."
     }
