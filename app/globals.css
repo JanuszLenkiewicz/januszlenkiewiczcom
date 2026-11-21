@@ -352,3 +352,48 @@ details.more[open] summary{margin-bottom:8px;}
   background:var(--light);border:1px solid var(--line);padding:80px 0;text-align:center;
   color:var(--gray);font-size:13px;letter-spacing:0.14em;text-transform:uppercase;
 }
+
+/* ── AZURE (ukryta podstrona /azure) ── */
+.azure{--az:#1f8f82;--az-tlo:rgba(31,143,130,.08);}
+.azure .az-hl{--az:#b7791f;--az-tlo:rgba(183,121,31,.10);}
+.azure .page-head{border-bottom:none;padding-bottom:40px;}
+.azure .page-head .lead{margin-bottom:32px;}
+.az-btn{
+  font-family:'Inter',sans-serif;font-size:14px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;
+  background:var(--black);color:var(--white);border:none;padding:14px 26px;cursor:pointer;
+}
+.az-btn:hover{background:#333;}
+.az-btn:focus-visible,.az-nav:focus-visible,.az-wyjdz:focus-visible{outline:2px solid var(--black);outline-offset:2px;}
+.az-sekcja{padding:24px 0 72px;}
+.az-sekcja h2{font-size:clamp(20px,2.4vw,26px);font-weight:800;padding-bottom:16px;margin-bottom:28px;border-bottom:1px solid var(--line);}
+.az-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,340px),1fr));gap:24px;}
+.az-card{background:var(--light);border-left:3px solid var(--az);padding:24px 24px 22px;min-width:0;}
+.az-card h3{font-size:16px;font-weight:700;line-height:1.35;letter-spacing:0.03em;margin-bottom:10px;overflow-wrap:anywhere;}
+.az-opis{font-size:15.5px;line-height:1.6;color:#333;margin-bottom:12px;}
+.az-card ul{margin:0 0 14px;padding-left:18px;font-size:14.5px;line-height:1.55;color:#333;}
+.az-card li{margin:3px 0;}
+.az-korzysc{font-size:14.5px;line-height:1.55;padding:10px 14px;background:var(--az-tlo);border-left:3px solid var(--az);}
+.az-korzysc b{color:var(--az);}
+.az-pokaz{position:fixed;inset:0;z-index:1000;background:var(--white);display:flex;flex-direction:column;touch-action:pan-y;user-select:none;-webkit-user-select:none;}
+.az-gora{display:flex;justify-content:space-between;align-items:center;padding:16px 28px;font-size:13px;font-weight:600;letter-spacing:0.1em;color:var(--gray);}
+.az-wyjdz{background:none;border:1px solid var(--line);color:#444;padding:8px 16px;font:600 12px/1 'Inter',sans-serif;letter-spacing:0.08em;cursor:pointer;}
+.az-scena{flex:1;display:flex;padding:0 6vw;overflow:auto;min-height:0;cursor:pointer;}
+.az-sl{max-width:980px;width:100%;margin:auto;padding:16px 0;}
+.az-sl h2{font-size:clamp(26px,4.4vw,52px);font-weight:800;line-height:1.12;margin-bottom:20px;overflow-wrap:anywhere;}
+.az-sl-opis{font-size:clamp(16px,2.1vw,24px);line-height:1.45;color:#444;margin-bottom:20px;}
+.az-sl ul{margin:0 0 22px;padding-left:1.1em;font-size:clamp(15px,1.9vw,22px);line-height:1.45;}
+.az-sl li{margin:6px 0;}
+.az-sl .az-korzysc{font-size:clamp(15px,1.9vw,22px);padding:14px 20px;border-left-width:4px;}
+.az-sl-tyt h2{font-size:clamp(32px,6.4vw,76px);}
+.az-sl-przer h2{color:var(--az);font-size:clamp(28px,5.4vw,64px);}
+.az-dol{display:flex;align-items:center;gap:16px;padding:14px 28px 20px;}
+.az-nav{background:none;border:1px solid var(--line);width:44px;height:44px;font-size:20px;cursor:pointer;color:var(--black);}
+.az-nav:disabled{opacity:.3;cursor:default;}
+.az-pasek{flex:1;height:3px;background:var(--line);overflow:hidden;}
+.az-pasek i{display:block;height:100%;background:var(--az);}
+@media(max-width:640px){
+  .azure .container{padding:0 16px;}
+  .az-scena{padding:0 20px;}
+  .az-gora{padding:12px 16px;}
+  .az-dol{padding:10px 16px 14px;}
+}
