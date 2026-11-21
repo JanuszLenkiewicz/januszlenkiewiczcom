@@ -151,6 +151,33 @@ export const KARTY_AZURE: KartaAzure[] = [
     }
   },
   {
+    "slug": "p17-foundry-iq",
+    "rodzaj": "pojecie",
+    "wyroznienie": true,
+    "pl": {
+      "nazwa": "Foundry IQ: wyszukiwanie agentowe",
+      "opis": "Asystent AI sięga do bazy wiedzy Foundry IQ, która sama planuje wyszukiwanie i zwraca fragmenty z cytatami źródeł.",
+      "punkty": [
+        "pytanie o wiedzę lub metodykę uruchamia wyszukiwanie w bazie wiedzy Foundry IQ",
+        "fragmenty lekcji z odnośnikami do źródła trafiają do kontekstu odpowiedzi",
+        "dostęp przez tożsamość zarządzaną, bez kluczy",
+        "gdy baza wiedzy zawiedzie, działa zwykłe wyszukiwanie hybrydowe"
+      ],
+      "korzysc": "Odpowiedzi oparte na sprawdzonej bazie wiedzy, z cytatem źródła, który użytkownik może otworzyć i sprawdzić."
+    },
+    "en": {
+      "nazwa": "Foundry IQ: agentic retrieval",
+      "opis": "The AI assistant uses a Foundry IQ knowledge base that plans the search itself and returns passages with source citations.",
+      "punkty": [
+        "a question about knowledge or methodology triggers a search in the Foundry IQ knowledge base",
+        "lesson passages with links to the source go into the answer's context",
+        "access through managed identity, with no keys",
+        "if the knowledge base fails, regular hybrid search takes over"
+      ],
+      "korzysc": "Answers grounded in a curated knowledge base, with a source citation the user can open and check."
+    }
+  },
+  {
     "slug": "p05-agenci-ai",
     "rodzaj": "pojecie",
     "wyroznienie": false,
@@ -448,6 +475,87 @@ export const KARTY_AZURE: KartaAzure[] = [
     }
   },
   {
+    "slug": "p18-prompt-shields",
+    "rodzaj": "pojecie",
+    "wyroznienie": true,
+    "pl": {
+      "nazwa": "Guardrails: Prompt Shields",
+      "opis": "Każda wiadomość do asystenta AI przechodzi przez osłonę przed próbami obejścia instrukcji (prompt injection), zanim trafi do modelu.",
+      "punkty": [
+        "Azure AI Content Safety, funkcja Prompt Shields, przed każdym wywołaniem modelu",
+        "wykryty atak kończy się uprzejmą odmową, wpisem w logu i zdarzeniem w śladzie",
+        "przy awarii usługi osłona domyślnie blokuje, a nie przepuszcza",
+        "dostęp przez tożsamość zarządzaną"
+      ],
+      "korzysc": "Asystent nie da się przestawić poleceniem „zignoruj instrukcje”; próby ataku są widoczne w logach i śladach."
+    },
+    "en": {
+      "nazwa": "Guardrails: Prompt Shields",
+      "opis": "Every message to the AI assistant passes a shield against attempts to override its instructions (prompt injection) before it reaches the model.",
+      "punkty": [
+        "Azure AI Content Safety Prompt Shields before every model call",
+        "a detected attack ends with a polite refusal, a log entry and an event in the trace",
+        "if the service fails, the shield blocks by default rather than letting the message through",
+        "access through managed identity"
+      ],
+      "korzysc": "The assistant cannot be turned with an “ignore your instructions” message; attack attempts show up in logs and traces."
+    }
+  },
+  {
+    "slug": "p19-obserwowalnosc",
+    "rodzaj": "pojecie",
+    "wyroznienie": true,
+    "pl": {
+      "nazwa": "Obserwowalność AI: OpenTelemetry",
+      "opis": "Każde wywołanie modelu i każdy krok agenta zostawia ślad, który można prześledzić w Azure.",
+      "punkty": [
+        "ślady w standardzie OpenTelemetry, w konwencji GenAI (model, tokeny, czas)",
+        "spany dla czatu asystenta, wywołań modelu i grafów agentów",
+        "wszystko trafia do Application Insights",
+        "zapisywane są metadane, a nie treść rozmów"
+      ],
+      "korzysc": "Widać, co agent zrobił, ile to trwało i kosztowało; szybka diagnoza problemów bez zaglądania w prywatne rozmowy."
+    },
+    "en": {
+      "nazwa": "AI observability: OpenTelemetry",
+      "opis": "Every model call and every agent step leaves a trace that can be followed in Azure.",
+      "punkty": [
+        "traces in the OpenTelemetry standard, following GenAI conventions (model, tokens, duration)",
+        "spans for the assistant chat, model calls and agent graphs",
+        "everything goes to Application Insights",
+        "metadata is recorded, not conversation content"
+      ],
+      "korzysc": "You can see what the agent did, how long it took and what it cost; fast diagnosis without reading private conversations."
+    }
+  },
+  {
+    "slug": "p20-ewaluacje",
+    "rodzaj": "pojecie",
+    "wyroznienie": true,
+    "pl": {
+      "nazwa": "Ewaluacje agentów: LLM-as-a-judge",
+      "opis": "Jakość odpowiedzi agentów oceniana automatycznie przez model-sędziego w Microsoft Foundry.",
+      "punkty": [
+        "ewaluatory Foundry: zrozumienie intencji (IntentResolution) i trzymanie się zadania (TaskAdherence)",
+        "sędzia: model gpt-5-mini w Foundry",
+        "skrypt oceny uruchamiany na wybranych rozmowach",
+        "wyniki w skali ocen z uzasadnieniem"
+      ],
+      "korzysc": "Jakość agenta mierzona liczbą, a nie wrażeniem; zmianę promptu albo modelu można porównać przed wdrożeniem."
+    },
+    "en": {
+      "nazwa": "Agent evaluations: LLM-as-a-judge",
+      "opis": "The quality of agent answers is scored automatically by a judge model on Microsoft Foundry.",
+      "punkty": [
+        "Foundry evaluators: intent resolution (IntentResolution) and task adherence (TaskAdherence)",
+        "judge: the gpt-5-mini model on Foundry",
+        "an evaluation script run on selected conversations",
+        "scores with a written rationale"
+      ],
+      "korzysc": "Agent quality measured with numbers, not impressions; a prompt or model change can be compared before release."
+    }
+  },
+  {
     "slug": "p12-docker",
     "rodzaj": "pojecie",
     "wyroznienie": false,
@@ -553,6 +661,56 @@ export const KARTY_AZURE: KartaAzure[] = [
         "the cost of every call tracked and capped daily"
       ],
       "korzysc": "AI models in the same cloud, contract and billing as the application; model choice and data-processing location change without code changes."
+    }
+  },
+  {
+    "slug": "u11-ai-search",
+    "rodzaj": "usluga",
+    "wyroznienie": false,
+    "pl": {
+      "nazwa": "Azure AI Search",
+      "opis": "Wyszukiwarka, na której działa baza wiedzy Foundry IQ.",
+      "punkty": [
+        "indeks lekcji z wektorami i tekstem",
+        "baza wiedzy Foundry IQ z wyszukiwaniem agentowym",
+        "dostęp aplikacji tylko do odczytu, przez rolę"
+      ],
+      "korzysc": "Gotowe wyszukiwanie wiedzy klasy produkcyjnej, bez budowania własnej wyszukiwarki."
+    },
+    "en": {
+      "nazwa": "Azure AI Search",
+      "opis": "The search service behind the Foundry IQ knowledge base.",
+      "punkty": [
+        "a lesson index with vectors and text",
+        "a Foundry IQ knowledge base with agentic retrieval",
+        "read-only access for the application, through a role"
+      ],
+      "korzysc": "Production-grade knowledge search out of the box, without building a search engine."
+    }
+  },
+  {
+    "slug": "u12-content-safety",
+    "rodzaj": "usluga",
+    "wyroznienie": false,
+    "pl": {
+      "nazwa": "Azure AI Content Safety",
+      "opis": "Usługa bezpieczeństwa treści, z której korzysta osłona Prompt Shields.",
+      "punkty": [
+        "wykrywanie prób obejścia instrukcji przed wywołaniem modelu",
+        "w tym samym zasobie AI co modele Foundry",
+        "dostęp przez tożsamość zarządzaną (rola Cognitive Services User)"
+      ],
+      "korzysc": "Ochrona modeli dostarczana jako usługa: bez własnych reguł i list zakazanych słów do utrzymania."
+    },
+    "en": {
+      "nazwa": "Azure AI Content Safety",
+      "opis": "The content safety service used by the Prompt Shields guard.",
+      "punkty": [
+        "detecting instruction-override attempts before the model call",
+        "in the same AI resource as the Foundry models",
+        "access through managed identity (Cognitive Services User role)"
+      ],
+      "korzysc": "Model protection delivered as a service: no home-made rules or blocklists to maintain."
     }
   },
   {
@@ -682,6 +840,31 @@ export const KARTY_AZURE: KartaAzure[] = [
         "KQL queries for diagnosis"
       ],
       "korzysc": "One view of how the whole application runs; fast diagnosis and controlled logging costs."
+    }
+  },
+  {
+    "slug": "u13-application-insights",
+    "rodzaj": "usluga",
+    "wyroznienie": false,
+    "pl": {
+      "nazwa": "Application Insights",
+      "opis": "Ślady i telemetria aplikacji oraz agentów AI.",
+      "punkty": [
+        "żądania HTTP aplikacji i spany wywołań modeli",
+        "ślady przebiegów agentów krok po kroku",
+        "zapytania KQL w Log Analytics"
+      ],
+      "korzysc": "Pełny obraz działania AI w produkcji: czasy, błędy, tokeny, w jednym miejscu z logami."
+    },
+    "en": {
+      "nazwa": "Application Insights",
+      "opis": "Traces and telemetry for the application and its AI agents.",
+      "punkty": [
+        "application HTTP requests and model-call spans",
+        "agent runs traced step by step",
+        "KQL queries in Log Analytics"
+      ],
+      "korzysc": "A complete view of AI in production: timings, errors and tokens, in one place with the logs."
     }
   },
   {
