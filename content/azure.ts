@@ -477,7 +477,7 @@ export const KARTY_AZURE: KartaAzure[] = [
   {
     "slug": "p18-prompt-shields",
     "rodzaj": "pojecie",
-    "wyroznienie": true,
+    "wyroznienie": false,
     "pl": {
       "nazwa": "Guardrails: Prompt Shields",
       "opis": "Każda wiadomość do asystenta AI przechodzi przez osłonę przed próbami obejścia instrukcji (prompt injection), zanim trafi do modelu.",
@@ -504,7 +504,7 @@ export const KARTY_AZURE: KartaAzure[] = [
   {
     "slug": "p19-obserwowalnosc",
     "rodzaj": "pojecie",
-    "wyroznienie": true,
+    "wyroznienie": false,
     "pl": {
       "nazwa": "Obserwowalność AI: OpenTelemetry",
       "opis": "Każde wywołanie modelu i każdy krok agenta zostawia ślad, który można prześledzić w Azure.",
@@ -531,7 +531,7 @@ export const KARTY_AZURE: KartaAzure[] = [
   {
     "slug": "p20-ewaluacje",
     "rodzaj": "pojecie",
-    "wyroznienie": true,
+    "wyroznienie": false,
     "pl": {
       "nazwa": "Ewaluacje agentów: LLM-as-a-judge",
       "opis": "Jakość odpowiedzi agentów oceniana automatycznie przez model-sędziego w Microsoft Foundry.",
