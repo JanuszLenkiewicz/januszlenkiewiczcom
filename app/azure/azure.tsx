@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLang } from '@/components/lang';
+import { PrezentacjeChmura } from '@/components/prezentacja-chmura';
 import { KARTY_AZURE, STRONA_AZURE, type KartaAzure } from '@/content/azure';
 
 type Slajd =
@@ -110,6 +111,15 @@ export function Azure() {
             {s.pokaz}
           </button>
         </div>
+
+        <PrezentacjeChmura
+          platforma="azure"
+          naglowek={
+            lang === 'pl'
+              ? 'Prezentacje: system agentów AI do przygotowania spotkań'
+              : 'Presentations: an AI agent system for meeting preparation'
+          }
+        />
 
         <section className="az-sekcja">
           <h2>{s.sekcja_pojecie}</h2>
