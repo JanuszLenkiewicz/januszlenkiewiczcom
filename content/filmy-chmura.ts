@@ -5,7 +5,23 @@ export type TrescFilmu = { tytul: string; podtytul: string; opis: string; przyci
 export type Film = { youtubeId: string; pl: TrescFilmu; en: TrescFilmu };
 
 export const FILMY_CHMURA: Record<'azure' | 'vertex', Film[]> = {
-  azure: [],
+  azure: [
+    {
+      youtubeId: '6zesf5eT5fM',
+      pl: {
+        tytul: 'Film: Microsoft Azure i Foundry: technologie',
+        podtytul: 'Ta sama prezentacja z omówieniem lektora (9 min)',
+        opis: 'Każdy slajd z komentarzem: jaką rolę pełni dana usługa w systemie agentów.',
+        przycisk: 'Odtwórz film →',
+      },
+      en: {
+        tytul: 'Video: Microsoft Azure and Foundry: technologies',
+        podtytul: 'The same presentation with voice-over commentary (9 min, narration in Polish)',
+        opis: 'Every slide with commentary on the role of each service in the agent system.',
+        przycisk: 'Play video →',
+      },
+    },
+  ],
   vertex: [
     {
       youtubeId: 'ktAJCB1U-0M',
