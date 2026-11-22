@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { useLang } from '@/components/lang';
 import { PREZENTACJE_CHMURA, type Prezentacja } from '@/content/prezentacje-chmura';
+import { FILMY_CHMURA, type Film } from '@/content/filmy-chmura';
 
 type Platforma = 'azure' | 'vertex';
 
@@ -32,7 +33,9 @@ const UI = {
 export function PrezentacjeChmura({ platforma, naglowek }: { platforma: Platforma; naglowek?: string }) {
   const { lang } = useLang();
   const [otwarta, setOtwarta] = useState<Prezentacja | null>(null);
+  const [otwartyFilm, setOtwartyFilm] = useState<Film | null>(null);
   const lista = PREZENTACJE_CHMURA[platforma];
+  const filmy = FILMY_CHMURA[platforma];
   const u = UI[lang];
 
   return (
@@ -47,9 +50,60 @@ export function PrezentacjeChmura({ platforma, naglowek }: { platforma: Platform
             <span className="az-prez-start">{u.uruchom} →</span>
           </button>
         ))}
+        {filmy.map((f) => (
+          <button className="az-prez-kafel az-film-kafel" key={f.youtubeId} onClick={() => setOtwartyFilm(f)}>
+            <h3>{f[lang].tytul}</h3>
+            <span className="az-prez-pod">{f[lang].podtytul}</span>
+            <span className="az-opis">{f[lang].opis}</span>
+            <span className="az-prez-start">
+              <span aria-hidden="true">▶ </span>
+              {f[lang].przycisk}
+            </span>
+          </button>
+        ))}
       </div>
+      {otwartyFilm && <OdtwarzaczFilmu film={otwartyFilm} onZamknij={() => setOtwartyFilm(null)} />}
       {otwarta && <Pokaz prez={otwarta} onZamknij={() => setOtwarta(null)} />}
     </section>
+  );
+}
+
+/** Pełnoekranowa nakładka z odtwarzaczem YouTube; po zamknięciu iframe znika z DOM (film przestaje grać). */
+function OdtwarzaczFilmu({ film, onZamknij }: { film: Film; onZamknij: () => void }) {
+  const { lang } = useLang();
+  const u = UI[lang];
+  const tytul = film[lang].tytul;
+
+  useEffect(() => {
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const klawisz = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onZamknij();
+    };
+    window.addEventListener('keydown', klawisz);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener('keydown', klawisz);
+    };
+  }, [onZamknij]);
+
+  return (
+    <div className="az-pokaz az-film-pokaz" role="dialog" aria-modal="true" aria-label={tytul}>
+      <div className="az-gora">
+        <span>{tytul}</span>
+        <button className="az-wyjdz" onClick={onZamknij} autoFocus>
+          {u.zamknij}
+        </button>
+      </div>
+      <div className="az-film-ramka">
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${film.youtubeId}?autoplay=1&rel=0`}
+          title={tytul}
+          allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+          allowFullScreen
+        />
+      </div>
+    </div>
   );
 }
 

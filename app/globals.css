@@ -400,6 +400,14 @@ details.more[open] summary{margin-bottom:8px;}
 .az-prez-pod{font-size:14px;font-weight:600;color:var(--az);}
 .az-prez-kafel .az-opis{margin-bottom:4px;}
 .az-prez-start{font-size:13px;font-weight:700;letter-spacing:.06em;}
+.az-film-kafel{border-left-color:var(--black);}
+.az-film-kafel .az-prez-start{color:var(--az);}
+.az-film-pokaz{background:#000;color:#fff;}
+.az-film-pokaz .az-gora{color:#ddd;gap:16px;}
+.az-film-pokaz .az-gora span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.az-film-pokaz .az-wyjdz{color:#fff;border-color:#666;flex-shrink:0;}
+.az-film-ramka{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:0 20px 20px;}
+.az-film-ramka iframe{width:min(100%,calc((100vh - 90px) * 16 / 9));aspect-ratio:16/9;border:0;background:#000;}
 .az-etykieta{font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--az);margin-bottom:10px;}
 .az-problem{font-size:clamp(15px,1.9vw,22px);line-height:1.45;padding:12px 18px;margin-bottom:18px;background:rgba(160,50,40,.07);border-left:4px solid #a03228;}
 .az-problem b{display:block;font-size:.7em;letter-spacing:.14em;text-transform:uppercase;color:#a03228;margin-bottom:4px;}
