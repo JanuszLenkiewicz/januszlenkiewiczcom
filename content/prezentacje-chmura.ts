@@ -319,6 +319,23 @@ export const PREZENTACJE_CHMURA: Record<'azure' | 'vertex', Prezentacja[]> = {
           {
             "typ": "karta",
             "etykieta": "Samorozwój wiedzy",
+            "tytul": "Podobne i sprzeczne fakty",
+            "problem": "Po każdym spotkaniu napływają fakty bliskie tym, które już są w bazie. Kopie i sprzeczności psują wyszukiwanie i briefy.",
+            "opis": "Nowy fakt nie trafia prosto do indeksu. Walidator zaczyna od najtańszego kroku.",
+            "punkty": [
+              "dokładny duplikat rozpoznaje kod: ten sam projekt i ten sam skrót treści faktu",
+              "wyszukiwanie hybrydowe pobiera kilka najbliższych faktów z tego samego projektu",
+              "model odpowiada według schematu: dodać, uzupełnić, zastąpić albo nic nie robić",
+              "sprzeczności model nie rozstrzyga sam: fakt czeka w kwarantannie na człowieka",
+              "stary fakt dostaje koniec ważności i odnośnik „zastąpiony przez”, a nie znika",
+              "zmieniony fakt nadpisuje swój wpis w Azure AI Search pod tym samym identyfikatorem (mergeOrUpload)",
+              "złoty zbiór sprawdza, czy w wynikach nie ma prawie identycznych fragmentów"
+            ],
+            "korzysc": "Baza rośnie bez kopii, a przy sprzeczności ostatnie słowo ma człowiek."
+          },
+          {
+            "typ": "karta",
+            "etykieta": "Samorozwój wiedzy",
             "tytul": "Zatrucie pamięci",
             "problem": "Notatka ze spotkania to treść niezaufana, a zatruty fakt wraca w wielu przyszłych briefach.",
             "opis": "Fakt to zawsze dane, nigdy instrukcja.",
@@ -760,6 +777,23 @@ export const PREZENTACJE_CHMURA: Record<'azure' | 'vertex', Prezentacja[]> = {
               "a fact registry in temporal and ledger tables, with an expiry date"
             ],
             "korzysc": "Knowledge grows, and the audience of every fact stays under control."
+          },
+          {
+            "typ": "karta",
+            "etykieta": "Self-improving knowledge",
+            "tytul": "Similar and conflicting facts",
+            "problem": "After every meeting, new facts arrive that are close to facts already in the base. Copies and conflicts degrade search and briefs.",
+            "opis": "A new fact never goes straight to the index. The validator starts with the cheapest step.",
+            "punkty": [
+              "code catches an exact duplicate: the same project and the same content hash of the fact",
+              "hybrid search returns the few closest facts from the same project",
+              "a model answers by schema: add, update, replace or do nothing",
+              "the model never settles a conflict alone: the fact waits in quarantine for a human",
+              "an old fact gets an end of validity and a “replaced by” link instead of being deleted",
+              "a changed fact overwrites its entry in Azure AI Search under the same ID (mergeOrUpload)",
+              "the golden set checks that results do not contain near-identical fragments"
+            ],
+            "korzysc": "The base grows without copies, and a human has the final word on conflicts."
           },
           {
             "typ": "karta",
@@ -1760,6 +1794,23 @@ export const PREZENTACJE_CHMURA: Record<'azure' | 'vertex', Prezentacja[]> = {
           {
             "typ": "karta",
             "etykieta": "Samorozwój wiedzy",
+            "tytul": "Podobne i sprzeczne fakty",
+            "problem": "Po każdym spotkaniu napływają fakty bliskie tym, które już są w bazie. Kopie i sprzeczności psują wyszukiwanie i briefy.",
+            "opis": "Nowy fakt nie trafia prosto do indeksu. Walidator zaczyna od najtańszego kroku.",
+            "punkty": [
+              "dokładny duplikat rozpoznaje kod: ten sam projekt i ten sam skrót treści faktu",
+              "wyszukiwanie hybrydowe pobiera kilka najbliższych faktów z tego samego projektu",
+              "model odpowiada według schematu: dodać, uzupełnić, zastąpić albo nic nie robić",
+              "sprzeczności model nie rozstrzyga sam: fakt czeka w kwarantannie na człowieka",
+              "stary fakt dostaje koniec ważności i odnośnik „zastąpiony przez”, a nie znika",
+              "zmieniony fakt nadpisuje swój wpis w Vector Search pod tym samym identyfikatorem (upsertDatapoints)",
+              "złoty zbiór sprawdza, czy w wynikach nie ma prawie identycznych fragmentów"
+            ],
+            "korzysc": "Baza rośnie bez kopii, a przy sprzeczności ostatnie słowo ma człowiek."
+          },
+          {
+            "typ": "karta",
+            "etykieta": "Samorozwój wiedzy",
             "tytul": "Zatrucie pamięci",
             "problem": "Notatka ze spotkania to treść niezaufana, a zatruty fakt wraca w wielu przyszłych briefach.",
             "opis": "Fakt to zawsze dane, nigdy instrukcja.",
@@ -2200,6 +2251,23 @@ export const PREZENTACJE_CHMURA: Record<'azure' | 'vertex', Prezentacja[]> = {
               "a fact registry with history, an expiry date and an immutable log"
             ],
             "korzysc": "Knowledge grows, and the audience of every fact stays under control."
+          },
+          {
+            "typ": "karta",
+            "etykieta": "Self-improving knowledge",
+            "tytul": "Similar and conflicting facts",
+            "problem": "After every meeting, new facts arrive that are close to facts already in the base. Copies and conflicts degrade search and briefs.",
+            "opis": "A new fact never goes straight to the index. The validator starts with the cheapest step.",
+            "punkty": [
+              "code catches an exact duplicate: the same project and the same content hash of the fact",
+              "hybrid search returns the few closest facts from the same project",
+              "a model answers by schema: add, update, replace or do nothing",
+              "the model never settles a conflict alone: the fact waits in quarantine for a human",
+              "an old fact gets an end of validity and a “replaced by” link instead of being deleted",
+              "a changed fact overwrites its entry in Vector Search under the same ID (upsertDatapoints)",
+              "the golden set checks that results do not contain near-identical fragments"
+            ],
+            "korzysc": "The base grows without copies, and a human has the final word on conflicts."
           },
           {
             "typ": "karta",
